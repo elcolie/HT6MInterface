@@ -1,8 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask import request
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def hello_world():
-    return 'Hello, World!'
+    if request.method == 'GET':
+        return render_template('hello.html')
