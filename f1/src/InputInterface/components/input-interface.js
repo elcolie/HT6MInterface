@@ -1,66 +1,79 @@
 import React, {Component} from 'react';
-import {BACKEND_URL} from "../../config";
-import axios from "axios/index";
+import {Field, Props, reduxForm} from 'redux-form';
+import {connect} from 'react-redux';
+import {DATABACK} from "../../constants";
+import {validate} from '../validate';
 
 class InputInterface extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      R: '',
-      r: ''
-    };
+  
+  onSubmit(values) {
+    const {big_radius, small_radius} = values;
+    console.log(values);
     
-    this.handleChangeR = this.handleChangeR.bind(this);
-    this.handleChange_r = this.handleChange_r.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
-  handleChangeR(event) {
-    this.setState({R: event.target.value});
-  }
-  
-  handleChange_r(event) {
-    this.setState({r: event.target.value});
-  }
-  
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.R);
+  renderField(field) {
+    const {meta: {touched, error}} = field;
+    const className = `'form-group' ${touched && error ? 'has-danger' : ''}`;
     
-    axios.post(BACKEND_URL, {
-        R: this.state.R,
-        r: this.state.r
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
     
-    event.preventDefault();
+    return (
+      <div className={className}>
+        <label>{field.label}</label>
+        <input
+          className="form-control"
+          type={field.type}
+          placeholder={field.placeholder}
+          autoComplete={field.autocomplete}
+          {...field.input}
+        />
+        <div className="text-help">
+          {touched ? error : ''}
+        </div>
+      </div>
+    );
   }
   
   render() {
+    const {handleSubmit} = this.props;
+    
     return (
-      <form onSubmit={this.handleSubmit}>
-        <ul>
-        <li>
-          <label>
-            R:
-            <input type="text" value={this.state.R} onChange={this.handleChangeR}/>
-          </label>
-        </li>
-        <li>
-          <label>
-            r:
-            <input type="text" value={this.state.r} onChange={this.handleChange_r}/>
-          </label>
-        </li>
-        </ul>
-        <input type="submit" value="Submit"/>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <Field
+          name="big_radius"
+          component={this.renderField}
+          placeholder="Big Radius"
+          autocomplete="Big Radius"
+          type="number"
+        />
+        <Field
+          name="small_radius"
+          component={this.renderField}
+          placeholder="Small Radius"
+          autocomplete="Small Radius"
+          type="number"
+        />
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     );
   }
 }
 
-export default InputInterface;
+const dataBack = (response) => {
+  return {
+    type: DATABACK,
+    payload: response
+  }
+};
+
+const mapStateToProps = (state, ownProps) => {
+  return state
+};
+
+
+export default reduxForm({
+  validate,
+  form: 'InputInterfaceForm'
+})(
+  connect(mapStateToProps, {dataBack})(InputInterface)
+);
