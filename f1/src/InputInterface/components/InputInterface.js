@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Field, Props, reduxForm} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import {SUBMIT_RADIUS} from "../../constants";
 import {validate} from '../validate';
@@ -9,7 +9,6 @@ class InputInterface extends Component {
   
   onSubmit(values) {
     //Intentionally use pythonic style here
-    const {big_radius, small_radius} = values;
     this.props.hitSubmitBtn(values);
     
   }

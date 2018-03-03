@@ -1,4 +1,4 @@
-import {FORTRAN_ANSWER_COMPLETE, POST_BACKEND, SUBMIT_RADIUS} from "../constants";
+import {FORTRAN_ANSWER_COMPLETE, POST_BACKEND} from "../constants";
 
 export const InputInterfaceReducer = (state = {}, action) => {
   switch (action.type) {
