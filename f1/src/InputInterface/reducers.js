@@ -11,9 +11,9 @@ export const InputInterfaceReducer = (state = {}, action) => {
         graph4: [1, 2, 3],
       };
     case FORTRAN_ANSWER_COMPLETE:
-      console.log(FORTRAN_ANSWER_COMPLETE);
-      console.log(action.payload);
-      return state;
+      console.log('new state is');
+      console.log(action.payload.data);
+      return action.payload.data;
     default:
       return state;
   }

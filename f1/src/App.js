@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import './App.css';
-import InputInterface from "./InputInterface/components/input-interface";
+import InputInterface from "./InputInterface/components/InputInterface";
 import rootReducer from "./reducers";
 import {applyMiddleware, createStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'

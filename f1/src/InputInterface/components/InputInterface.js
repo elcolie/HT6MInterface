@@ -1,16 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Field, Props, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import {SUBMIT_RADIUS} from "../../constants";
 import {validate} from '../validate';
+import {DisplayGraph} from "../../displays/components/DisplayGraph";
 
 class InputInterface extends Component {
   
   onSubmit(values) {
     //Intentionally use pythonic style here
     const {big_radius, small_radius} = values;
-    console.log('onSubmit');
-    console.log(values);
     this.props.hitSubmitBtn(values);
     
   }
@@ -40,23 +39,28 @@ class InputInterface extends Component {
     const {handleSubmit} = this.props;
     
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          name="big_radius"
-          component={this.renderField}
-          placeholder="Big Radius"
-          autocomplete="Big Radius"
-          type="number"
+      <Fragment>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            name="big_radius"
+            component={this.renderField}
+            placeholder="Big Radius"
+            autocomplete="Big Radius"
+            type="number"
+          />
+          <Field
+            name="small_radius"
+            component={this.renderField}
+            placeholder="Small Radius"
+            autocomplete="Small Radius"
+            type="number"
+          />
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
+        <DisplayGraph
+          myArray={this.props.inputInterface}
         />
-        <Field
-          name="small_radius"
-          component={this.renderField}
-          placeholder="Small Radius"
-          autocomplete="Small Radius"
-          type="number"
-        />
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+      </Fragment>
     );
   }
 }
