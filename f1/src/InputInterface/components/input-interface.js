@@ -1,21 +1,23 @@
 import React, {Component} from 'react';
 import {Field, Props, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
-import {DATABACK} from "../../constants";
+import {SUBMIT_RADIUS} from "../../constants";
 import {validate} from '../validate';
 
 class InputInterface extends Component {
   
   onSubmit(values) {
+    //Intentionally use pythonic style here
     const {big_radius, small_radius} = values;
+    console.log('onSubmit');
     console.log(values);
+    this.props.hitSubmitBtn(values);
     
   }
   
   renderField(field) {
     const {meta: {touched, error}} = field;
     const className = `'form-group' ${touched && error ? 'has-danger' : ''}`;
-    
     
     return (
       <div className={className}>
@@ -59,10 +61,10 @@ class InputInterface extends Component {
   }
 }
 
-const dataBack = (response) => {
+const hitSubmitBtn = (values) => {
   return {
-    type: DATABACK,
-    payload: response
+    type: SUBMIT_RADIUS,
+    payload: values
   }
 };
 
@@ -75,5 +77,5 @@ export default reduxForm({
   validate,
   form: 'InputInterfaceForm'
 })(
-  connect(mapStateToProps, {dataBack})(InputInterface)
+  connect(mapStateToProps, {hitSubmitBtn})(InputInterface)
 );

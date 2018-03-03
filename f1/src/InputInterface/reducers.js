@@ -1,4 +1,4 @@
-import {POST_BACKEND} from "../constants";
+import {FORTRAN_ANSWER_COMPLETE, POST_BACKEND, SUBMIT_RADIUS} from "../constants";
 
 export const InputInterfaceReducer = (state = {}, action) => {
   switch (action.type) {
@@ -10,6 +10,10 @@ export const InputInterfaceReducer = (state = {}, action) => {
         graph3: [1, 2, 3],
         graph4: [1, 2, 3],
       };
+    case FORTRAN_ANSWER_COMPLETE:
+      console.log(FORTRAN_ANSWER_COMPLETE);
+      console.log(action.payload);
+      return state;
     default:
       return state;
   }

@@ -11,11 +11,11 @@ def hello_world():
         data = request.get_json()
         f = open('workfile.txt', 'w')
         # f.write("{data.get('R')}")
-        f.write(f"{data.get('R')}")
+        f.write(f"{data.get('big_radius')}")
         f.close()
 
-        var_R = int(data.get("R"))
-        var_r = int(data.get("r"))
+        var_R = int(data.get("big_radius"))
+        var_r = int(data.get("small_radius"))
         output = {
             "R": var_R,
             "r": var_r,
