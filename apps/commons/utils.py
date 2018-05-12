@@ -7,3 +7,6 @@ class AbstractTimestamp(models.Model):
 
     class Meta:
         abstract = True
+
+
+READONLY_FIELDS = ['id', 'created_at', 'updated_at', 'created_at', 'updated_at']

@@ -13,9 +13,6 @@ class ControlParameter(AbstractTimestamp):
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
                                    related_name='created_control_params',
                                    related_query_name='created_control_params')
-    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='updated_control_params',
-                                   related_query_name='updated_control_params')
 
     def __str__(self):
         return f"{self.timestep} {self.mesh_point}"

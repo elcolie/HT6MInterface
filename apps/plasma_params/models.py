@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
@@ -52,12 +51,6 @@ class PlasmaParameter(AbstractTimestamp):
     radial_position = models.FloatField(default=0)
     radial_width = models.FloatField(default=0.5)
     particle_source_species = models.SmallIntegerField(default=2)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='created_plasma_params',
-                                   related_query_name='created_plasma_params')
-    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='updated_plasma_params',
-                                   related_query_name='updated_plasma_params')
 
     def __str__(self):
         return f"{self.nsmax} {self.density_eqn}"

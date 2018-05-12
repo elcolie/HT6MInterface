@@ -20,12 +20,8 @@ class Scenario(AbstractTimestamp):
                                        related_query_name='scenarios')
     heating_params = models.ForeignKey(HeatingParameter, on_delete=models.CASCADE, related_name='scenarios',
                                        related_query_name='scenarios')
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='created_scenario_params',
-                                   related_query_name='created_scenario_params')
-    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='updated_scenario_params',
-                                   related_query_name='updated_scenario_params')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='scenarios',
+                                   related_query_name='scenarios')
 
     def __str__(self):
         return f"{self.device_params} {self.heating_params}"
