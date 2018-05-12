@@ -1,1 +1,16 @@
-Flask
+django
+django-environ
+django-filter
+django-extensions
+ipython
+ipdb
+requests
+Werkzeug
+django-cors-headers
+djangorestframework
+djangorestframework-jwt
+gunicorn
+gevent
+docker-compose
+psycopg2-binary
+Celery
