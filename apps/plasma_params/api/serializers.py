@@ -6,22 +6,22 @@ from apps.plasma_params.models import PlasmaParameter, NSMAX, IMPURITY_NO, NEUTR
 
 
 class PlasmaParameterSerializer(serializers.ModelSerializer):
-    nsmax = serializers.IntegerField(default=NSMAX)
-    density_eqn = serializers.FloatField(default=DENSITY_EQN)
-    atomic_no = serializers.JSONField(default=ATOMIC_NO)
-    charge_no = serializers.JSONField(default=CHARGE_NO)
-    density_axis = serializers.JSONField(default=DENSITY_AXIS)
-    density_surface = serializers.JSONField(default=DENSITY_SURFACE)
-    temperature_axis = serializers.JSONField(default=TEMPERATURE_AXIS)
-    temperature_surface = serializers.JSONField(default=TEMPERATURE_SURFACE)
-    impurity_no = serializers.IntegerField(default=IMPURITY_NO)
-    neutral_no = serializers.IntegerField(default=NEUTRAL_NO)
-    particle_source_model = serializers.IntegerField(default=PARTICLE_SOURCE_MODEL)
-    number_particle_source = serializers.IntegerField(default=NUMBER_PARTICLE_SOURCE)
-    particle_source_rate = serializers.FloatField(default=PARTICLE_SOURCE_RATE)
-    radial_position = serializers.FloatField(default=RADIAL_POSITION)
-    radial_width = serializers.FloatField(default=RADIAL_WIDTH)
-    particle_source_species = serializers.IntegerField(default=PARTICLE_SOURCE_SPECIES)
+    nsmax = serializers.IntegerField(required=False)
+    density_eqn = serializers.FloatField(required=False)
+    atomic_no = serializers.JSONField(required=False)
+    charge_no = serializers.JSONField(required=False)
+    density_axis = serializers.JSONField(required=False)
+    density_surface = serializers.JSONField(required=False)
+    temperature_axis = serializers.JSONField(required=False)
+    temperature_surface = serializers.JSONField(required=False)
+    impurity_no = serializers.IntegerField(required=False)
+    neutral_no = serializers.IntegerField(required=False)
+    particle_source_model = serializers.IntegerField(required=False)
+    number_particle_source = serializers.IntegerField(required=False)
+    particle_source_rate = serializers.FloatField(required=False)
+    radial_position = serializers.FloatField(required=False)
+    radial_width = serializers.FloatField(required=False)
+    particle_source_species = serializers.IntegerField(required=False)
 
     class Meta:
         model = PlasmaParameter

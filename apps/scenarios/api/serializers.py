@@ -10,11 +10,11 @@ from apps.transport_params.api.serializers import TransportParameterSerializer
 
 
 class ScenarioSerializer(serializers.ModelSerializer):
-    device_params = DeviceParameterSerializer(default=DEVICE_PARAMS)
-    plasma_params = PlasmaParameterSerializer(default=PLASMA_PARAMS)
-    transport_params = TransportParameterSerializer(default=TRANSPORT_PARAMS)
-    control_params = ControlParameterSerializer(default=CONTROL_PARAMS)
-    heating_params = HeatingParameterSerializer(default=HEATING_PARAMS)
+    device_params = DeviceParameterSerializer()
+    plasma_params = PlasmaParameterSerializer()
+    transport_params = TransportParameterSerializer()
+    control_params = ControlParameterSerializer()
+    heating_params = HeatingParameterSerializer()
     created_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
@@ -29,11 +29,11 @@ class ScenarioSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data) -> Scenario:
-        validated_device_data = validated_data.get('device_params')
-        validated_plasma_params = validated_data.get('plasma_params')
-        validated_transport_params = validated_data.get('transport_params')
-        validated_control_params = validated_data.get('control_params')
-        validated_heating_params = validated_data.get('heating_params')
+        validated_device_data = validated_data.get('device_params', DEVICE_PARAMS)
+        validated_plasma_params = validated_data.get('plasma_params', PLASMA_PARAMS)
+        validated_transport_params = validated_data.get('transport_params', TRANSPORT_PARAMS)
+        validated_control_params = validated_data.get('control_params', CONTROL_PARAMS)
+        validated_heating_params = validated_data.get('heating_params', HEATING_PARAMS)
 
         device_param_serializer = DeviceParameterSerializer(data=validated_device_data)
         plasma_params_serializer = PlasmaParameterSerializer(data=validated_plasma_params)

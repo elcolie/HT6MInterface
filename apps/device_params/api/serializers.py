@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from apps.commons.constants import DEVICE_PARAMS
 from apps.device_params.models import DeviceParameter
 
 

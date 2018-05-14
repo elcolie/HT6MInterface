@@ -5,12 +5,12 @@ from apps.heating_params.models import HeatingParameter
 
 
 class HeatingParameterSerializer(serializers.ModelSerializer):
-    nbi_power = serializers.FloatField(default=HEATING_PARAMS['nbi_power'])
-    nbi_radial_position = serializers.FloatField(default=HEATING_PARAMS['nbi_radial_position'])
-    nbi_radial_width = serializers.FloatField(default=HEATING_PARAMS['nbi_radial_width'])
-    icrf_power = serializers.FloatField(default=HEATING_PARAMS['icrf_power'])
-    icrf_radial = serializers.FloatField(default=HEATING_PARAMS['icrf_radial'])
-    icrf_radial_width = serializers.FloatField(default=HEATING_PARAMS['icrf_radial_width'])
+    nbi_power = serializers.FloatField(required=False)
+    nbi_radial_position = serializers.FloatField(required=False)
+    nbi_radial_width = serializers.FloatField(required=False)
+    icrf_power = serializers.FloatField(required=False)
+    icrf_radial = serializers.FloatField(required=False)
+    icrf_radial_width = serializers.FloatField(required=False)
 
     class Meta:
         model = HeatingParameter

@@ -9,5 +9,3 @@ class ScenarioViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     queryset = Scenario.objects.all()
     serializer_class = ScenarioSerializer
-
-
