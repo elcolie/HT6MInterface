@@ -1,18 +1,20 @@
-from django.contrib.auth.models import User
 from django.db import models
 
-from apps.commons.utils import AbstractTimestamp
+from apps.commons.abstract_classes import AbstractTimestamp
+
+TIMESTEP = 0.01
+MESH_POINT = 50
+SNAP_DATA_PRINT = 10
+RADIAL_PROFILE_SNAP = 100
+TIME_EVOLUTION_SNAP = 2
 
 
 class ControlParameter(AbstractTimestamp):
-    timestep = models.FloatField(default=0.01)
-    mesh_point = models.SmallIntegerField(default=50)
-    snap_data_print = models.SmallIntegerField(default=10)
-    radial_profile_snap = models.SmallIntegerField(default=100)
-    time_evolution_snap = models.SmallIntegerField(default=2)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='created_control_params',
-                                   related_query_name='created_control_params')
+    timestep = models.FloatField(default=TIMESTEP)
+    mesh_point = models.SmallIntegerField(default=MESH_POINT)
+    snap_data_print = models.SmallIntegerField(default=SNAP_DATA_PRINT)
+    radial_profile_snap = models.SmallIntegerField(default=RADIAL_PROFILE_SNAP)
+    time_evolution_snap = models.SmallIntegerField(default=TIME_EVOLUTION_SNAP)
 
     def __str__(self):
         return f"{self.timestep} {self.mesh_point}"

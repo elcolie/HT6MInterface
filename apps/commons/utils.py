@@ -1,12 +1,15 @@
-from django.db import models
+import django_rq
 
-
-class AbstractTimestamp(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        abstract = True
-
+from apps.scenarios.models import Scenario
 
 READONLY_FIELDS = ['id', 'created_at', 'updated_at', 'created_at', 'updated_at']
+
+
+def get_ls(scenario):
+    """rqworker execution is here"""
+    from pprint import pprint
+    pprint(vars(scenario))
+
+
+def call_fortran(scenario: Scenario):
+    django_rq.enqueue(get_ls, scenario)

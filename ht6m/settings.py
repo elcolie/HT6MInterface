@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'django_rq',
     'apps.device_params',
     'apps.plasma_params',
     'apps.control_params',
@@ -139,3 +140,11 @@ STATICFILES_FINDERS = (
 # Media files
 MEDIA_ROOT = BASE_DIR + '/media'
 MEDIA_URL = '/media/'
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': os.environ.get('REDIS', 'localhost'),
+        'PORT': 6379,
+        'DB': 0,
+    }
+}

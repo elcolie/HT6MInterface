@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from apps.commons.utils import AbstractTimestamp
+from apps.commons.abstract_classes import AbstractTimestamp
 from apps.control_params.models import ControlParameter
 from apps.device_params.models import DeviceParameter
 from apps.heating_params.models import HeatingParameter
@@ -25,3 +25,13 @@ class Scenario(AbstractTimestamp):
 
     def __str__(self):
         return f"{self.device_params} {self.heating_params}"
+
+
+class Result(AbstractTimestamp):
+    scenario = models.ForeignKey(Scenario, on_delete=models.CASCADE, related_name='results',
+                                 related_query_name='results')
+    filename = models.CharField(max_length=255)
+    output = models.FileField(upload_to='outputs')
+
+    def __str__(self):
+        return f"{self.scenario} {self.filename}"
