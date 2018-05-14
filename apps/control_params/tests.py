@@ -2,8 +2,8 @@ import copy
 
 from django.test import TestCase
 
-from apps.control_params.api.serializers import ControlParameterSerializer
 from apps.commons.constants import CONTROL_PARAMS
+from apps.control_params.api.serializers import ControlParameterSerializer
 
 
 class TestControlParameter(TestCase):
@@ -13,8 +13,10 @@ class TestControlParameter(TestCase):
     def test_blank_initial_data(self):
         """If no supply then serializer pick default value"""
         serializer = ControlParameterSerializer(data={})
-        assert True is serializer.is_valid()
-        assert CONTROL_PARAMS == serializer.validated_data
+        serializer.is_valid()
+        instance = serializer.save()
+        for key in CONTROL_PARAMS.keys():
+            assert CONTROL_PARAMS[key] == getattr(instance, key)
 
     def test_partial_initial_data(self):
         serializer = ControlParameterSerializer(data={
@@ -23,4 +25,6 @@ class TestControlParameter(TestCase):
         assert True is serializer.is_valid()
         expected_result = copy.deepcopy(CONTROL_PARAMS)
         expected_result['timestep'] = 0.7
-        assert expected_result == serializer.validated_data
+        instance = serializer.save()
+        for key in expected_result.keys():
+            assert expected_result[key] == getattr(instance, key)
