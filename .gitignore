@@ -2,3 +2,5 @@
 .python-version
 *.pyc
 workfile.txt
+static
+media
