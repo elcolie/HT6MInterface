@@ -1,16 +1,16 @@
 from rest_framework import serializers
 
-from apps.device_params.models import DeviceParameter, MAJOR_RADIUS, MINOR_RADIUS, TRIANGULARITY, ELLIPTICITY, \
-    MAGNETIC_FIELD, PLASMA_CURRENT
+from apps.commons.constants import DEVICE_PARAMS
+from apps.device_params.models import DeviceParameter
 
 
 class DeviceParameterSerializer(serializers.ModelSerializer):
-    major_radius = serializers.FloatField(default=MAJOR_RADIUS)
-    minor_radius = serializers.FloatField(default=MINOR_RADIUS)
-    triangularity = serializers.FloatField(default=TRIANGULARITY)
-    ellipticity = serializers.FloatField(default=ELLIPTICITY)
-    plasma_current = serializers.FloatField(default=PLASMA_CURRENT)
-    magnetic_field = serializers.FloatField(default=MAGNETIC_FIELD)
+    major_radius = serializers.FloatField(default=DEVICE_PARAMS['major_radius'], required=False)
+    minor_radius = serializers.FloatField(default=DEVICE_PARAMS['minor_radius'], required=False)
+    triangularity = serializers.FloatField(default=DEVICE_PARAMS['triangularity'], required=False)
+    ellipticity = serializers.FloatField(default=DEVICE_PARAMS['ellipticity'], required=False)
+    plasma_current = serializers.FloatField(default=DEVICE_PARAMS['plasma_current'], required=False)
+    magnetic_field = serializers.FloatField(default=DEVICE_PARAMS['magnetic_field'], required=False)
 
     class Meta:
         model = DeviceParameter

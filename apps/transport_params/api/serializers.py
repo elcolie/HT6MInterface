@@ -1,15 +1,15 @@
 from rest_framework import serializers
 
-from apps.transport_params.models import TransportParameter, RESISTIVITY, PARTICLE_DIFFUSION, HEAT_PINCH, \
-    BOOTSTRAP_CURRENT, NEOCLASSICA
+from apps.commons.constants import TRANSPORT_PARAMS
+from apps.transport_params.models import TransportParameter
 
 
 class TransportParameterSerializer(serializers.ModelSerializer):
-    resistivity = serializers.IntegerField(default=RESISTIVITY)
-    particle_diffusion = serializers.IntegerField(default=PARTICLE_DIFFUSION)
-    heat_pinch = serializers.IntegerField(default=HEAT_PINCH)
-    bootstrap_current = serializers.IntegerField(default=BOOTSTRAP_CURRENT)
-    neoclassical = serializers.IntegerField(default=NEOCLASSICA)
+    resistivity = serializers.IntegerField(default=TRANSPORT_PARAMS['resistivity'])
+    particle_diffusion = serializers.IntegerField(default=TRANSPORT_PARAMS['particle_diffusion'])
+    heat_pinch = serializers.IntegerField(default=TRANSPORT_PARAMS['heat_pinch'])
+    bootstrap_current = serializers.IntegerField(default=TRANSPORT_PARAMS['bootstrap_current'])
+    neoclassical = serializers.IntegerField(default=TRANSPORT_PARAMS['neoclassical'])
 
     class Meta:
         model = TransportParameter
