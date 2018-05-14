@@ -23,8 +23,15 @@ class TestScenario(TestCase):
     def test_create_scenario(self):
         """Test by non supply the key"""
         url = reverse('apis:scenario-list')
+        payload = {
+            'device_params': {},
+            'plasma_params': {},
+            'transport_params': {},
+            'control_params': {},
+            'heating_params': {},
+        }
         self.client.force_login(self.admin_user)
-        res = self.client.post(url, payload={}, format='json')
+        res = self.client.post(url, payload, format='json')
         assert 1 == Scenario.objects.count()
         assert 1 == PlasmaParameter.objects.count()
         assert 1 == TransportParameter.objects.count()
