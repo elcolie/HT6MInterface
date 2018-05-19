@@ -4,7 +4,6 @@ from django.db import models
 from apps.commons.abstract_classes import AbstractTimestamp
 from apps.control_params.models import ControlParameter
 from apps.device_params.models import DeviceParameter
-from apps.heating_params.models import HeatingParameter
 from apps.plasma_params.models import PlasmaParameter
 from apps.transport_params.models import TransportParameter
 
@@ -18,13 +17,11 @@ class Scenario(AbstractTimestamp):
                                          related_query_name='scenarios')
     control_params = models.ForeignKey(ControlParameter, on_delete=models.CASCADE, related_name='scenarios',
                                        related_query_name='scenarios')
-    heating_params = models.ForeignKey(HeatingParameter, on_delete=models.CASCADE, related_name='scenarios',
-                                       related_query_name='scenarios')
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='scenarios',
                                    related_query_name='scenarios')
 
     def __str__(self):
-        return f"{self.device_params} {self.heating_params}"
+        return f"{self.id} {self.device_params}"
 
 
 class Result(AbstractTimestamp):
