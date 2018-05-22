@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import 'amcharts3';
 import 'amcharts3/amcharts/serial';
 import AmCharts from '@amcharts/amcharts3-react';
-
+import {rawData} from "./rawData";
 
 // Generate random data
 function generateData() {
@@ -12,8 +12,7 @@ function generateData() {
   
   for (let i = 0; i < 100; ++i) {
     let date = new Date(firstDate.getTime());
-    
-    date.setDate(i);
+    date.setTime(i + 0.01);
     
     dataProvider.push({
       date: date,
@@ -25,15 +24,43 @@ function generateData() {
 }
 
 
+let toAmLineChart = (item) => {
+  /*
+  *
+  * Convert item to [date, value]
+  * item is [int, int]
+  *
+  * */
+  let dataProvider = [];
+  let firstDate = new Date(); // Since it is reuquired by AmChart
+  
+  item.forEach((element) => {
+    dataProvider.push({
+      date: firstDate.setTime(element[0]),
+      value: element[1]
+    })
+  });
+  
+  return dataProvider;
+};
+
+let myLabelFunc = (item) => {
+  console.log("Rise the Flag");
+  console.log(item);
+  return item;
+};
+
 // Component which contains the dynamic state for the chart
 class AmLineChart extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      dataProvider: generateData(),
+      dataProvider: toAmLineChart(rawData()),
       timer: null
     };
+    console.log('Sieg Heil');
+    console.log(this.state.dataProvider);
   }
   
   render() {
@@ -104,8 +131,10 @@ class AmLineChart extends Component {
       },
       "categoryField": "date",
       "categoryAxis": {
+        "labelFunction": myLabelFunc,
         "parseDates": true,
         "dashLength": 1,
+        "equalSpacing": true,
         "minorGridEnabled": true
       },
       "dataProvider": this.state.dataProvider
