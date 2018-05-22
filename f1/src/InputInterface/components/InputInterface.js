@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {SUBMIT_RADIUS} from "../../constants";
 import {validate} from '../validate';
 import {DisplayGraph} from "../../displays/components/DisplayGraph";
+import AmLineChart from "../../displays/components/AmLineChart";
 
 class InputInterface extends Component {
   
@@ -59,6 +60,7 @@ class InputInterface extends Component {
         <DisplayGraph
           myArray={this.props.inputInterface}
         />
+        <AmLineChart/>
       </Fragment>
     );
   }
