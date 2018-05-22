@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'amcharts3';
 import 'amcharts3/amcharts/serial';
 import AmCharts from '@amcharts/amcharts3-react';
@@ -36,21 +36,6 @@ class AmLineChart extends Component {
     };
   }
   
-  componentDidMount() {
-    this.setState({
-      // Update the chart dataProvider every 3 seconds
-      timer: setInterval(() => {
-        this.setState({
-          dataProvider: generateData()
-        });
-      }, 3000)
-    });
-  }
-  
-  componentWillUnmount() {
-    clearInterval(this.state.timer);
-  }
-  
   render() {
     const config = {
       "type": "serial",
@@ -71,10 +56,10 @@ class AmLineChart extends Component {
       },
       "graphs": [{
         "id": "g1",
-        "balloon":{
+        "balloon": {
           "drop": true,
           "adjustBorderColor": false,
-          "color":"#ffffff"
+          "color": "#ffffff"
         },
         "bullet": "round",
         "bulletBorderAlpha": 1,
@@ -90,7 +75,7 @@ class AmLineChart extends Component {
       "chartScrollbar": {
         "graph": "g1",
         "oppositeAxis": false,
-        "offset":30,
+        "offset": 30,
         "scrollbarHeight": 80,
         "backgroundAlpha": 0,
         "selectedBackgroundAlpha": 0.1,
@@ -100,22 +85,22 @@ class AmLineChart extends Component {
         "selectedGraphFillAlpha": 0,
         "selectedGraphLineAlpha": 1,
         "autoGridCount": true,
-        "color":"#AAAAAA"
+        "color": "#AAAAAA"
       },
       "chartCursor": {
         "pan": true,
         "valueLineEnabled": true,
         "valueLineBalloonEnabled": true,
-        "cursorAlpha":1,
-        "cursorColor":"#258cbb",
-        "limitToGraph":"g1",
-        "valueLineAlpha":0.2,
+        "cursorAlpha": 1,
+        "cursorColor": "#258cbb",
+        "limitToGraph": "g1",
+        "valueLineAlpha": 0.2,
         "valueZoomable": true
       },
-      "valueScrollbar":{
+      "valueScrollbar": {
         "oppositeAxis": false,
-        "offset":50,
-        "scrollbarHeight":10
+        "offset": 50,
+        "scrollbarHeight": 10
       },
       "categoryField": "date",
       "categoryAxis": {
@@ -128,7 +113,7 @@ class AmLineChart extends Component {
     
     return (
       <div className="AmLineChart">
-        <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
+        <AmCharts.React style={{width: "100%", height: "500px"}} options={config}/>
       </div>
     );
   }
