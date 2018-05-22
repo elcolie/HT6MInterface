@@ -4,25 +4,10 @@ import 'amcharts3/amcharts/serial';
 import AmCharts from '@amcharts/amcharts3-react';
 import {rawData} from "./rawData";
 
-// Generate random data
-function generateData() {
-  let firstDate = new Date();
-  
-  let dataProvider = [];
-  
-  for (let i = 0; i < 100; ++i) {
-    let date = new Date(firstDate.getTime());
-    date.setTime(i + 0.01);
-    
-    dataProvider.push({
-      date: date,
-      value: Math.floor(Math.random() * 100)
-    });
-  }
-  
-  return dataProvider;
-}
 
+let milliSecondXaxis = (item) => {
+  return (parseFloat(item) * 1000).toFixed(2).toString();
+};
 
 let toAmLineChart = (item) => {
   /*
@@ -36,7 +21,7 @@ let toAmLineChart = (item) => {
   
   item.forEach((element) => {
     dataProvider.push({
-      date: firstDate.setTime(element[0]),
+      time: element[0],
       value: element[1]
     })
   });
@@ -44,11 +29,6 @@ let toAmLineChart = (item) => {
   return dataProvider;
 };
 
-let myLabelFunc = (item) => {
-  console.log("Rise the Flag");
-  console.log(item);
-  return item;
-};
 
 // Component which contains the dynamic state for the chart
 class AmLineChart extends Component {
@@ -57,10 +37,9 @@ class AmLineChart extends Component {
     
     this.state = {
       dataProvider: toAmLineChart(rawData()),
+      // dataProvider: generateData(),
       timer: null
     };
-    console.log('Sieg Heil');
-    console.log(this.state.dataProvider);
   }
   
   render() {
@@ -129,10 +108,10 @@ class AmLineChart extends Component {
         "offset": 50,
         "scrollbarHeight": 10
       },
-      "categoryField": "date",
+      "categoryField": "time",
       "categoryAxis": {
-        "labelFunction": myLabelFunc,
-        "parseDates": true,
+        "labelFunction": milliSecondXaxis,
+        "labelRotation": 30,
         "dashLength": 1,
         "equalSpacing": true,
         "minorGridEnabled": true
