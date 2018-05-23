@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
-from apps.scenarios.api.viewsets import test
+from apps.scenarios.api.viewsets import test, time_series
 from ht6m import api_urls
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(api_urls, namespace='apis')),
     path('test/', test, name='test'),
+    path('time-series/', time_series, name='time-series'),
 ]

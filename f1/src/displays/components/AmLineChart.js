@@ -17,7 +17,6 @@ let toAmLineChart = (item) => {
   *
   * */
   let dataProvider = [];
-  let firstDate = new Date(); // Since it is reuquired by AmChart
   
   item.forEach((element) => {
     dataProvider.push({
@@ -37,7 +36,6 @@ class AmLineChart extends Component {
     
     this.state = {
       dataProvider: toAmLineChart(rawData()),
-      // dataProvider: generateData(),
       timer: null
     };
   }
