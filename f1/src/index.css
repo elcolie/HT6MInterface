@@ -31,3 +31,20 @@ body {
   position: fixed;
   bottom: 0;
 }
+
+.login-legend{
+  margin: 20px;
+  width: 155px;
+}
+
+.login-fieldset{
+  border: 3px solid;
+}
+
+.login-marin-top{
+  margin-top: 5px;
+}
+
+.login-spacing{
+  margin-left: 10px;
+}

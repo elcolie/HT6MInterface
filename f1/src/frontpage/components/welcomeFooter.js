@@ -1,0 +1,19 @@
+import React, {Fragment} from 'react';
+/*
+* Dump component
+* */
+export default function welcomeFooter(props){
+  return(
+    <footer className='text-center'>
+      <p>This work is a collaborative project between TINT, KMUTT, MSU, and PSU</p>
+      <p>If you need further information, please contact <a href="mailto:tokamak@tint.or.th">tokamak@tint.or.th</a></p>
+      
+      <a href="/"><img className='logo' src="Arms_of_KMUTT.png"/></a>
+      <a href="/"><img className='logo' src="Arms_of_KMUTT.png"/></a>
+      <a href="/"><img className='logo' src="Arms_of_KMUTT.png"/></a>
+      <a href="/"><img className='logo' src="Arms_of_KMUTT.png"/></a>
+      
+    </footer>
+  )
+}
+
