@@ -3,8 +3,8 @@ import {Field, reduxForm} from 'redux-form';
 import {validate} from './validators';
 import {connect} from 'react-redux';
 import {SUBMIT_USERNAME_PASSWORD} from "../../constants";
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import {Col, Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
+import ErrorMessage from "./ErrorMessage.js";
 
 
 class Login extends Component {
@@ -42,12 +42,24 @@ class Login extends Component {
   
   render() {
     const {handleSubmit} = this.props;
+    const {
+      isAuthenticatd,
+      token,
+      message,
+      isAuthenticated,
+      statusCode
+    } = this.props.state.userPasswordReducer;
     
     return (
       <Fragment>
+        
         <div id='login-area'>
           <a href="/" className='login-img'><img src="tokamak-model.png"/></a>
           <form id='login-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <ErrorMessage
+              isAuthenticated={isAuthenticated}
+              message={message}
+            />
             <fieldset id='login-fieldset'>
               <legend id='login-legend'>Authentication</legend>
               <table>
@@ -90,7 +102,7 @@ class Login extends Component {
                   </td>
                 </tr>
                 </tbody>
-                
+              
               </table>
             </fieldset>
           </form>
