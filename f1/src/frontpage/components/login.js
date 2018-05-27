@@ -45,50 +45,56 @@ class Login extends Component {
     
     return (
       <Fragment>
-        
-          <a href="/" className='login-form'><img src="tokamak-model.png"/></a>
-          <form className='login-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-              <fieldset className='login-fieldset'>
-                <legend className='login-legend'>Authentication</legend>
-                <table>
-                  <tr>
-                    <td><Label>Username</Label></td>
-                    <td>
-                      <Field
-                        name="userid"
-                        component={this.renderField}
-                        placeholder="User ID"
-                        autocomplete="username"
-                        type="text"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Password</td>
-                    <td>
-                      <Field
-                        name="password"
-                        component={this.renderField}
-                        placeholder="Password"
-                        autocomplete="current-password"
-                        type="password"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div className='login-marin-top'>
-                        <button type="submit" className="btn btn-primary">Login</button>
-                        <button type="submit" className="btn btn-primary login-spacing">Forget Password</button>
-                      </div>
-        
-                    </td>
-                  </tr>
-                </table>
-  
-              </fieldset>
-            </form>
-        
+        <div id='login-area'>
+          <a href="/" className='login-img'><img src="tokamak-model.png"/></a>
+          <form id='login-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <fieldset id='login-fieldset'>
+              <legend id='login-legend'>Authentication</legend>
+              <table>
+                <tbody>
+                <tr>
+                  <td>Username</td>
+                  <td>
+                    <Field
+                      name="userid"
+                      component={this.renderField}
+                      placeholder="User ID"
+                      autocomplete="username"
+                      type="text"
+                    />
+                  </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                  <td>Password</td>
+                  <td>
+                    <Field
+                      name="password"
+                      component={this.renderField}
+                      placeholder="Password"
+                      autocomplete="current-password"
+                      type="password"
+                    />
+                  </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                  <td></td>
+                  <td>
+                    <div className='login-marin-top'>
+                      <button type="submit" className="btn btn-primary">Login</button>
+                      <button type="submit" className="btn btn-primary login-spacing">Forget Password</button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+                
+              </table>
+            </fieldset>
+          </form>
+        </div>
       </Fragment>
     )
   }
