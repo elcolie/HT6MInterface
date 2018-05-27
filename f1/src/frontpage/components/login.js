@@ -45,62 +45,50 @@ class Login extends Component {
     
     return (
       <Fragment>
-        <table>
-          <tr>
-          
-          </tr>
-          
-        </table>
         
-        <a href="/"><img src="tokamak-model.png"/></a>
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <fieldset className='login-fieldset'>
-            <legend className='login-legend'>Authentication</legend>
-            <table>
-              <tr>
-                <td>Username</td>
-                <td>
-                <Field
-                  name="userid"
-                  component={this.renderField}
-                  placeholder="User ID"
-                  autocomplete="username"
-                  type="text"
-                />
-                </td>
-              </tr>
-              <tr>
-                <td>Password</td>
-                <td>
-                <Field
-                  name="password"
-                  component={this.renderField}
-                  placeholder="Password"
-                  autocomplete="current-password"
-                  type="password"
-                />
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-                  <div className='login-marin-top'>
-                    <button type="submit" className="btn btn-primary">Login</button>
-                    <button type="submit" className="btn btn-primary login-spacing">Forget Password</button>
-                  </div>
-                  
-                </td>
-              </tr>
-            </table>
-          </fieldset>
-          /*Example how to use in single row*/
-        </form>
-        <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Email</Label>
-          <Col sm={10}>
-            <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-          </Col>
-        </FormGroup>
+          <a href="/" className='login-form'><img src="tokamak-model.png"/></a>
+          <form className='login-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+              <fieldset className='login-fieldset'>
+                <legend className='login-legend'>Authentication</legend>
+                <table>
+                  <tr>
+                    <td><Label>Username</Label></td>
+                    <td>
+                      <Field
+                        name="userid"
+                        component={this.renderField}
+                        placeholder="User ID"
+                        autocomplete="username"
+                        type="text"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Password</td>
+                    <td>
+                      <Field
+                        name="password"
+                        component={this.renderField}
+                        placeholder="Password"
+                        autocomplete="current-password"
+                        type="password"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className='login-marin-top'>
+                        <button type="submit" className="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary login-spacing">Forget Password</button>
+                      </div>
+        
+                    </td>
+                  </tr>
+                </table>
+  
+              </fieldset>
+            </form>
+        
       </Fragment>
     )
   }

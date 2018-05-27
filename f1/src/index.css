@@ -48,3 +48,7 @@ body {
 .login-spacing{
   margin-left: 10px;
 }
+
+.login-form{
+  display: inline-block;
+}
