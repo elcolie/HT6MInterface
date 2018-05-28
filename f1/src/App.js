@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import FrontPage from './frontpage/components/FrontPage';
-import {header} from './commons/components/headers';
+import Header from './commons/components/headers';
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -49,7 +49,9 @@ class App extends Component {
     return(
       <Fragment>
         SIEG HEIL
-        {header()}
+        <Provider store={store}>
+        <Header/>
+        </Provider>
       </Fragment>
     )
     // return (
