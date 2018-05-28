@@ -8,6 +8,8 @@ import rootSaga from './sagas';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import FrontPage from './frontpage/components/FrontPage';
 import Header from './commons/components/headers';
+import Login from './frontpage/components/login';
+import Simulator from "./simulators/components/Simulators";
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -46,30 +48,42 @@ function hasToken() {
 
 class App extends Component {
   render() {
-    return(
-      <Fragment>
-        SIEG HEIL
-        <Provider store={store}>
-        <Header/>
-        </Provider>
-      </Fragment>
-    )
-    // return (
-    //   <Provider store={store}>
-    //
-    //
-    //     <BrowserRouter>
-    //       <div>
-    //         <Switch>
-    //           <PrivateRoute exact path='/simulator' isAuthorized={hasToken}/>
-    //         </Switch>
-    //       </div>
-    //
-    //     </BrowserRouter>
-    //
-    //     <FrontPage/>
-    //   </Provider>
+    // return(
+    //   <Fragment>
+    //     <Provider store={store}>
+    //     <Header/>
+    //     </Provider>
+    //   </Fragment>
     // )
+    // return (
+    //   <Fragment>
+    //     <Provider store={store}>
+    //       <BrowserRouter>
+    //         <div>
+    //           <Switch>
+    //             <Route exact path='/' component={Login}/>
+    //             <Route exact path='/header' component={Header}/>
+    //             {/*<PrivateRoute exact path='/simulator' isAuthorized={hasToken} component={Header}/>*/}
+    //
+    //           </Switch>
+    //         </div>
+    //
+    //       </BrowserRouter>
+    //
+    //       <FrontPage/>
+    //     </Provider>
+    //   </Fragment>
+    // )
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={Login}/>
+            <Route exact path='/simulator/' component={Simulator}/>
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+    )
   }
 }
 

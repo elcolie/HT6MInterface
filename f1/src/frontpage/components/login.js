@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {SUBMIT_USERNAME_PASSWORD} from "../../constants";
 import {Col, Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
 import ErrorMessage from "./ErrorMessage.js";
+import welcomeHeader from "./welcomeHeader";
+import welcomeFooter from "./welcomeFooter";
 
 
 class Login extends Component {
@@ -13,6 +15,7 @@ class Login extends Component {
     const data = {
       username: userid,
       password,
+      history: this.props.history
     };
     console.log(values);
     this.props.onSubmitClick(data);
@@ -51,8 +54,9 @@ class Login extends Component {
     } = this.props.state.userPasswordReducer;
     
     return (
+      
       <Fragment>
-        
+        {welcomeHeader()}
         <div id='login-area'>
           <a href="/" className='login-img'><img src="tokamak-model.png"/></a>
           <form id='login-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -107,15 +111,16 @@ class Login extends Component {
             </fieldset>
           </form>
         </div>
+        {welcomeFooter()}
       </Fragment>
     )
   }
 }
 
-const onSubmitClick = ({username, password}) => {
+const onSubmitClick = ({username, password, history}) => {
   return {
     type: SUBMIT_USERNAME_PASSWORD,
-    payload: {username, password}
+    payload: {username, password, history}
   };
 };
 

@@ -24,7 +24,7 @@ function* shootAPI(action) {
       type: LOGIN_SUCCESS,
       payload: res
     });
-    // history.push('/simulator');
+    history.push('/simulator');
   } catch (err) {
     yield put({
       type: LOGIN_FAILED,
