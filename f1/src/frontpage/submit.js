@@ -20,14 +20,12 @@ function* shootAPI(action) {
   try {
     const res = yield call(shootApiTokenAuth, action.payload);
     const {history} = action.payload;
-    console.log('xxxxxx');
     yield put({
       type: LOGIN_SUCCESS,
       payload: res
     });
-    // history.push('/profile-card'); //push user to `/companies` page
+    // history.push('/simulator');
   } catch (err) {
-    console.log('yyyyyy');
     yield put({
       type: LOGIN_FAILED,
       payload: err

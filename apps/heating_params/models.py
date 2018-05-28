@@ -12,8 +12,8 @@ class HeatingParameter(AbstractTimestamp):
     icrf_power = models.FloatField(default=HEATING_PARAMS['icrf_power'])
     icrf_radial = models.FloatField(default=HEATING_PARAMS['icrf_radial'])
     icrf_radial_width = models.FloatField(default=HEATING_PARAMS['icrf_radial_width'])
-    scenario = models.ForeignKey(Scenario, on_delete=models.CASCADE, related_name='heat_params',
-                                 related_query_name='heat_params')
+    scenario = models.ForeignKey(Scenario, on_delete=models.CASCADE, related_name='heating_params',
+                                 related_query_name='heating_params')
 
     def __str__(self):
         return f"{self.nbi_power} {self.icrf_power}"

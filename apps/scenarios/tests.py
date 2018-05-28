@@ -28,15 +28,16 @@ class TestScenario(TestCase):
             'plasma_params': {},
             'transport_params': {},
             'control_params': {},
-            'heating_params': {},
+            'heating_params': [{}, {}],
         }
-        self.client.force_login(self.admin_user)
-        res = self.client.post(url, payload, format='json')
+        self.client.force_authenticate(user=self.admin_user)
+        res = self.client.post(url, data=payload, format='json')
+
         assert 1 == Scenario.objects.count()
         assert 1 == PlasmaParameter.objects.count()
         assert 1 == TransportParameter.objects.count()
         assert 1 == ControlParameter.objects.count()
-        assert 1 == HeatingParameter.objects.count()
+        assert 2 == HeatingParameter.objects.count()
         assert self.admin_user == Scenario.objects.first().created_by
         assert status.HTTP_201_CREATED == res.status_code
 
@@ -49,10 +50,10 @@ class TestScenario(TestCase):
             'plasma_params': {},
             'transport_params': {},
             'control_params': {},
-            'heating_params': {},
+            'heating_params': [{}],
         }
         url = reverse('apis:scenario-list')
-        self.client.force_login(self.admin_user)
+        self.client.force_authenticate(user=self.admin_user)
         res = self.client.post(url, payload, format='json')
         scenario = Scenario.objects.first()
         expected_result = copy.deepcopy(DEVICE_PARAMS)
@@ -76,10 +77,10 @@ class TestScenario(TestCase):
             'plasma_params': {},
             'transport_params': {},
             'control_params': {},
-            'heating_params': {},
+            'heating_params': [{}],
         }
         url = reverse('apis:scenario-list')
-        self.client.force_login(self.admin_user)
+        self.client.force_authenticate(user=self.admin_user)
         res = self.client.post(url, payload, format='json')
         scenario = Scenario.objects.first()
         for key in payload.get('device_params').keys():

@@ -14,7 +14,7 @@ class ScenarioSerializer(serializers.ModelSerializer):
     plasma_params = PlasmaParameterSerializer()
     transport_params = TransportParameterSerializer()
     control_params = ControlParameterSerializer()
-    heating_params = HeatingParameterSerializer()
+    heating_params = HeatingParameterSerializer(many=True)
     created_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
@@ -39,18 +39,25 @@ class ScenarioSerializer(serializers.ModelSerializer):
         plasma_params_serializer = PlasmaParameterSerializer(data=validated_plasma_params)
         transport_params_serializer = TransportParameterSerializer(data=validated_transport_params)
         control_params_serializer = ControlParameterSerializer(data=validated_control_params)
-        heating_params_serializer = HeatingParameterSerializer(data=validated_heating_params)
 
         device_instance = device_param_serializer.create(validated_device_data)
         plasma_instance = plasma_params_serializer.create(validated_plasma_params)
         transport_instance = transport_params_serializer.create(validated_transport_params)
         control_instance = control_params_serializer.create(validated_control_params)
-        heating_instance = heating_params_serializer.create(validated_heating_params)
 
         scenario_instance = Scenario.objects.create(device_params=device_instance,
                                                     plasma_params=plasma_instance,
                                                     transport_params=transport_instance,
                                                     control_params=control_instance,
-                                                    heating_params=heating_instance,
                                                     created_by=validated_data.get('created_by'))
+
+        from apps.heating_params.models import HeatingParameter
+        # Avoid circular dependencies
+        mylist = []
+        for item in validated_heating_params:
+            tmp = {**item, **{'scenario': scenario_instance}}
+            mylist.append(HeatingParameter(**tmp))
+        HeatingParameter.objects.bulk_create(mylist)
+
+
         return scenario_instance

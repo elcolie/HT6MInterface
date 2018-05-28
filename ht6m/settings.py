@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_rq',
     'corsheaders',
     'rest_framework',
+    'apps.commons',
     'apps.device_params',
     'apps.plasma_params',
     'apps.control_params',
