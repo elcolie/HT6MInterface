@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from "axios/index";
 import {Provider} from 'react-redux';
 import './App.css';
 import rootReducer from "./reducers";
@@ -8,6 +9,8 @@ import rootSaga from './sagas';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import Login from './frontpage/components/login';
 import Simulator from "./simulators/components/Simulators";
+import {BACKEND_URL} from "./constants";
+import {getAuthToken} from "./utils";
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -40,7 +43,24 @@ const PrivateRoute = ({component: Component, isAuthorized, ...otherProps}) => (
 function hasToken() {
   const token = localStorage.getItem('authToken');
   const isAuthenticated = !((token === undefined) | (token === null));
-  return isAuthenticated;
+  
+  let req = axios.create({
+    method: 'POST',
+    baseURL: `${BACKEND_URL}/api-token-verify/`,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: {
+      token: getAuthToken()
+    }
+  });
+  req.post().then((res) => {
+      return true
+    })
+    .catch((err) => {
+      return false
+    });
+  
 }
 
 
