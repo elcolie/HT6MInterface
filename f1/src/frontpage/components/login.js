@@ -16,7 +16,6 @@ class Login extends Component {
       password,
       history: this.props.history
     };
-    console.log(values);
     this.props.onSubmitClick(data);
   }
   
