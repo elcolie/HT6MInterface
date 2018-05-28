@@ -10,6 +10,7 @@ Werkzeug
 django-cors-headers
 djangorestframework
 djangorestframework-jwt
+django-cors-headers
 gunicorn
 gevent
 docker-compose
