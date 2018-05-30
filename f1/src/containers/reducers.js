@@ -1,4 +1,5 @@
 import {GOOD_TOKEN, INVALID_TOKEN} from "../constants";
+import {removeAuthToken} from "../utils";
 
 function immediateReturnTrue(){
   return true;
@@ -15,6 +16,7 @@ export const VerifyTokenReducer = (state = {}, action) => {
         wrapper: immediateReturnTrue
       };
     case INVALID_TOKEN:
+      removeAuthToken();
       return {
         isAuthenticated: false,
         wrapper: immediateReturnFalse

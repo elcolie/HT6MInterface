@@ -12,6 +12,7 @@ export const FORTRAN_ANSWER_FAILED = 'fortran_answer_failed';
 export const SUBMIT_USERNAME_PASSWORD = 'submit_username_password';
 export const LOGIN_FAILED = 'login_failed';
 export const LOGIN_SUCCESS = 'login_success';
+export const LOGOUT = 'logout';
 export const RESPONSE_USERNAME = 'response_username';
 export const RESPONSE_FAILED = 'response_failed';
 export const VERIFY_TOKEN = 'verify_token';

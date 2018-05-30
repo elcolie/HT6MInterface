@@ -4,6 +4,7 @@ import Simulator from "../../simulators/components/Simulators";
 import Login from "../../frontpage/components/login";
 import {connect} from 'react-redux';
 import {CHECK_TOKEN} from "../../constants";
+import AmLineChart from "../../displays/components/AmLineChart";
 
 const PrivateRoute = ({component: Component, isAuthorized, ...otherProps}) => (
   <Route
@@ -24,12 +25,6 @@ const PrivateRoute = ({component: Component, isAuthorized, ...otherProps}) => (
 );
 
 
-// Deal with an ordinary outdated token. Hacked one will be handle on individual component
-function hasToken() {
-  const token = localStorage.getItem('authToken');
-  return !((token === undefined) | (token === null));
-}
-
 
 class Container extends Component {
   /*
@@ -43,24 +38,19 @@ class Container extends Component {
   }
   
   render() {
-    console.log(this.props);
-    const {isAuthenticated, wrapper} = this.props;
-    console.log(typeof this.props.wrapper);
     if((typeof this.props.wrapper) === 'function') {
-      console.log('this is function');
       return (
         <Fragment>
           <BrowserRouter>
             <Switch>
               <Route exact path='/' component={Login}/>
+              <Route exact path='/test-chart/' component={AmLineChart}/>
               <PrivateRoute exact path='/simulator/' isAuthorized={this.props.wrapper} component={Simulator}/>
             </Switch>
           </BrowserRouter>
         </Fragment>
       )
     }else{
-      console.log('wrapper is not a function');
-      console.log(typeof this.props.wrapper);
       return null;
     }
   }

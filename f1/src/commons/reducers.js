@@ -1,5 +1,5 @@
-import {getAuthToken} from "../utils";
-import {ADMIN_EMAIL, GET_LOCAL_TOKEN, RESPONSE_FAILED, RESPONSE_USERNAME} from "../constants";
+import {getAuthToken, removeAuthToken} from "../utils";
+import {ADMIN_EMAIL, GET_LOCAL_TOKEN, LOGOUT, RESPONSE_FAILED, RESPONSE_USERNAME} from "../constants";
 
 
 export const LocalTokenReducer = (state = {}, action) => {
@@ -12,12 +12,12 @@ export const LocalTokenReducer = (state = {}, action) => {
       *
       * */
       const localToken = getAuthToken();
-      if (localToken){
+      if (localToken) {
         return {
           token: getAuthToken(),
         };
       }
-      else{
+      else {
         //Token is gone. Need to kick user to login page
         return {
           token: null
@@ -25,26 +25,25 @@ export const LocalTokenReducer = (state = {}, action) => {
       }
     case RESPONSE_USERNAME:
       let res = action.payload;
-      console.log(`${res.status} ${res.data.username}`);
       return {
         username: res.data.username,
         statusCode: res.status
       };
     case RESPONSE_FAILED:
       res = action.payload;
-      if (401 === res.response.status){
+      if (401 === res.response.status) {
         //Signature has expired
         return {
           statusCode: res.response.status,
           message: res.response.data.detail
         }
-      }else if(undefined === res.response){
-        return{
+      } else if (undefined === res.response) {
+        return {
           statusCode: 503,
           message: res.response.toString()
         }
       }
-      else{
+      else {
         return {
           statusCode: 500,
           message: `Unknown Error. Please contact ${ADMIN_EMAIL}`

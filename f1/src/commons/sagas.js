@@ -82,3 +82,4 @@ function* askBackend(action){
 export function* watchCheckToken(){
   yield takeLatest(CHECK_TOKEN, askBackend)
 }
+

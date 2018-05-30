@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {getAuthToken} from "../../utils";
+import {getAuthToken, removeAuthToken} from "../../utils";
 import {GET_USERNAME} from "../../constants";
+import {withRouter} from 'react-router-dom';
 
 class Header extends Component {
   /*
@@ -17,15 +18,31 @@ class Header extends Component {
       token: getAuthToken(),
       username: undefined
     };
-    this.props.getUsername({history: this.props.history});
-  }
+    this.props.getUsername();
+  };
   
+  clicked(event, history) {
+    removeAuthToken();
+    history.push('/');
+  };
   
   render() {
-    const {username, statusCode} = this.props;
+    
+    const {username} = this.props;
     return (
       <Fragment>
-        Welcome {username}!
+        <div className="text-center">
+          <img src="../tint-banner.png" alt="TINT Banner" className='tint-banner'/>
+          <span className='my-vertical'>
+            <label>Welcome {username}</label>
+            <button type="submit" onClick={(event) => {
+              //A bit hacky here since `this.props.history` does not present in
+              //clicked() context
+              this.clicked(event, this.props.history);
+            }}>Logout</button>
+          </span>
+        </div>
+      
       </Fragment>
     )
   }
@@ -42,4 +59,4 @@ const mapStateToProps = ({localTokenReducer}, ownProps) => {
   return localTokenReducer;
 };
 
-export default connect(mapStateToProps, {getUsername})(Header);
+export default withRouter(connect(mapStateToProps, {getUsername})(Header));
