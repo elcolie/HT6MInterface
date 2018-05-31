@@ -1,10 +1,11 @@
 import {GOOD_TOKEN, INVALID_TOKEN} from "../constants";
 import {removeAuthToken} from "../utils";
 
-function immediateReturnTrue(){
+function immediateReturnTrue() {
   return true;
 }
-function immediateReturnFalse(){
+
+function immediateReturnFalse() {
   return false;
 }
 
