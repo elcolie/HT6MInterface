@@ -1,17 +1,17 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
 class ControlRoom extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
   
   render() {
-    return (
-      <Fragment>
-        SIEG HEIL
-      </Fragment>
-    )
+    if (this.props.controlRoom) {
+      return (
+        <div>
+          This is control room
+        </div>
+      )
+    } else {
+      return null;
+    }
   }
 }
 
