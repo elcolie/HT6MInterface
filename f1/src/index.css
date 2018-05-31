@@ -76,6 +76,6 @@ body {
   margin: 10px;
 }
 
-.my-navbar{
-  
+.selected{
+  background-color: grey;
 }

@@ -1,5 +1,5 @@
-import {getAuthToken, removeAuthToken} from "../utils";
-import {ADMIN_EMAIL, GET_LOCAL_TOKEN, LOGOUT, RESPONSE_FAILED, RESPONSE_USERNAME} from "../constants";
+import {getAuthToken} from "../utils";
+import {ADMIN_EMAIL, GET_LOCAL_TOKEN, RESPONSE_FAILED, RESPONSE_USERNAME} from "../constants";
 
 
 export const LocalTokenReducer = (state = {}, action) => {

@@ -15,7 +15,16 @@ export const LOGIN_SUCCESS = 'login_success';
 export const LOGOUT = 'logout';
 export const RESPONSE_USERNAME = 'response_username';
 export const RESPONSE_FAILED = 'response_failed';
-export const VERIFY_TOKEN = 'verify_token';
+export const CONTROL_ROOM = 'control_room';
+export const QUEUE = 'queue';
+export const RESULTS = 'results';
+export const WIKI = 'wiki';
+export const NAV_BAR_MENU = {
+  controlRoom: false,
+  queue: false,
+  results: false,
+  wiki: false
+};
 export const NETWORK_DOWN = {
   message: 'Network is down',
   statusCode: 406

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {getAuthToken, removeAuthToken} from "../../utils";
 import {GET_USERNAME} from "../../constants";
 import {withRouter} from 'react-router-dom';
-import {Nav, Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 class Header extends Component {
   /*
