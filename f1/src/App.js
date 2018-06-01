@@ -8,6 +8,7 @@ import rootSaga from './sagas';
 import 'react-live/react-live.css';
 import './example.less';
 import './style/react-tabs.css';
+import 'semantic-ui-css/semantic.min.css';
 import Container from "./containers/components/Container";
 
 const sagaMiddleWare = createSagaMiddleware();

@@ -12,6 +12,15 @@ export const createAxios = (bigRadius, smallRadius) => {
   });
 };
 
+export const postAxios = (url, data) => {
+  return axios.post(url, data, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': prepareJWTHeader(getAuthToken())
+    }
+  })
+};
+
 // Side effects Services
 export const getAuthToken = () => {
   return localStorage.getItem('authToken');

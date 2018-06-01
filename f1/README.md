@@ -1,3 +1,12 @@
+## HT6MInterface
+A simple React/DjangoREST work with `Fortran`
+
+## Warnings
+1. `jsx` stays remains by some unknown reason. I tried change them back to pure `js` already
+1. `css` in here still mess up
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

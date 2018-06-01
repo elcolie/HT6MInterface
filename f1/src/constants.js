@@ -19,6 +19,9 @@ export const CONTROL_ROOM = 'control_room';
 export const QUEUE = 'queue';
 export const RESULTS = 'results';
 export const WIKI = 'wiki';
+export const SUBMIT_BASIC_FORM = 'submit_basic_form';
+export const BASIC_COMPLETE = 'basic_complete';
+export const BASIC_FAILED = 'basic_failed';
 export const NAV_BAR_MENU = {
   controlRoom: false,
   queue: false,
@@ -28,4 +31,89 @@ export const NAV_BAR_MENU = {
 export const NETWORK_DOWN = {
   message: 'Network is down',
   statusCode: 406
+};
+
+export const MACHINE_OPTIONS = [
+  {
+    text: 'HT-6M',
+    value: 'HT-6M'
+  },
+  {
+    text: 'HT-5M',
+    value: 'HT-5M'
+  }
+];
+
+export const PLASMA_CURRENT_OPTIONS = [
+  {
+    text: '0.01',
+    value: 0.01
+  },
+  {
+    text: '0.02',
+    value: 0.02
+  },
+  {
+    text: '0.03',
+    value: 0.03
+  },
+];
+
+export const MAGNETIC_FIELD_OPTIONS = [
+  {
+    text: '1.50',
+    value: 1.50
+  },
+  {
+    text: '1.75',
+    value: 1.75
+  },
+  {
+    text: '2.00',
+    value: 2.00
+  },
+];
+
+export const RATE_OF_GAS_PUFFING_OPTIONS = [
+  {
+    text: '10.0',
+    value: 10.0
+  },
+  {
+    text: '15.0',
+    value: 15.0
+  },
+  {
+    text: '20.0',
+    value: 20.0
+  },
+];
+
+export const ICRF_HEATING_OPTIONS = [
+  {
+    text: '1.00',
+    value: 1.00
+  },
+  {
+    text: '2.00',
+    value: 2.00
+  },
+  {
+    text: '3.00',
+    value: 3.00
+  },
+];
+
+export const MACHINE_OPTIONS_DEFAULT = 'HT-6M';
+export const PLASMA_CURRENT_DEFAULT = 0.01;
+export const MAGNETIC_FIELD_DEFAULT = 1.50;
+export const RATE_OF_GAS_PUFFING_DEFAULT = 0;
+export const ICRF_HEATING_DEFAULT = 1.00;
+
+export const BASIC_DEFAULT = {
+  'machineOption': MACHINE_OPTIONS_DEFAULT,
+  'plasmaCurrent': PLASMA_CURRENT_DEFAULT,
+  'magneticField': MAGNETIC_FIELD_DEFAULT,
+  'rateOfGasPuffing': RATE_OF_GAS_PUFFING_DEFAULT,
+  'icrfHeating': ICRF_HEATING_DEFAULT
 };

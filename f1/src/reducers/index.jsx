@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
   localTokenReducer: LocalTokenReducer,
   verifyTokenReducer: VerifyTokenReducer,
   TINTNavBarReducer: TINTNavBarReducer,
+  basicControlRoomReducer: BasicControlRoomReducer,
   form: formReducer
 });
 

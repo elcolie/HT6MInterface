@@ -31,5 +31,5 @@ urlpatterns = [
     path('test/', test, name='test'),
     path('time-series/', time_series, name='time-series'),
     path('username/', get_username, name='get-username'),
-    path('basic/', basic, name='basic'),
+    path('api/basic/', basic, name='basic'),
 ]
