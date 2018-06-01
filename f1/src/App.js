@@ -5,7 +5,9 @@ import rootReducer from "./reducers";
 import {applyMiddleware, createStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas';
-
+import 'react-live/react-live.css';
+import './example.less';
+import './style/react-tabs.css';
 import Container from "./containers/components/Container";
 
 const sagaMiddleWare = createSagaMiddleware();
