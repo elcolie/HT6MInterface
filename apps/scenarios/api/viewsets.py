@@ -51,3 +51,14 @@ def time_series(request):
         'values': values,
     }
     return Response(data=data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes(permission_classes=[IsAuthenticated])
+def basic(request):
+    """
+    For Basic Control Room
+    :param request:
+    :return:
+    """
+    return Response(data={'good': 'call'}, status=status.HTTP_200_OK)

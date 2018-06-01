@@ -86,3 +86,14 @@ class TestScenario(TestCase):
         for key in payload.get('device_params').keys():
             assert payload['device_params'].get(key) == getattr(scenario.device_params, key)
         assert status.HTTP_201_CREATED == res.status_code
+
+    def test_basic_anonymous(self):
+        url = reverse('basic')
+        res = self.client.post(url, {'hello': 'world'}, format='json')
+        assert status.HTTP_401_UNAUTHORIZED == res.status_code
+
+    def test_basic(self):
+        url = reverse('basic')
+        self.client.force_authenticate(user=self.admin_user)
+        res = self.client.post(url, {'hello': 'world'}, format='json')
+        assert status.HTTP_200_OK == res.status_code
