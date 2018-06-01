@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import './App.css';
-import rootReducer from "./reducers";
+import rootReducer from "./reducers/index";
 import {applyMiddleware, createStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas';

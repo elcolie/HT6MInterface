@@ -3,7 +3,7 @@ import {Field, reduxForm} from 'redux-form';
 import {validate} from './validators';
 import {connect} from 'react-redux';
 import {SUBMIT_USERNAME_PASSWORD} from "../../constants";
-import ErrorMessage from "./ErrorMessage.js";
+import ErrorMessage from "./ErrorMessage.jsx";
 import welcomeHeader from "./welcomeHeader";
 import welcomeFooter from "./welcomeFooter";
 
