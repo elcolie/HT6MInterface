@@ -3,6 +3,7 @@ from apps.plasma_params.models import NSMAX, DENSITY_EQN, ATOMIC_NO, CHARGE_NO, 
     PARTICLE_SOURCE_RATE, RADIAL_POSITION, RADIAL_WIDTH, PARTICLE_SOURCE_SPECIES
 
 DEVICE_PARAMS = {
+    'machine': 'HT-6M',
     'major_radius': 0.65,
     'minor_radius': 0.2,
     'triangularity': 0,

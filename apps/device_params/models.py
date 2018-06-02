@@ -5,6 +5,7 @@ from apps.commons.constants import DEVICE_PARAMS
 
 
 class DeviceParameter(AbstractTimestamp):
+    machine = models.CharField(default=DEVICE_PARAMS['machine'], max_length=12)
     major_radius = models.FloatField(default=DEVICE_PARAMS['major_radius'])  # meter
     minor_radius = models.FloatField(default=DEVICE_PARAMS['minor_radius'])  # meter
     triangularity = models.FloatField(default=DEVICE_PARAMS['triangularity'])
