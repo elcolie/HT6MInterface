@@ -7,50 +7,6 @@ DEVICE_PARAMS = {
     'plasma_current': 0.04,
     'magnetic_field': 1.5,
 }
-ATOMIC_NO = {
-    'electron': -1,
-    'hydrogen': 1,
-    'deuterium': 2,
-    'tritium': 3,
-}
-CHARGE_NO = {
-    'electron': -1,
-    'hydrogen': 1,
-    'deuterium': 1,
-    'tritium': 1,
-}
-DENSITY_AXIS = {
-    'electron': 0.1,
-    'hydrogen': 0.1,
-    'deuterium': 0,
-    'tritium': 0,
-}
-DENSITY_SURFACE = {
-    'electron': 0.01,
-    'hydrogen': 0.01,
-    'deuterium': 0,
-    'tritium': 0,
-}
-TEMPERATURE_AXIS = {
-    'electron': 0.5,
-    'hydrogen': 0.5,
-    'deuterium': 0,
-    'tritium': 0,
-}
-TEMPERATURE_SURFACE = {
-    'electron': 0.01,
-    'hydrogen': 0.01,
-    'deuterium': 0,
-    'tritium': 0,
-}
-IMPURITY_NO = 0
-NEUTRAL_NO = 0
-PARTICLE_SOURCE_MODEL = 0
-NUMBER_PARTICLE_SOURCE = 1
-PARTICLE_SOURCE_RATE = 1.0
-RADIAL_POSITION = 0
-RADIAL_WIDTH = 0.5
-PARTICLE_SOURCE_SPECIES = 2
 PLASMA_PARAMS = {
     'nsmax': 2,
     'density_eqn': False,

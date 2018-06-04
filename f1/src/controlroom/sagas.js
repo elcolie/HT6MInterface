@@ -1,12 +1,19 @@
+import axios from "axios/index";
 import {call, put, takeLatest} from "redux-saga/effects";
 import {BACKEND_URL, BASIC_COMPLETE, BASIC_FAILED, SUBMIT_BASIC_FORM} from "../constants";
-import {postAxios} from "../utils";
+import {getAuthToken, prepareJWTHeader} from "../utils";
 
 const shootBasic = (payload) => {
   const url = `${BACKEND_URL}/api/basic/`;
   const data = JSON.stringify(payload);
-  let tmp = postAxios(url, data);
-  return tmp.post(undefined);
+  return axios.post(url, data, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': prepareJWTHeader(getAuthToken())
+    }
+  });
+  // let tmp = postAxios(url, data);
+  // return tmp.post(undefined);
 };
 
 function* postBasic(action) {

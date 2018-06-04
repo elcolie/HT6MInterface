@@ -43,7 +43,7 @@ class Basic extends Component {
       <Fragment>
         <div>
           <h1>Please provide necessary information for the operation</h1>
-          <img src="tokamak-model.png" alt='logo' width='30%' height='30%'/>
+          <img src="../tokamak-model.png" alt='logo' width='30%' height='30%'/>
           
           <Form onSubmit={this.handleSubmit}>
             <Form.Group inline>
