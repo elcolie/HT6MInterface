@@ -15,6 +15,7 @@ import {
   RATE_OF_GAS_PUFFING_OPTIONS,
   SUBMIT_BASIC_FORM
 } from "../../constants";
+import BalloonNotification from "../../commons/components/balloon";
 
 class Basic extends Component {
   // <Form.Group>
@@ -44,6 +45,8 @@ class Basic extends Component {
         <div>
           <h1>Please provide necessary information for the operation</h1>
           <img src="../tokamak-model.png" alt='logo' width='30%' height='30%'/>
+          
+          <BalloonNotification props={this.props}/>
           
           <Form onSubmit={this.handleSubmit}>
             <Form.Group inline>

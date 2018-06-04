@@ -12,8 +12,6 @@ const shootBasic = (payload) => {
       'Authorization': prepareJWTHeader(getAuthToken())
     }
   });
-  // let tmp = postAxios(url, data);
-  // return tmp.post(undefined);
 };
 
 function* postBasic(action) {
