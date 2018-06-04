@@ -17,11 +17,19 @@ class Scenario(AbstractTimestamp):
                                          related_query_name='scenarios')
     control_params = models.ForeignKey(ControlParameter, on_delete=models.CASCADE, related_name='scenarios',
                                        related_query_name='scenarios')
+    comment = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='scenarios',
                                    related_query_name='scenarios')
 
     def __str__(self):
         return f"{self.id} {self.device_params}"
+
+    def state(self) -> str:
+        result = self.results.first()
+        if result is None:
+            return 'Running'
+        else:
+            return 'Complete' if result.passed else 'Error'
 
 
 class Result(AbstractTimestamp):
@@ -29,6 +37,7 @@ class Result(AbstractTimestamp):
                                  related_query_name='results')
     filename = models.CharField(max_length=255)
     output = models.FileField(upload_to='outputs')
+    passed = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.scenario} {self.filename}"

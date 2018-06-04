@@ -1,21 +1,16 @@
 from rest_framework import serializers
 
+from apps.commons.constants import CONTROL_PARAMS
 from apps.control_params.models import ControlParameter
 
 
 class ControlParameterSerializer(serializers.ModelSerializer):
-    timestep = serializers.FloatField(required=False)
-    mesh_point = serializers.IntegerField(required=False)
-    snap_data_print = serializers.IntegerField(required=False)
-    radial_profile_snap = serializers.IntegerField(required=False)
-    time_evolution_snap = serializers.IntegerField(required=False)
+    no_break_point = serializers.IntegerField(min_value=2, default=CONTROL_PARAMS['no_break_point'])
+    max_run_time = serializers.IntegerField(min_value=3, default=CONTROL_PARAMS['max_run_time'])
 
     class Meta:
         model = ControlParameter
         fields = [
-            'timestep',
-            'mesh_point',
-            'snap_data_print',
-            'radial_profile_snap',
-            'time_evolution_snap',
+            'no_break_point',
+            'max_run_time',
         ]

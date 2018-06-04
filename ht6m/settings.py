@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.control_params',
     'apps.transport_params',
     'apps.heating_params',
+    'apps.plasma_species',
     'apps.scenarios',
 ]
 
