@@ -11,6 +11,8 @@ django-cors-headers
 djangorestframework
 djangorestframework-jwt
 django-cors-headers
+Celery
+django-celery-results
 gunicorn
 gevent
 docker-compose

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,6 +142,8 @@ STATICFILES_FINDERS = (
 MEDIA_ROOT = BASE_DIR + '/media'
 MEDIA_URL = '/media/'
 
+# This is fun part of the project. 2 techniques in the same project :)
+CELERY_RESULT_BACKEND = 'django-db'
 RQ_QUEUES = {
     'default': {
         'HOST': os.environ.get('REDIS', 'localhost'),
@@ -162,3 +165,4 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
     'JWT_ALLOW_REFRESH': True,
 }
+
