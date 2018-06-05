@@ -20,10 +20,11 @@ class Intermediate extends Component {
 }
 
 const submitIntermediateForm = (data) => {
-  return {
-    type: SUBMIT_INTERMEIATE_FORM,
-    payload: data
-  }
+  return null;
+  // return {
+  //   type: SUBMIT_INTERMEIATE_FORM,
+  //   payload: data
+  // }
 };
 
 const mapStateToProps = (newProps, ownProps) => {
