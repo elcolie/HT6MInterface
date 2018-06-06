@@ -134,3 +134,30 @@ export const NSMAX_OPTIONS = [
 ];
 
 export const CLICK_CHANGE_SPECIES = 'click_change_species';
+export const TRANSPORT_OPTIONS_DEFAULT = 'CDBM05';
+export const TRANSPORT_OPTIONS = [
+  {
+    text: 'Model01',
+    value: 'Model01'
+  },
+  {
+    text: 'Model02',
+    value: 'Model02'
+  }
+];
+
+export const RESISTIVITY_OPTIONS = [
+  {
+    text: 'Model01',
+    value: 'Model01'
+  },
+  {
+    text: 'Model02',
+    value: 'Model02'
+  },
+  {
+    text: 'Model03',
+    value: 'Model03'
+  }
+];
+export const RESISTIVITY_OPTIONS_DEFAULT = "Hinton and Hazeltine's model";
