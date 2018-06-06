@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
+import typing
 
 from celery import Celery, shared_task
 
@@ -28,3 +29,8 @@ def debug_task(self):
 def debug_mine(a, b):
     print(f"{a+b}")
     return a + b
+
+
+@shared_task
+def basic_simulate(data: typing.Dict):
+    return data

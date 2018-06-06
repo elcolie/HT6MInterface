@@ -1,3 +1,4 @@
+import logging
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -7,7 +8,9 @@ from rest_framework.response import Response
 
 from apps.scenarios.api.serializers import ScenarioSerializer
 from apps.scenarios.models import Scenario
+from ht6m.celery import basic_simulate
 
+logger = logging.getLogger('django')
 
 class ScenarioViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
@@ -61,4 +64,8 @@ def basic(request):
     :param request:
     :return:
     """
-    return Response(data={'good': 'call'}, status=status.HTTP_200_OK)
+    # from pprint import pprint
+    # import ipdb; ipdb.set_trace()
+    logger.info(f"BASIC : {request.data}")
+    basic_simulate.delay(request.data)
+    return Response(data=request.data, status=status.HTTP_200_OK)
