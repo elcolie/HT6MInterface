@@ -16,6 +16,7 @@ import {
   SUBMIT_BASIC_FORM
 } from "../../constants";
 import BalloonNotification from "../../commons/components/balloon";
+import tokamakModel from './tokamak-model.png';
 
 class Basic extends Component {
   // <Form.Group>
@@ -44,7 +45,7 @@ class Basic extends Component {
       <Fragment>
         <div>
           <h1>Please provide necessary information for the operation</h1>
-          <img src="../tokamak-model.png" alt='logo' width='30%' height='30%'/>
+          <img src={tokamakModel} alt='logo' width='30%' height='30%'/>
           
           <BalloonNotification props={this.props}/>
           

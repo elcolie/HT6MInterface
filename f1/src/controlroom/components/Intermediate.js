@@ -1,7 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import { Form, Input } from 'semantic-ui-react'
-import {MACHINE_OPTIONS, MACHINE_OPTIONS_DEFAULT} from "../../constants";
 import setMachineParameter from "./setMachineParameters";
 import SetPlasmaParameter from "./setPlasmaParameters";
 
@@ -19,9 +17,9 @@ class Intermediate extends Component {
         {setMachineParameter()}
         ______________________________________________
         <SetPlasmaParameter/>
-
-      </Fragment>
       
+      </Fragment>
+    
     )
   }
 }

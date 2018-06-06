@@ -1,12 +1,13 @@
 import React from 'react';
 import {Form, Input} from 'semantic-ui-react';
 import {MACHINE_OPTIONS, MACHINE_OPTIONS_DEFAULT} from "../../constants";
+import machParams from './mach-params.png';
 
 const setMachineParameter = () => {
   return (
     <div>
       <h1 id={'machine-params'}>Step 1/5: Set machine's parameters</h1>
-      <img src={'mach-params.png'} className={'intermediate-image'}/>
+      <img src={machParams} className={'intermediate-image'} alt={'set machine parameters'}/>
       <Form onSubmit={this.handleSubmit}>
         <Form.Group inline>
           <label>Machine</label>

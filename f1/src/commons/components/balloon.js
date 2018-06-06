@@ -2,10 +2,6 @@ import React, {Component, Fragment} from 'react';
 import _ from 'lodash'
 
 class BalloonNotification extends Component{
-  constructor(props){
-    super(props);
-    
-  }
   
   render(){
     console.log(`balloon`);

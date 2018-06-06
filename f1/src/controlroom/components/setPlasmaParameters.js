@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import DensityTemperatureContainer from "./densityTemperature";
 import TemperatureAtCenter from "./temperatureCenter";
 import TemperatureEdge from "./temperatureEdge";
+import plasmaParams from './plasma-parameters.png';
 
 class SetPlasmaParameter extends Component {
   
@@ -13,7 +14,7 @@ class SetPlasmaParameter extends Component {
     return (
       <div>
         <h1 id={'plasma-params'}>Step 2/5: Set plasma parameters</h1>
-        <img src={'plasma-parameters.png'} className={'intermediate-image'}/>
+        <img src={plasmaParams} className={'intermediate-image'} alt={'plasma parameters'}/>
         <fieldset id='login-fieldset'>
           <legend id='dt-legend'>Density and temperature</legend>
           <Form>

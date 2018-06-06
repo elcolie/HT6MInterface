@@ -6,7 +6,7 @@ import {SUBMIT_USERNAME_PASSWORD} from "../../constants";
 import ErrorMessage from "./ErrorMessage.jsx";
 import welcomeHeader from "./welcomeHeader";
 import welcomeFooter from "./welcomeFooter";
-
+import tokamakModel from '../../controlroom/components/tokamak-model.png';
 
 class Login extends Component {
   onSubmit(values) {
@@ -53,7 +53,7 @@ class Login extends Component {
       <Fragment>
         {welcomeHeader()}
         <div id='login-area'>
-          <a href="/" className='login-img'><img src="tokamak-model.png" alt='logo'/></a>
+          <a href="/" className='login-img'><img src={tokamakModel} alt='logo'/></a>
           <form id='login-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <ErrorMessage
               isAuthenticated={isAuthenticated}
