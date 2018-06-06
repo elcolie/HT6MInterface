@@ -117,3 +117,20 @@ export const BASIC_DEFAULT = {
   'rateOfGasPuffing': RATE_OF_GAS_PUFFING_DEFAULT,
   'icrfHeating': ICRF_HEATING_DEFAULT
 };
+
+export const NSMAX_OPTIONS = [
+  {
+    text: '2',
+    value: 2
+  },
+  {
+    text: '3',
+    value: 3
+  },
+  {
+    text: '4',
+    value: 4
+  }
+];
+
+export const CLICK_CHANGE_SPECIES = 'click_change_species';

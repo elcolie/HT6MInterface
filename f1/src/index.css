@@ -32,6 +32,13 @@ body {
   bottom: 0;
 }
 
+#dt-legend{
+  /*Density and Temperature*/
+  text-align: left;
+  margin: 20px;
+  width: 231px;
+}
+
 #login-legend{
   text-align: left;
   margin: 20px;
