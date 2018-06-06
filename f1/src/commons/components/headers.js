@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getAuthToken, removeAuthToken} from "../../utils";
 import {GET_USERNAME} from "../../constants";
 import {withRouter} from 'react-router-dom';
+import tintBanner from './tint-banner.png';
 
 class Header extends Component {
   /*
@@ -32,7 +33,7 @@ class Header extends Component {
     return (
       <Fragment>
         <div className="text-center">
-          <img src="../tint-banner.png" alt="TINT Banner" className='tint-banner'/>
+          <img src={tintBanner} alt="TINT Banner" className='tint-banner'/>
           <span className='my-vertical'>
             <label>Welcome {username}</label>
             <button type="submit" onClick={(event) => {

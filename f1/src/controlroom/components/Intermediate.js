@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import setMachineParameter from "./setMachineParameters";
 import SetPlasmaParameter from "./setPlasmaParameters";
+import SetTransportParameter from "./setTransportParameters";
 
 class Intermediate extends Component {
   handleSubmit = (event, payload) => {
@@ -17,6 +18,7 @@ class Intermediate extends Component {
         {setMachineParameter()}
         ______________________________________________
         <SetPlasmaParameter/>
+        <SetTransportParameter/>
       
       </Fragment>
     
