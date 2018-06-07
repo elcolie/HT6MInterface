@@ -145,7 +145,7 @@ export const TRANSPORT_OPTIONS = [
     value: 'Model02'
   }
 ];
-
+export const RESISTIVITY_OPTIONS_DEFAULT = "Hinton and Hazeltine's model";
 export const RESISTIVITY_OPTIONS = [
   {
     text: 'Model01',
@@ -160,4 +160,111 @@ export const RESISTIVITY_OPTIONS = [
     value: 'Model03'
   }
 ];
-export const RESISTIVITY_OPTIONS_DEFAULT = "Hinton and Hazeltine's model";
+export const PARTICLE_DIFFUSION_MODEL_DEFAULT = 'Constant values';
+export const PARTICLE_DIFFUSION_MODEL_OPTIONS = [
+  {
+    text: 'Model01',
+    value: 'Model01'
+  },
+  {
+    text: 'Model02',
+    value: 'Model02'
+  },
+  {
+    text: 'Model03',
+    value: 'Model03'
+  }
+];
+export const HEAT_PINCH_MODEL_DEFAULT = 'xxxx';
+export const HEAT_PINCH_MODEL_OPTIONS = [
+  {
+    text: 'Model01',
+    value: 'Model01'
+  },
+  {
+    text: 'Model02',
+    value: 'Model02'
+  },
+  {
+    text: 'Model03',
+    value: 'Model03'
+  }
+];
+export const BOOTSTRAP_CURRENT_DEFAULT = 'xxxx';
+export const BOOTSTRAP_CURRENT_MODEL_OPTIONS = [
+  {
+    text: 'Model01',
+    value: 'Model01'
+  },
+  {
+    text: 'Model02',
+    value: 'Model02'
+  },
+  {
+    text: 'Model03',
+    value: 'Model03'
+  }
+];
+
+export const NEOCLASSICAL_MODEL_DEFAULT = 'xxxx';
+export const NEOCLASSICAL_MODEL_OPTIONS = [
+  {
+    text: 'Model01',
+    value: 'Model01'
+  },
+  {
+    text: 'Model02',
+    value: 'Model02'
+  },
+  {
+    text: 'Model03',
+    value: 'Model03'
+  }
+];
+
+export const NUMBER_OF_TIME_BREAK_POINTS_DEFAULT = 5;
+export const NUMBER_OF_TIME_BREAK_POINTS_OPTIONS = [
+  {
+    text: '1',
+    value: 1
+  },
+  {
+    text: '2',
+    value: 2
+  },
+  {
+    text: '3',
+    value: 3
+  },
+  {
+    text: '4',
+    value: 4
+  },
+  {
+    text: '5',
+    value: 5
+  },
+  {
+    text: '6',
+    value: 6
+  },
+  {
+    text: '7',
+    value: 7
+  }
+];
+export const MAXIMUM_RUNTIME_DEFAULT = 3;
+export const MAXIMUM_RUNTIME_OPTIONS= [
+  {
+    text: '1',
+    value: 1
+  },
+  {
+    text: '2',
+    value: 2
+  },
+  {
+    text: '3',
+    value: 3
+  }
+];

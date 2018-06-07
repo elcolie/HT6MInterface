@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {CLICK_CHANGE_SPECIES, NSMAX_OPTIONS} from "../../constants";
-import {Form, Table} from 'semantic-ui-react'
+import {Form, Table} from 'semantic-ui-react';
 import DensityCenterRow from "./densityCenterRow";
 import {connect} from 'react-redux';
 import DensityTemperatureContainer from "./densityTemperature";
