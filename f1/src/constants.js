@@ -222,12 +222,8 @@ export const NEOCLASSICAL_MODEL_OPTIONS = [
   }
 ];
 
-export const NUMBER_OF_TIME_BREAK_POINTS_DEFAULT = 5;
+export const NUMBER_OF_TIME_BREAK_POINTS_DEFAULT = '5';
 export const NUMBER_OF_TIME_BREAK_POINTS_OPTIONS = [
-  {
-    text: '1',
-    value: 1
-  },
   {
     text: '2',
     value: 2
@@ -251,9 +247,13 @@ export const NUMBER_OF_TIME_BREAK_POINTS_OPTIONS = [
   {
     text: '7',
     value: 7
+  },
+  {
+    text: '8',
+    value: 8
   }
 ];
-export const MAXIMUM_RUNTIME_DEFAULT = 3;
+export const MAXIMUM_RUNTIME_DEFAULT = '3';
 export const MAXIMUM_RUNTIME_OPTIONS= [
   {
     text: '1',
@@ -266,5 +266,19 @@ export const MAXIMUM_RUNTIME_OPTIONS= [
   {
     text: '3',
     value: 3
+  },
+  {
+    text: '4',
+    value: 4
+  },
+  {
+    text: '5',
+    value: 5
+  },
+  {
+    text: '6',
+    value: 6
   }
 ];
+export const NUMBER_OF_BREAK_POINTS_CHANGED = 'number_of_break_points_changed';
+export const MAXIMUM_RUNTIME_CHANGED = 'maximum_runtime_changed';

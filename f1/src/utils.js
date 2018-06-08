@@ -1,5 +1,7 @@
 import axios from "axios/index";
 import {BACKEND_URL} from "./constants";
+//Remove mock line when do actual run
+// import localStorage from './localStorageMock';
 
 export const createAxios = (bigRadius, smallRadius) => {
   // Create axios instance

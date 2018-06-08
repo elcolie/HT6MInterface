@@ -17,12 +17,12 @@ class Intermediate extends Component {
     return (
       <Fragment>
         {/*I will uncommet it later*/}
-        {setMachineParameter()}
+        {/*{setMachineParameter()}*/}
         {/*______________________________________________*/}
-        <SetPlasmaParameter/>
-        <SetTransportParameter/>
+        {/*<SetPlasmaParameter/>*/}
+        {/*<SetTransportParameter/>*/}
         <ControlParameter/>
-        <ParticleAndHeatSources/>
+        {/*<ParticleAndHeatSources/>*/}
       
       </Fragment>
     

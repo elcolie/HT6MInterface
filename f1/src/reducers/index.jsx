@@ -5,7 +5,7 @@ import {UserPasswordReducer} from "../frontpage/reducers";
 import {LocalTokenReducer} from "../commons/reducers";
 import {VerifyTokenReducer} from "../containers/reducers";
 import {TINTNavBarReducer} from "../simulators/reducers";
-import {BasicControlRoomReducer, SpecieReducer} from "../controlroom/reducers";
+import {BasicControlRoomReducer, ControlParametersReducer, SpecieReducer} from "../controlroom/reducers";
 
 const rootReducer = combineReducers({
   inputInterface: InputInterfaceReducer,
@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
   TINTNavBarReducer: TINTNavBarReducer,
   basicControlRoomReducer: BasicControlRoomReducer,
   specieReducer: SpecieReducer,
+  controlParametersReducer: ControlParametersReducer,
   form: formReducer
 });
 

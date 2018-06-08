@@ -6,6 +6,7 @@
     "@amcharts/amcharts3-react": "^3.1.0",
     "ajv": "^6.5.0",
     "amcharts3": "^3.21.12",
+    "antd": "^3.6.1",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
