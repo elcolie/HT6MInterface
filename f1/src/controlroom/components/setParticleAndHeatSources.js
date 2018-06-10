@@ -1,15 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import {Steps} from 'antd';
 import {connect} from 'react-redux';
-import ParticleHeatForm from "./particleHeatForm";
-import {stringifyNumber} from "../../utils";
 import {setBreakPointList} from "../utils";
 
 const Step = Steps.Step;
 
-const dumpParticleAndHeatSources = (props) =>{
+const dumpParticleAndHeatSources = (props) => {
   const {steps, state} = props;
-  console.log(props);
   return (
     <div className="steps-content">{steps[state.current].content}</div>
   )
