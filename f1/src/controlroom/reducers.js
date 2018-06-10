@@ -5,7 +5,8 @@ import {
   MAXIMUM_RUNTIME_CHANGED,
   MAXIMUM_RUNTIME_DEFAULT,
   NUMBER_OF_BREAK_POINTS_CHANGED,
-  NUMBER_OF_TIME_BREAK_POINTS_DEFAULT
+  NUMBER_OF_TIME_BREAK_POINTS_DEFAULT,
+  PARTICLE_HEATSOURCE_DEFAULT, PARTICLE_HEATSOURCE_NEXT
 } from "../constants";
 
 export const BasicControlRoomReducer = (state = {}, action) => {
@@ -50,6 +51,15 @@ export const ControlParametersReducer = (state = {
       return state;
     case MAXIMUM_RUNTIME_CHANGED:
       state.maximumRunTime = action.payload.value;
+      return state;
+    default:
+      return state;
+  }
+};
+
+export const ParticleAndHeatSourcesReducer = (state = [], action) => {
+  switch(action.type){
+    case PARTICLE_HEATSOURCE_NEXT:
       return state;
     default:
       return state;

@@ -11,6 +11,7 @@ import {
   NUMBER_OF_TIME_BREAK_POINTS_OPTIONS
 } from "../../constants";
 import SimpleStep from "./simpleStep";
+import ParticleAndHeatSources from "./setParticleAndHeatSources";
 
 
 class ControlParameterForm extends Component {
@@ -45,6 +46,13 @@ class ControlParameterForm extends Component {
             }}/>
           </Form.Group>
         </Form>
+  
+        <a href="#transport-params" className="btn btn-info" role="button">Back</a>
+        <a href="#set-particle-and-heatsources-params" className="btn btn-info" role="button">Next</a>
+  
+        <ParticleAndHeatSources controlParametersReducer={this.props.controlParametersReducer}/>
+        
+        
       </Fragment>
     )
   }

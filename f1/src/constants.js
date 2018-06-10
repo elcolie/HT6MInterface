@@ -282,3 +282,40 @@ export const MAXIMUM_RUNTIME_OPTIONS= [
 ];
 export const NUMBER_OF_BREAK_POINTS_CHANGED = 'number_of_break_points_changed';
 export const MAXIMUM_RUNTIME_CHANGED = 'maximum_runtime_changed';
+export const PARTICLE_HEATSOURCE_DEFAULT = {
+  breakPointNumber: 0,
+  timeAtBreakPoint: 0.01,
+  
+  ionSpeciesOfTheSource: 'Hydrogen',
+  rateOfParticleSource: 0.01,
+  radialPosition: 0.00,
+  radialWidth: 0.50,
+  
+  nbiTotalPower: 0.01,
+  nbiRadialPosition: 0.01,
+  nbiRadialWidth: 0.01,
+  
+  icrfTotalPower: 0.01,
+  icrfRadialPosition: 0.01,
+  icrfRadialWidth: 0.01
+  
+};
+export const PARTICLE_HEATSOURCE_NEXT = 'particle_heatsource_next';
+export const SPECIES = [
+  {
+    text: 'Electron',
+    value: 'electron'
+  },
+  {
+    text: 'Hydrogen',
+    value: 'hydrogen'
+  },
+  {
+    text: 'Deuterium',
+    value: 'deuterium'
+  },
+  {
+    text: 'Tritium',
+    value: 'tritium'
+  },
+];
