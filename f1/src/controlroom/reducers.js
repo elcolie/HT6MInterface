@@ -8,6 +8,7 @@ import {
   NUMBER_OF_TIME_BREAK_POINTS_DEFAULT,
   PARTICLE_HEATSOURCE_DEFAULT, PARTICLE_HEATSOURCE_NEXT
 } from "../constants";
+import {setBreakPointList} from "./utils";
 
 export const BasicControlRoomReducer = (state = {}, action) => {
   switch (action.type) {
@@ -43,15 +44,22 @@ export const SpecieReducer = (state = {nsmax: 2}, action) => {
 
 export const ControlParametersReducer = (state = {
   numberOfBreakPoints: Number(NUMBER_OF_TIME_BREAK_POINTS_DEFAULT),
-  maximumRunTime: Number(MAXIMUM_RUNTIME_DEFAULT)
+  maximumRunTime: Number(MAXIMUM_RUNTIME_DEFAULT),
+  steps: setBreakPointList(Number(NUMBER_OF_TIME_BREAK_POINTS_DEFAULT))
 }, action) => {
   switch (action.type) {
     case NUMBER_OF_BREAK_POINTS_CHANGED:
-      state.numberOfBreakPoints = action.payload.value;
-      return state;
+      return {
+        numberOfBreakPoints: action.payload.value,
+        maximumRunTime: state.maximumRunTime,
+        steps: setBreakPointList(action.payload.value)
+      };
     case MAXIMUM_RUNTIME_CHANGED:
-      state.maximumRunTime = action.payload.value;
-      return state;
+      return {
+        numberOfBreakPoints: state.numberOfBreakPoints,
+        maximumRunTime: action.payload.value,
+        steps: state.steps
+      };
     default:
       return state;
   }

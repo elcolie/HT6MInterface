@@ -26,7 +26,7 @@ export const postAxios = (url, data) => {
 export const myCache = () => {
   //https://stackoverflow.com/questions/50784213/javascript-locally-import-header-on-the-fly-based-on-runner-arguments
   const tmp = Object.assign({}, process.argv);
-  const cache = (tmp[4] === '--env=jsdom') ? require("./localStorageMock") : localStorage;
+  const cache = (tmp[4] === '--env=jsdom') ? require("./localStorageMock2") : localStorage;
   return cache;
 };
 

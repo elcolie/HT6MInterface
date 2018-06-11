@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Dropdown, Form} from 'semantic-ui-react'
+import {Dropdown, Form} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {SPECIES} from "../../constants";
 
