@@ -51,7 +51,6 @@ class TINTNavBar extends Component {
         <TINTResult results={results}/>
         <Wiki wiki={wiki}/>
       </div>
-    
     )
   }
 }

@@ -13,15 +13,14 @@ class ControlRoom extends Component {
         <div>
           <Tabs>
             <TabList>
-              {/*I will be back and use this component when finish*/}
-              {/*<Tab>Basic</Tab>*/}
+              <Tab>Basic</Tab>
               <Tab>Intermediate</Tab>
               <Tab>Advance</Tab>
             </TabList>
             
-            {/*<TabPanel>*/}
-              {/*<Basic/>*/}
-            {/*</TabPanel>*/}
+            <TabPanel>
+              <Basic/>
+            </TabPanel>
             
             <TabPanel>
               <Intermediate/>

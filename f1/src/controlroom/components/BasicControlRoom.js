@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Form} from 'semantic-ui-react';
 import {connect} from 'react-redux';
+import { message } from 'antd';
 import {
   BASIC_DEFAULT,
   ICRF_HEATING_DEFAULT,
@@ -32,6 +33,7 @@ class Basic extends Component {
   handleSubmit = (event, payload) => {
     console.log(`handleSubmit`);
     console.log(this.state);  //I will emit `action` here
+    message.success('Processing complete!');
     this.props.submitBasicForm(this.state);
   };
   
@@ -46,8 +48,6 @@ class Basic extends Component {
         <div>
           <h1>Please provide necessary information for the operation</h1>
           <img src={tokamakModel} alt='logo' width='30%' height='30%'/>
-          
-          <BalloonNotification props={this.props}/>
           
           <Form onSubmit={this.handleSubmit}>
             <Form.Group inline>

@@ -2,8 +2,6 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {Form} from 'semantic-ui-react';
 import {Steps} from 'antd';
-
-
 import {
   MAXIMUM_RUNTIME_CHANGED,
   MAXIMUM_RUNTIME_DEFAULT,
@@ -13,7 +11,6 @@ import {
   NUMBER_OF_TIME_BREAK_POINTS_OPTIONS
 } from "../../constants";
 import SimpleStep from "./simpleStep";
-import {setBreakPointList} from "../utils";
 
 const Step = Steps.Step;
 
@@ -65,12 +62,12 @@ class ControlParameterForm extends Component {
         
         <a href="#transport-params" className="btn btn-info" role="button">Back</a>
         <a href="#set-particle-and-heatsources-params" className="btn btn-info" role="button">Next</a>
-  
+        
         <h1 id={'set-particle-and-heatsources-params'}>
           Step 5/5: Set particle and heat sources at each time break
           points
         </h1>
-  
+        
         <div>
           <Steps current={current}>
             {steps.map((item, index) => <Step key={index} onClick={() => {
@@ -79,7 +76,7 @@ class ControlParameterForm extends Component {
           </Steps>
         </div>
         {dumpParticleAndHeatSources({steps, state: this.state})}
-        
+      
       </Fragment>
     )
   }

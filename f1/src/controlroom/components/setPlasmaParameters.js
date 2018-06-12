@@ -48,7 +48,6 @@ class SetPlasmaParameter extends Component {
         
         </fieldset>
         
-        
         <a href="#machine-params" className="btn btn-info" role="button">Back</a>
         <a href="#transport-params" className="btn btn-info" role="button">Next</a>
       </div>

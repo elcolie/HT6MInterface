@@ -319,3 +319,4 @@ export const SPECIES = [
     value: 'tritium'
   },
 ];
+export const CHANGE_CONFIRMATION = 'change_confirmation';

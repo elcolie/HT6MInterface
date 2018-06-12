@@ -1,6 +1,6 @@
 import {
   BASIC_COMPLETE,
-  BASIC_FAILED,
+  BASIC_FAILED, CHANGE_CONFIRMATION,
   CLICK_CHANGE_SPECIES,
   MAXIMUM_RUNTIME_CHANGED,
   MAXIMUM_RUNTIME_DEFAULT,
@@ -69,6 +69,17 @@ export const ParticleAndHeatSourcesReducer = (state = [], action) => {
   switch(action.type){
     case PARTICLE_HEATSOURCE_NEXT:
       return state;
+    default:
+      return state;
+  }
+};
+
+export const ConfirmationReducer = (state = {}, action) =>{
+  switch (action.type){
+    case CHANGE_CONFIRMATION:
+      return {
+        confirmationText: action.payload
+      };
     default:
       return state;
   }

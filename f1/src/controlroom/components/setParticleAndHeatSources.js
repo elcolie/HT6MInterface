@@ -5,18 +5,7 @@ import {setBreakPointList} from "../utils";
 
 const Step = Steps.Step;
 
-// export const dumpParticleHeatSources = (props) =>{
-//   //Functional style
-//   return (
-//     <Fragment>
-//       SIEG HEIL
-//       <label>{props}</label>
-//     </Fragment>
-//   )
-// };
-//
 const dumpParticleAndHeatSources = (props) => {
-  console.log(props);
   const {steps, state} = props;
   return (
     <div className="steps-content">{steps[state.current].content}</div>
@@ -30,7 +19,7 @@ class ParticleAndHeatSources extends Component {
     super(props);
     this.state = {
       current: 0,
-      steps : setBreakPointList(props.numberOfBreakPoints)
+      steps: setBreakPointList(props.numberOfBreakPoints)
     };
   }
   
@@ -59,7 +48,7 @@ class ParticleAndHeatSources extends Component {
       </Fragment>
     )
   }
-};
+}
 
 const mapStateToProps = (newProps, ownProps) => {
   return newProps;

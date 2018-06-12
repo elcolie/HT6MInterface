@@ -1,7 +1,5 @@
 import axios from "axios/index";
 import {BACKEND_URL} from "./constants";
-//Remove mock line when do actual run
-// import localStorage from './localStorageMock';
 
 export const createAxios = (bigRadius, smallRadius) => {
   // Create axios instance
@@ -23,32 +21,39 @@ export const postAxios = (url, data) => {
   })
 };
 
+
 export const myCache = () => {
+  //Fix the test when runner is on serverside
   //https://stackoverflow.com/questions/50784213/javascript-locally-import-header-on-the-fly-based-on-runner-arguments
   const tmp = Object.assign({}, process.argv);
   const cache = (tmp[4] === '--env=jsdom') ? require("./localStorageMock2") : localStorage;
-  return cache;
+  if (tmp[4] === '--env=jsdom') {
+    const cache = require("./localStorageMock2");
+    return cache.default;
+  } else {
+    return localStorage;
+  }
 };
 
 // Side effects Services
 export const getAuthToken = () => {
-  // const cache = myCache();
-  // return cache.getItem('authToken');
-  return localStorage.getItem('authToken');
+  const cache = myCache();
+  return cache.getItem('authToken');
+  // return localStorage.getItem('authToken');
 };
 
 export const setAuthToken = (token) => {
-  // const cache = myCache();
-  // return cache.setItem('authToken', token);
-  return localStorage.setItem('authToken', token);
+  const cache = myCache();
+  return cache.setItem('authToken', token);
+  // return localStorage.setItem('authToken', token);
 };
 
 export const removeAuthToken = () => {
-  // const cache = myCache();
-  // console.log(cache);
-  // console.log(typeof cache.removeItem);
-  // return cache.removeItem('authToken');
-  localStorage.removeItem('authToken');
+  const cache = myCache();
+  console.log(cache);
+  console.log(typeof cache.removeItem);
+  return cache.removeItem('authToken');
+  // localStorage.removeItem('authToken');
 };
 
 export const prepareJWTHeader = (token) => {

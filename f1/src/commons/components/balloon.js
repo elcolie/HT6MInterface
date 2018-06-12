@@ -16,7 +16,6 @@ class BalloonNotification extends Component{
       if (statusCode === 200){
         return(
           <Fragment>
-            <p>Need to let it fade out</p>
             <p>{message}</p>
           </Fragment>
         )
