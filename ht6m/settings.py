@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_rq',
     'corsheaders',
     'rest_framework',
+    'apps.advanced_cases',
     'apps.commons',
     'apps.device_params',
     'apps.plasma_params',
@@ -174,6 +175,8 @@ RQ_QUEUES = {
 }
 
 REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
