@@ -4,6 +4,8 @@ from apps.advanced_cases.models import AdvancedCase
 
 
 class AdvancedCaseSerializer(serializers.ModelSerializer):
+    created_by = serializers.CurrentUserDefault()
+
     class Meta:
         model = AdvancedCase
         fields = [
