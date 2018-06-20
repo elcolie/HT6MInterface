@@ -64,8 +64,6 @@ def basic(request):
     :param request:
     :return:
     """
-    # from pprint import pprint
-    # import ipdb; ipdb.set_trace()
     logger.info(f"BASIC : {request.data}")
     basic_simulate.delay(request.data)
     return Response(data=request.data, status=status.HTTP_200_OK)

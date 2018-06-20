@@ -33,4 +33,5 @@ def debug_mine(a, b):
 
 @shared_task
 def basic_simulate(data: typing.Dict):
+    """Basic ControlRoom simulator start computing here"""
     return data
