@@ -6,6 +6,7 @@ import {LocalTokenReducer} from "../commons/reducers";
 import {VerifyTokenReducer} from "../containers/reducers";
 import {TINTNavBarReducer} from "../simulators/reducers";
 import {
+  AdvancedControlRoomReducer,
   BasicControlRoomReducer,
   ConfirmationReducer,
   ControlParametersReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   specieReducer: SpecieReducer,
   controlParametersReducer: ControlParametersReducer,
   confirmationReducer: ConfirmationReducer,
+  advancedControlRoomReducer: AdvancedControlRoomReducer,
   form: formReducer
 });
 

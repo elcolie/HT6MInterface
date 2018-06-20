@@ -1,4 +1,5 @@
 import {
+  ADVANCED_COMPLETE, ADVANCED_FAILED,
   BASIC_COMPLETE,
   BASIC_FAILED,
   CHANGE_CONFIRMATION,
@@ -76,6 +77,26 @@ export const ConfirmationReducer = (state = {}, action) => {
     case CHANGE_CONFIRMATION:
       return {
         confirmationText: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+
+export const AdvancedControlRoomReducer = (state = {}, action) =>{
+  switch (action.type){
+    case ADVANCED_COMPLETE:
+      console.log(`adv complete`);
+      return {
+        message: 'Advanced mode form has been submitted',
+        statusCode: 200
+      };
+    case ADVANCED_FAILED:
+      console.log(`adv failed`);
+      return {
+        message: 'Connection failed',
+        statusCode: 500
       };
     default:
       return state;

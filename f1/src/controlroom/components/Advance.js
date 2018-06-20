@@ -1,8 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import tokamakConfig from './Configuration_icon_by_obsilion.png';
 import {Form} from 'semantic-ui-react';
-import {post} from 'axios';
-import {getAuthToken, prepareJWTHeader} from "../../utils";
+import {connect} from 'react-redux';
+import {SUBMIT_ADVANCED_FORM} from "../../constants";
 
 class Advance extends Component {
   constructor(props) {
@@ -19,24 +19,26 @@ class Advance extends Component {
   
   //TODO: Implement `redux-saga` in order to control the `axios` state
   fileUpload(file, comment) {
-    const url = 'http://localhost:8000/api/advanced-cases/';
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('comment', comment);
-    const config = {
-      headers: {
-        'Authorization': prepareJWTHeader(getAuthToken()),
-        'content-type': 'multipart/form-data'
-      }
-    };
-    return post(url, formData, config)
+    // const url = 'http://localhost:8000/api/advanced-cases/';
+    // const formData = new FormData();
+    // formData.append('file', file);
+    // formData.append('comment', comment);
+    // const config = {
+    //   headers: {
+    //     'Authorization': prepareJWTHeader(getAuthToken()),
+    //     'content-type': 'multipart/form-data'
+    //   }
+    // };
+    // return post(url, formData, config)
+    this.props.submitAdvancedForm({file, comment});
   }
   
   onFormSubmit(e) {
     e.preventDefault(); // Stop form submit
-    this.fileUpload(this.state.file, this.state.comment).then((response) => {
-      console.log(response.data);
-    })
+    this.fileUpload(this.state.file, this.state.comment);
+    // this.fileUpload(this.state.file, this.state.comment).then((response) => {
+    //   console.log(response.data);
+    // })
   }
   
   onChangeFileField(e) {
@@ -71,4 +73,16 @@ class Advance extends Component {
   }
 }
 
-export default Advance;
+const submitAdvancedForm = (data) => {
+  console.log(data);
+  return {
+    type: SUBMIT_ADVANCED_FORM,
+    payload: data
+  }
+};
+
+const mapStateToProps = (newProps, ownProps) => {
+  return newProps;
+};
+
+export default connect(mapStateToProps, {submitAdvancedForm})(Advance);

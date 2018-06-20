@@ -320,3 +320,6 @@ export const SPECIES = [
   },
 ];
 export const CHANGE_CONFIRMATION = 'change_confirmation';
+export const SUBMIT_ADVANCED_FORM = 'submit_advanced_form';
+export const ADVANCED_COMPLETE = 'advanced_complete';
+export const ADVANCED_FAILED = 'advanced_failed';
