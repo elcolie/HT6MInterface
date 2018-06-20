@@ -5,22 +5,21 @@ const Step = Steps.Step;
 
 class SimpleStep extends Component {
   
-  getInsideSteps(numberOfBreakPoints, maximumRunTime){
+  getInsideSteps(numberOfBreakPoints, maximumRunTime) {
     let arrayList = [];
-    let str = "";
     
     for (let i = 0; i < numberOfBreakPoints; i++) {
-      if(i===0){
+      if (i === 0) {
         arrayList.push(
           <Step key={i} title={'Start'}/>
         )
       }
-      else if(i===numberOfBreakPoints - 1){
+      else if (i === numberOfBreakPoints - 1) {
         arrayList.push(
           <Step key={i} title={maximumRunTime} description={'Time'}/>
         )
       }
-      else{
+      else {
         arrayList.push(
           <Step key={i}/>
         )
@@ -30,13 +29,11 @@ class SimpleStep extends Component {
   }
   
   render() {
-    const {maximumRunTime,numberOfBreakPoints } = this.props.controlParametersReducer;
-    // console.log(numberOfBreakPoints);
-    // console.log(maximumRunTime);
+    const {maximumRunTime, numberOfBreakPoints} = this.props.controlParametersReducer;
     
     return (
       <Fragment>
-        <Steps current={numberOfBreakPoints-1} status={"finish"}>
+        <Steps current={numberOfBreakPoints - 1} status={"finish"}>
           {this.getInsideSteps(numberOfBreakPoints, maximumRunTime)}
         </Steps>
       </Fragment>

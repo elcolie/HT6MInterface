@@ -102,9 +102,4 @@ const mapStateToProps = (newProps, ownProps) => {
 };
 
 
-export default connect(
-  mapStateToProps,
-  {onChangeNumberOfBreakPoints, onChangeMaximumRunTime})
-(
-  ControlParameterForm
-);
+export default connect(mapStateToProps, {onChangeNumberOfBreakPoints, onChangeMaximumRunTime})(ControlParameterForm);

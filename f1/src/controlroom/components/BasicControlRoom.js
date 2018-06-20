@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Form} from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import { message } from 'antd';
 import {
   BASIC_DEFAULT,
   ICRF_HEATING_DEFAULT,
@@ -20,10 +19,6 @@ import BalloonNotification from "../../commons/components/balloon";
 import tokamakModel from './tokamak-model.png';
 
 class Basic extends Component {
-  // <Form.Group>
-  // <label>Machine</label>
-  // <Dropdown placeholder='HT-6M' defaultValue={'HT-6M'} fluid search selection options={MACHINE_OPTIONS}/>
-  // </Form.Group>
   
   constructor(props) {
     super(props);
@@ -31,8 +26,7 @@ class Basic extends Component {
   }
   
   handleSubmit = (event, payload) => {
-    console.log(`handleSubmit`);
-    console.log(this.state);  //I will emit `action` here
+    // console.log(this.state);  //I will emit `action` here
     this.props.submitBasicForm(this.state);
   };
   
@@ -42,16 +36,7 @@ class Basic extends Component {
   };
   
   render() {
-    console.log(`render Basic`);
-    console.log(this.props.basicControlRoomRelducer);
-    if (this.props.basicControlRoomReducer){
-      let message = null;
-      let statusCode = null;
-    }else{
-      const {messasge, statusCode} = this.props.basicControlRoomRelducer;
-    }
     
-    // message.success('Processing complete!');
     return (
       <Fragment>
         <div>

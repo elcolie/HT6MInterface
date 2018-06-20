@@ -26,7 +26,6 @@ export const myCache = () => {
   //Fix the test when runner is on serverside
   //https://stackoverflow.com/questions/50784213/javascript-locally-import-header-on-the-fly-based-on-runner-arguments
   const tmp = Object.assign({}, process.argv);
-  const cache = (tmp[4] === '--env=jsdom') ? require("./localStorageMock2") : localStorage;
   if (tmp[4] === '--env=jsdom') {
     const cache = require("./localStorageMock2");
     return cache.default;

@@ -1,11 +1,11 @@
 import React, {Component, Fragment} from 'react';
-import {Dropdown, Form} from 'semantic-ui-react';
+import {Form} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {SPECIES} from "../../constants";
 
-const dumpParticleHeatForm = (props) =>{
+const dumpParticleHeatForm = (props) => {
   const {label, placeholder, unit} = props;
-  return(
+  return (
     <Form.Group inline>
       <label>{label}</label>
       <div className="ui right labeled input">
@@ -45,21 +45,21 @@ class ParticleHeatForm extends Component {
             {dumpParticleHeatForm({label: "Rate of particle source", placeholder: "0.01", unit: 'ms'})}
             {dumpParticleHeatForm({label: "Radial position", placeholder: "0.01", unit: 'm'})}
             {dumpParticleHeatForm({label: "Radial width", placeholder: "0.50", unit: 'm'})}
-            
+          
           </Form>
         </fieldset>
-  
+        
         <fieldset id='login-fieldset'>
           <legend id='login-legend'>Heat Source</legend>
           <Form>
             {dumpParticleHeatForm({label: "NBI total power", placeholder: "0.01", unit: 'W'})}
             {dumpParticleHeatForm({label: "NBI radial position", placeholder: "0.01", unit: 'm'})}
             {dumpParticleHeatForm({label: "NBI radial width", placeholder: "0.01", unit: 'm'})}
-  
+            
             {dumpParticleHeatForm({label: "ICRF total power", placeholder: "0.01", unit: 'W'})}
             {dumpParticleHeatForm({label: "ICRF radial position", placeholder: "0.01", unit: 'm'})}
             {dumpParticleHeatForm({label: "ICRF radial width", placeholder: "0.01", unit: 'm'})}
-            
+          
           </Form>
         </fieldset>
         <a href="#control-params" className="btn btn-info" role="button">Back</a>

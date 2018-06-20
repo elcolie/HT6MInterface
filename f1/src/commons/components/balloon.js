@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import _ from 'lodash';
 import {message as antd_message} from 'antd';
 
@@ -8,7 +8,7 @@ class BalloonNotification extends Component {
     if (_.isEmpty(basicControlRoomReducer)) {
       return null;
     } else {
-      const {message, statusCode} = basicControlRoomReducer;
+      const {statusCode} = basicControlRoomReducer;
       if (statusCode === 200) {
         antd_message.success('Processing complete!');
         return null;

@@ -1,27 +1,24 @@
 import {
   BASIC_COMPLETE,
-  BASIC_FAILED, CHANGE_CONFIRMATION,
+  BASIC_FAILED,
+  CHANGE_CONFIRMATION,
   CLICK_CHANGE_SPECIES,
   MAXIMUM_RUNTIME_CHANGED,
   MAXIMUM_RUNTIME_DEFAULT,
   NUMBER_OF_BREAK_POINTS_CHANGED,
   NUMBER_OF_TIME_BREAK_POINTS_DEFAULT,
-  PARTICLE_HEATSOURCE_DEFAULT, PARTICLE_HEATSOURCE_NEXT
+  PARTICLE_HEATSOURCE_NEXT
 } from "../constants";
 import {setBreakPointList} from "./utils";
 
 export const BasicControlRoomReducer = (state = {}, action) => {
   switch (action.type) {
     case BASIC_COMPLETE:
-      // console.log(`basic complete`);
-      // console.log(action);
       return {
         message: 'Scenario has been submitted',
         statusCode: 200
       };
     case BASIC_FAILED:
-      // console.log(`basic failed`);
-      // console.log(action);
       return {
         message: 'Ark',
         statusCode: 500
@@ -66,7 +63,7 @@ export const ControlParametersReducer = (state = {
 };
 
 export const ParticleAndHeatSourcesReducer = (state = [], action) => {
-  switch(action.type){
+  switch (action.type) {
     case PARTICLE_HEATSOURCE_NEXT:
       return state;
     default:
@@ -74,8 +71,8 @@ export const ParticleAndHeatSourcesReducer = (state = [], action) => {
   }
 };
 
-export const ConfirmationReducer = (state = {}, action) =>{
-  switch (action.type){
+export const ConfirmationReducer = (state = {}, action) => {
+  switch (action.type) {
     case CHANGE_CONFIRMATION:
       return {
         confirmationText: action.payload

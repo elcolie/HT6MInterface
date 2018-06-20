@@ -1,4 +1,5 @@
 import logging
+
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -11,6 +12,7 @@ from apps.scenarios.models import Scenario
 from ht6m.celery import basic_simulate
 
 logger = logging.getLogger('django')
+
 
 class ScenarioViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
