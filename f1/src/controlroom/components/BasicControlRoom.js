@@ -41,49 +41,53 @@ class Basic extends Component {
       <Fragment>
         <div>
           <h1>Please provide necessary information for the operation</h1>
-          <img src={tokamakModel} alt='logo' width='30%' height='30%'/>
-          
           <BalloonNotification props={this.props}/>
-          
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group inline>
-              <label>Machine</label>
-              <Form.Select name='machineOption' onChange={this.handleChange} fluid options={MACHINE_OPTIONS}
-                           placeholder={MACHINE_OPTIONS_DEFAULT}/>
-            </Form.Group>
-            
-            <Form.Group inline>
-              <label>Plasma current (MA)</label>
-              <Form.Select name='plasmaCurrent' onChange={this.handleChange} fluid options={PLASMA_CURRENT_OPTIONS}
-                           placeholder={PLASMA_CURRENT_DEFAULT.toString()}/>
-            </Form.Group>
-            
-            <Form.Group inline>
-              <label>Magnetic field (T)</label>
-              <Form.Select name='magneticField' onChange={this.handleChange} fluid options={MAGNETIC_FIELD_OPTIONS}
-                           placeholder={MAGNETIC_FIELD_DEFAULT.toString()}/>
-            </Form.Group>
-            
-            <Form.Group inline>
-              <label>Rate of gas puffing</label>
-              <Form.Select name='rateOfGasPuffing' onChange={this.handleChange} fluid
-                           options={RATE_OF_GAS_PUFFING_OPTIONS} placeholder={RATE_OF_GAS_PUFFING_DEFAULT.toString()}/>
-            </Form.Group>
-            
-            <Form.Group inline>
-              <label>ICRF heating</label>
-              <Form.Select name='icrfHeating' onChange={this.handleChange} fluid options={ICRF_HEATING_OPTIONS}
-                           placeholder={ICRF_HEATING_DEFAULT.toString()}/>
-            </Form.Group>
-            
-            <Form.Group inline>
-              <label>Comment</label>
-              <input placeholder={"This is a basic mode."}/>
-            </Form.Group>
-            <Form.Button content='Submit'/>
-          
-          </Form>
+        </div>
         
+        <div>
+          <span id='basic-img-form'>
+            <img src={tokamakModel} alt='logo' width='30%' height='30%'/>
+            <Form id='basic-form' onSubmit={this.handleSubmit}>
+              <table>
+                <tr>
+                  <td><b>Machine</b></td>
+                  <td><Form.Select name='machineOption' onChange={this.handleChange} fluid options={MACHINE_OPTIONS}
+                                   placeholder={MACHINE_OPTIONS_DEFAULT}/></td>
+                </tr>
+                <tr>
+                  <td><b>Plasma current (MA)</b></td>
+                  <td><Form.Select name='plasmaCurrent' onChange={this.handleChange} fluid
+                                   options={PLASMA_CURRENT_OPTIONS}
+                                   placeholder={PLASMA_CURRENT_DEFAULT.toString()}/></td>
+                </tr>
+                <tr>
+                  <td><b>Magnetic field (T)</b></td>
+                  <td><Form.Select name='magneticField' onChange={this.handleChange} fluid
+                                   options={MAGNETIC_FIELD_OPTIONS}
+                                   placeholder={MAGNETIC_FIELD_DEFAULT.toString()}/></td>
+                </tr>
+                <tr>
+                  <td><b>Rate of gas puffing</b></td>
+                  <td><Form.Select name='rateOfGasPuffing' onChange={this.handleChange} fluid
+                                   options={RATE_OF_GAS_PUFFING_OPTIONS}
+                                   placeholder={RATE_OF_GAS_PUFFING_DEFAULT.toString()}/></td>
+                </tr>
+                <tr>
+                  <td><b>ICRF heating</b></td>
+                  <td><Form.Select name='icrfHeating' onChange={this.handleChange} fluid
+                                   options={ICRF_HEATING_OPTIONS}
+                                   placeholder={ICRF_HEATING_DEFAULT.toString()}/></td>
+                </tr>
+                <tr>
+                  <td><b>Comment</b></td>
+                  <td><input placeholder={"This is a basic mode."}/></td>
+                </tr>
+                <tr>
+                  <td><Form.Button content='Submit'/></td>
+                </tr>
+              </table>
+            </Form>
+          </span>
         </div>
       </Fragment>
     )

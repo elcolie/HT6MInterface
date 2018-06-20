@@ -118,3 +118,13 @@ body {
 .steps-action {
   margin-top: 24px;
 }
+
+#basic-img-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#basic-form{
+  margin: 5%;
+}
