@@ -33,7 +33,6 @@ class Basic extends Component {
   handleSubmit = (event, payload) => {
     console.log(`handleSubmit`);
     console.log(this.state);  //I will emit `action` here
-    message.success('Processing complete!');
     this.props.submitBasicForm(this.state);
   };
   
@@ -43,11 +42,23 @@ class Basic extends Component {
   };
   
   render() {
+    console.log(`render Basic`);
+    console.log(this.props.basicControlRoomRelducer);
+    if (this.props.basicControlRoomReducer){
+      let message = null;
+      let statusCode = null;
+    }else{
+      const {messasge, statusCode} = this.props.basicControlRoomRelducer;
+    }
+    
+    // message.success('Processing complete!');
     return (
       <Fragment>
         <div>
           <h1>Please provide necessary information for the operation</h1>
           <img src={tokamakModel} alt='logo' width='30%' height='30%'/>
+          
+          <BalloonNotification props={this.props}/>
           
           <Form onSubmit={this.handleSubmit}>
             <Form.Group inline>
@@ -85,7 +96,6 @@ class Basic extends Component {
               <input placeholder={"This is a basic mode."}/>
             </Form.Group>
             <Form.Button content='Submit'/>
-            <Form.Button content='Reset'/>
           
           </Form>
         

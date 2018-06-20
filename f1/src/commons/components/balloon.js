@@ -1,26 +1,23 @@
-import React, {Component, Fragment} from 'react';
-import _ from 'lodash'
+import React, {Component} from 'react';
+import _ from 'lodash';
+import {message as antd_message} from 'antd';
 
-class BalloonNotification extends Component{
-  
-  render(){
-    console.log(`balloon`);
-    console.log(this.props);
+class BalloonNotification extends Component {
+  render() {
     const {basicControlRoomReducer} = this.props.props;
-    console.log(basicControlRoomReducer);
-    if (_.isEmpty(basicControlRoomReducer)){
+    if (_.isEmpty(basicControlRoomReducer)) {
       return null;
-    }else{
-      console.log(`return render with value`);
+    } else {
       const {message, statusCode} = basicControlRoomReducer;
-      if (statusCode === 200){
-        return(
-          <Fragment>
-            <p>{message}</p>
-          </Fragment>
-        )
+      if (statusCode === 200) {
+        antd_message.success('Processing complete!');
+        return null;
       }
-      else{
+      else if (statusCode === 500) {
+        antd_message.error('Network connection error. Try again later');
+        return null;
+      }
+      else {
         return null;
       }
     }
