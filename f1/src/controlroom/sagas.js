@@ -15,17 +15,13 @@ const shootBasic = (payload) => {
 };
 
 function* postBasic(action) {
-  console.log(`post basic got an action`);
-  console.log(action);
   try {
     const res = yield call(shootBasic, action.payload);
-    console.log(`complete`);
     yield put({
       type: BASIC_COMPLETE,
       payload: res
     });
   } catch (err) {
-    console.log(`failed`);
     yield put({
       type: BASIC_FAILED,
       payload: err
