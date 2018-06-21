@@ -58,5 +58,4 @@ class ScenarioSerializer(serializers.ModelSerializer):
             tmp = {**item, **{'scenario': scenario_instance}}
             mylist.append(HeatingParameter(**tmp))
         HeatingParameter.objects.bulk_create(mylist)
-
         return scenario_instance

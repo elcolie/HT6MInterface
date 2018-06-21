@@ -45,7 +45,7 @@ class Basic extends Component {
         </div>
         
         <div>
-          <span id='basic-img-form'>
+          <span id='img-form'>
             <img src={tokamakModel} alt='logo' width='30%' height='30%'/>
             <Form id='basic-form' onSubmit={this.handleSubmit}>
               <table>
