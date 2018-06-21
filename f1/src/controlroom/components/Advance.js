@@ -44,7 +44,7 @@ class Advance extends Component {
         <span id='img-form'>
           <img src={tokamakConfig} alt={'tokamak configuration'}/>
           <Form onSubmit={this.onFormSubmit}>
-            <table>
+            <table id='advance-table'>
               <tbody>
                 <tr>
                   <td><b>Load input file</b></td>
@@ -55,9 +55,13 @@ class Advance extends Component {
                 <td><input name={'comment'} type={'text'} placeholder={'This is an advanced mode'}
                            onChange={this.onChangeCommentField}/></td>
               </tr>
+              <tr>
+                <td><Form.Button type={'submit'}>Submit</Form.Button></td>
+                <td></td>
+              </tr>
               </tbody>
             </table>
-            <Form.Button type={'submit'}>Submit</Form.Button>
+            
           </Form>
         </span>
       </Fragment>

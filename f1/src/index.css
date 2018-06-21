@@ -127,3 +127,8 @@ body {
 #basic-form{
   margin: 5%;
 }
+
+#advance-table{
+  border-collapse: separate;
+  border-spacing: 20px 50px;
+}
