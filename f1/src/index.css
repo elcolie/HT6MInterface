@@ -148,3 +148,21 @@ body {
 #back-next-text-center{
   text-align: center;
 }
+
+.transport-fieldset{
+  margin-left: 5%;
+  width: 30%;
+}
+
+.next-button-margin{
+  /* margin-left to add spacing to BACK button*/
+  margin-left: 20px;
+}
+
+.back-next-button{
+  margin: 5px;
+}
+
+.donut{
+  width: 30%; /*For Demo purpose feel free to remove this class*/
+}

@@ -34,7 +34,6 @@ class ControlParameterForm extends Component {
   }
   
   render() {
-    console.log(this.props);
     const {current} = this.state;
     const {steps} = this.props.controlParametersReducer;
     return (
