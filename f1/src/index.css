@@ -166,3 +166,17 @@ body {
 .donut{
   width: 30%; /*For Demo purpose feel free to remove this class*/
 }
+
+.test2{
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+}
+
+.test{
+  padding-right: 40px;
+}
+
+#control-dropdown{
+  width: 100px;
+}
