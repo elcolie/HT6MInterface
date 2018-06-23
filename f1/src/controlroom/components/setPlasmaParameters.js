@@ -14,8 +14,9 @@ class SetPlasmaParameter extends Component {
     return (
       <div>
         <h1 id={'plasma-params'}>Step 2/5: Set plasma parameters</h1>
-        <img src={plasmaParams} className={'intermediate-image'} alt={'plasma parameters'}/>
-        <fieldset id='login-fieldset'>
+        <span id="img-form">
+          <img id='plasma-image-parameter' src={plasmaParams} className={'intermediate-image'} alt={'plasma parameters'}/>
+        <fieldset id='login-fieldset' className='plasma-form-margin'>
           <legend id='dt-legend'>Density and temperature</legend>
           <Form>
             
@@ -47,9 +48,12 @@ class SetPlasmaParameter extends Component {
           </Form>
         
         </fieldset>
+        </span>
         
-        <a href="#machine-params" className="btn btn-info" role="button">Back</a>
-        <a href="#transport-params" className="btn btn-info" role="button">Next</a>
+        <div id='back-next-text-center'>
+          <a href="#machine-params" id='back-next-button-spacing' className="btn btn-info" role="button">Back</a>
+          <a href="#transport-params" id='back-next-button-spacing' className="btn btn-info" role="button">Next</a>
+        </div>
       </div>
     )
   }

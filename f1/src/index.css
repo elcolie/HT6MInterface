@@ -132,3 +132,19 @@ body {
   border-collapse: separate;
   border-spacing: 20px 50px;
 }
+
+#plasma-image-parameter{
+  width: 26%;
+}
+
+.plasma-form-margin{
+  margin-left: 1%;
+}
+
+#back-next-button-spacing{
+  margin: 1%;
+}
+
+#back-next-text-center{
+  text-align: center;
+}

@@ -36,7 +36,6 @@ class Basic extends Component {
   };
   
   render() {
-    console.log(this.props.basicControlRoomReducer);
     return (
       <Fragment>
         <div>
