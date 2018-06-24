@@ -3,8 +3,8 @@ from rest_framework import serializers
 from apps.commons.constants import DEVICE_PARAMS, PLASMA_PARAMS, TRANSPORT_PARAMS, CONTROL_PARAMS, HEATING_PARAMS
 from apps.control_params.api.serializers import ControlParameterSerializer
 from apps.device_params.api.serializers import DeviceParameterSerializer
-from apps.heating_params.api.serializers import HeatingParameterSerializer
 from apps.plasma_params.api.serializers import PlasmaParameterSerializer
+from apps.results.api.serializers import ResultSerializer
 from apps.scenarios.models import Scenario
 from apps.transport_params.api.serializers import TransportParameterSerializer
 
@@ -14,18 +14,19 @@ class ScenarioSerializer(serializers.ModelSerializer):
     plasma_params = PlasmaParameterSerializer()
     transport_params = TransportParameterSerializer()
     control_params = ControlParameterSerializer()
-    heating_params = HeatingParameterSerializer(many=True)
     created_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    results = ResultSerializer(many=True, read_only=True)
 
     class Meta:
         model = Scenario
         fields = [
+            'id',
             'device_params',
             'plasma_params',
             'transport_params',
             'control_params',
-            'heating_params',
             'created_by',
+            'results',
         ]
 
     def create(self, validated_data) -> Scenario:

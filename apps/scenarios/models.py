@@ -30,14 +30,3 @@ class Scenario(AbstractTimestamp):
             return 'Running'
         else:
             return 'Complete' if result.passed else 'Error'
-
-
-class Result(AbstractTimestamp):
-    scenario = models.ForeignKey(Scenario, on_delete=models.CASCADE, related_name='results',
-                                 related_query_name='results')
-    filename = models.CharField(max_length=255)
-    output = models.FileField(upload_to='outputs')
-    passed = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.scenario} {self.filename}"
