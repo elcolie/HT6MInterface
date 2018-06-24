@@ -41,7 +41,7 @@ class ControlParameterForm extends Component {
 
 				<SimpleStep controlParametersReducer={this.props.controlParametersReducer}/>
 
-				<Form className='test2'>
+				<Form className='justify-center'>
 					<table>
 						<tbody>
 						<tr>
@@ -54,7 +54,7 @@ class ControlParameterForm extends Component {
 							}}/></td>
 						</tr>
 						<tr>
-							<td className='test'><b>Maximum run time (s)</b></td>
+							<td className='padding-right'><b>Maximum run time (s)</b></td>
 							<td><Form.Select id='control-dropdown' name='maximumRunTime' fluid options={MAXIMUM_RUNTIME_OPTIONS}
 															 placeholder={MAXIMUM_RUNTIME_DEFAULT} onChange={(event, value) => {
 								this.props.onChangeMaximumRunTime(value); //Same reason as above. It might be a Semantic way

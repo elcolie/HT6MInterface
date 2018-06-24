@@ -14,7 +14,7 @@ class Confirmation extends Component {
             this.props.changeConfirmation(event.target.value);
           }}/>
         </div>
-        <a href="##set-particle-and-heatsources-params" className="btn btn-info" role="button">Back</a>
+        <a href="#set-particle-and-heatsources-params" className="btn btn-info" role="button">Back</a>
         <button className="btn btn-info">Submit</button>
       </Fragment>
     )
