@@ -32,6 +32,21 @@ def debug_mine(a, b):
 
 
 @shared_task
-def basic_simulate(data: typing.Dict):
+def fortran_simulate(data: typing.Dict):
     """Basic ControlRoom simulator start computing here"""
+    from apps.scenarios.models import Scenario
+    scenario = Scenario.objects.get(id=data.get('scenario'))
+    import os
+    os.makedirs(f'{scenario.id}')
+    temp1 = f"echo 'this is fortran call' > ./{scenario.id}/rt1.txt"
+    temp2 = f"echo 'this is fortran call' > ./{scenario.id}/rt2.txt"
+    os.system(temp1)
+    os.system(temp2)
+    '''
+    # To create `Result` record
+    from django.core.files import File
+    my_first_file = open(f'1/rt1.txt', 'rb')
+    Result.objects.create(scenario=scenario, output=File(my_first_file))
+    '''
+
     return data

@@ -32,7 +32,7 @@ class Header extends Component {
     const {username} = this.props;
     return (
       <Fragment>
-        <div className="text-center">
+        <div>
           <img src={tintBanner} alt="TINT Banner" className='tint-banner'/>
           <span className='my-vertical'>
             <label>Welcome {username}</label>

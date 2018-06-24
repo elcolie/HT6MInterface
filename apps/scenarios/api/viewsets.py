@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 from apps.scenarios.api.serializers import ScenarioSerializer
 from apps.scenarios.models import Scenario
-from ht6m.celery import basic_simulate
+from ht6m.celery import fortran_simulate
 
 logger = logging.getLogger('django')
 
@@ -67,5 +67,10 @@ def basic(request):
     :return:
     """
     logger.info(f"BASIC : {request.data}")
-    basic_simulate.delay(request.data)
+    from model_mommy import mommy
+    scenario = mommy.make(Scenario, created_by=request.user)
+    scenario_dict = {
+        'scenario': scenario.id,
+    }
+    fortran_simulate.delay(scenario_dict)
     return Response(data=request.data, status=status.HTTP_200_OK)

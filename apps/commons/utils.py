@@ -1,6 +1,7 @@
 import django_rq
 
-from apps.scenarios.models import Scenario, Result
+from apps.scenarios.models import Scenario
+from apps.results.models import Result
 
 READONLY_FIELDS = ['id', 'created_at', 'updated_at', 'created_at', 'updated_at']
 

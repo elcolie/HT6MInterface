@@ -20,51 +20,48 @@ class SetTransportParameter extends Component {
     return (
       <Fragment>
         <h1 id={'transport-params'}>Step 3/5: Set transport parameters</h1>
-        <img src={transportParams} className={'intermediate-image'} alt={'Transport Parameters'}/>
-        
-        <div>
-          <fieldset id='login-fieldset'>
+        <span id="img-form">
+          <img src={transportParams} className={'intermediate-image donut'} alt={'Transport Parameters'}/>
+          <fieldset id='login-fieldset' className='transport-fieldset'>
             <legend id='transport-legend'>Transport models</legend>
             <Form>
-              <Form.Group inline>
-                <label>Transport model</label>
-                <Form.Select name='transportModel' fluid options={TRANSPORT_OPTIONS}
-                             placeholder={TRANSPORT_OPTIONS_DEFAULT}/>
-              </Form.Group>
-              
-              <Form.Group inline>
-                <label>Resistivity model</label>
-                <Form.Select name='resistivityModel' fluid options={RESISTIVITY_OPTIONS}
-                             placeholder={RESISTIVITY_OPTIONS_DEFAULT}/>
-              </Form.Group>
-              
-              <Form.Group inline>
-                <label>Particle diffusion model</label>
-                <Form.Select name='particleDiffusionModel' fluid options={PARTICLE_DIFFUSION_MODEL_OPTIONS}
-                             placeholder={PARTICLE_DIFFUSION_MODEL_DEFAULT}/>
-              </Form.Group>
-              
-              <Form.Group inline>
-                <label>Heat pinch model</label>
-                <Form.Select name='heatPinchModel' fluid options={HEAT_PINCH_MODEL_OPTIONS}
-                             placeholder={HEAT_PINCH_MODEL_DEFAULT}/>
-              </Form.Group>
-              <Form.Group inline>
-                <label>Bootstrap current model</label>
-                <Form.Select name='bootstrapCurrentModel' fluid options={BOOTSTRAP_CURRENT_MODEL_OPTIONS}
-                             placeholder={BOOTSTRAP_CURRENT_DEFAULT}/>
-              </Form.Group>
-              <Form.Group inline>
-                <label>Neoclassical model</label>
-                <Form.Select name='neoclassicalModel' fluid options={NEOCLASSICAL_MODEL_OPTIONS}
-                             placeholder={NEOCLASSICAL_MODEL_DEFAULT}/>
-              </Form.Group>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><b>Transport model</b></td>
+                    <td><Form.Select name='transportModel' fluid options={TRANSPORT_OPTIONS}
+                                   placeholder={TRANSPORT_OPTIONS_DEFAULT}/></td>
+                  </tr>
+                  <tr>
+                    <td><b>Resistivity model</b></td>
+                    <td><Form.Select name='resistivityModel' fluid options={RESISTIVITY_OPTIONS}
+                             placeholder={RESISTIVITY_OPTIONS_DEFAULT}/></td>
+                  </tr>
+                  <tr>
+                    <td><b>Particle diffusion model</b></td>
+                    <td><Form.Select name='particleDiffusionModel' fluid options={PARTICLE_DIFFUSION_MODEL_OPTIONS}
+                           placeholder={PARTICLE_DIFFUSION_MODEL_DEFAULT}/></td>
+                  </tr>
+                  <tr>
+                    <td><b>Heat pinch model</b></td>
+                    <td><Form.Select name='heatPinchModel' fluid options={HEAT_PINCH_MODEL_OPTIONS}
+                           placeholder={HEAT_PINCH_MODEL_DEFAULT}/></td>
+                  </tr>
+                  <tr>
+                    <td><b>Bootstrap current model</b></td>
+                    <td><Form.Select name='bootstrapCurrentModel' fluid options={BOOTSTRAP_CURRENT_MODEL_OPTIONS}
+                               placeholder={BOOTSTRAP_CURRENT_DEFAULT}/></td>
+                  </tr>
+                </tbody>
+              </table>
             </Form>
-            <a href="#plasma-params" className="btn btn-info" role="button">Back</a>
-            <a href="#control-params" className="btn btn-info" role="button">Next</a>
+            <div className='back-next-button'>
+              <a href="#plasma-params" className="btn btn-info" role="button">Back</a>
+              <a href="#control-params" className="btn btn-info next-button-margin" role="button">Next</a>
+            </div>
           </fieldset>
         
-        </div>
+        </span>
       </Fragment>
     )
   }

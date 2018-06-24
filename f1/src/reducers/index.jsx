@@ -6,11 +6,13 @@ import {LocalTokenReducer} from "../commons/reducers";
 import {VerifyTokenReducer} from "../containers/reducers";
 import {TINTNavBarReducer} from "../simulators/reducers";
 import {
+  AdvancedControlRoomReducer,
   BasicControlRoomReducer,
   ConfirmationReducer,
   ControlParametersReducer,
   SpecieReducer
 } from "../controlroom/reducers";
+import {ChartReducer} from "../displays/chart-reducers";
 
 const rootReducer = combineReducers({
   inputInterface: InputInterfaceReducer,
@@ -22,6 +24,8 @@ const rootReducer = combineReducers({
   specieReducer: SpecieReducer,
   controlParametersReducer: ControlParametersReducer,
   confirmationReducer: ConfirmationReducer,
+  advancedControlRoomReducer: AdvancedControlRoomReducer,
+  chartReducer: ChartReducer,
   form: formReducer
 });
 

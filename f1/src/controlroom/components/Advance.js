@@ -1,8 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import tokamakConfig from './Configuration_icon_by_obsilion.png';
 import {Form} from 'semantic-ui-react';
-import {post} from 'axios';
-import {getAuthToken, prepareJWTHeader} from "../../utils";
+import {connect} from 'react-redux';
+import {SUBMIT_ADVANCED_FORM} from "../../constants";
+import BalloonNotification from "../../commons/components/balloon";
 
 class Advance extends Component {
   constructor(props) {
@@ -17,26 +18,13 @@ class Advance extends Component {
     this.onChangeCommentField = this.onChangeCommentField.bind(this);
   }
   
-  //TODO: Implement `redux-saga` in order to control the `axios` state
   fileUpload(file, comment) {
-    const url = 'http://localhost:8000/api/advanced-cases/';
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('comment', comment);
-    const config = {
-      headers: {
-        'Authorization': prepareJWTHeader(getAuthToken()),
-        'content-type': 'multipart/form-data'
-      }
-    };
-    return post(url, formData, config)
+    this.props.submitAdvancedForm({file, comment});
   }
   
   onFormSubmit(e) {
     e.preventDefault(); // Stop form submit
-    this.fileUpload(this.state.file, this.state.comment).then((response) => {
-      console.log(response.data);
-    })
+    this.fileUpload(this.state.file, this.state.comment);
   }
   
   onChangeFileField(e) {
@@ -47,28 +35,49 @@ class Advance extends Component {
     this.setState({comment: e.target.value})
   }
   
-  
   render() {
+    console.log(this.props.advancedControlRoomReducer);
     return (
       <Fragment>
         <h1>Please provide necessary information for the operation</h1>
-        <img src={tokamakConfig} alt={'tokamak configuration'}/>
-        <Form onSubmit={this.onFormSubmit}>
-          <Form.Group inline>
-            <label>Load input file</label>
-            <input name={'file'} type='file' onChange={this.onChangeFileField}/>
-          </Form.Group>
-          
-          <Form.Group inline>
-            <label>Comment</label>
-            <input name={'comment'} type={'text'} placeholder={'This is an advanced mode'}
-                   onChange={this.onChangeCommentField}/>
-          </Form.Group>
-          <button type={'submit'}>Submit</button>
-        </Form>
+        <BalloonNotification props={this.props.advancedControlRoomReducer}/>
+        <span id='img-form'>
+          <img src={tokamakConfig} alt={'tokamak configuration'}/>
+          <Form onSubmit={this.onFormSubmit}>
+            <table id='advance-table'>
+              <tbody>
+                <tr>
+                  <td><b>Load input file</b></td>
+                  <td><input name={'file'} type='file' onChange={this.onChangeFileField}/></td>
+                </tr>
+              <tr>
+                <td><b>Comment</b></td>
+                <td><input name={'comment'} type={'text'} placeholder={'This is an advanced mode'}
+                           onChange={this.onChangeCommentField}/></td>
+              </tr>
+              <tr>
+                <td><Form.Button type={'submit'}>Submit</Form.Button></td>
+                <td></td>
+              </tr>
+              </tbody>
+            </table>
+            
+          </Form>
+        </span>
       </Fragment>
     )
   }
 }
 
-export default Advance;
+const submitAdvancedForm = (data) => {
+  return {
+    type: SUBMIT_ADVANCED_FORM,
+    payload: data
+  }
+};
+
+const mapStateToProps = (newProps, ownProps) => {
+  return newProps;
+};
+
+export default connect(mapStateToProps, {submitAdvancedForm})(Advance);
