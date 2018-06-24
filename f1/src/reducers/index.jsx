@@ -12,6 +12,7 @@ import {
   ControlParametersReducer,
   SpecieReducer
 } from "../controlroom/reducers";
+import {ChartReducer} from "../displays/chart-reducers";
 
 const rootReducer = combineReducers({
   inputInterface: InputInterfaceReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   controlParametersReducer: ControlParametersReducer,
   confirmationReducer: ConfirmationReducer,
   advancedControlRoomReducer: AdvancedControlRoomReducer,
+  chartReducer: ChartReducer,
   form: formReducer
 });
 
