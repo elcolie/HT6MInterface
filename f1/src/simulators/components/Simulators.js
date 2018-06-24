@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
+import Header from "../../commons/components/headers"
 import Footer from "../../commons/components/Footer";
-import Header from "../../commons/components/Headers";
 import NavBodyContainer from "../../navbody/components/navbody";
 
 class Simulator extends Component {
