@@ -24,9 +24,10 @@ class ParticleHeatForm extends Component {
   render() {
     return (
       <Fragment>
-        <Grid textAlign='left'>
+        <Grid textAlign='left' centered >
+					<Grid equal>
           <Grid.Row columns={2}>
-            <Grid.Column width={3}>
+            <Grid.Column width={8} textAlign='left'>
               <label>Break point number</label>
             </Grid.Column>
             <Grid.Column width={2}>
@@ -35,8 +36,8 @@ class ParticleHeatForm extends Component {
           </Grid.Row>
 
           <Grid.Row columns={2}>
-            <Grid.Column width={3}>
-              <label className='grid-time-breakpoint'>Time at this break point</label>
+            <Grid.Column width={8} textAlign='left' verticalAlign='middle'>
+              <label>Time at this break point</label>
             </Grid.Column>
             <Grid.Column width={4}>
               <div className="ui right labeled input">
@@ -47,7 +48,7 @@ class ParticleHeatForm extends Component {
               </div>
             </Grid.Column>
           </Grid.Row>
-
+					</Grid>
           <Grid.Row columns={2}>
             <Grid.Column >
               <fieldset id='login-fieldset'>

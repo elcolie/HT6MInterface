@@ -180,3 +180,11 @@ body {
 #control-dropdown{
   width: 100px;
 }
+
+.particle-source{
+	margin-left: 25px;
+}
+
+.particle-source-label{
+	margin-left: 35px;
+}
