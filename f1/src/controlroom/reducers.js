@@ -1,4 +1,6 @@
 import {
+	ADD_PHS,
+	ADD_PHSS,
 	ADVANCED_COMPLETE,
 	ADVANCED_FAILED,
 	BASIC_COMPLETE,
@@ -65,7 +67,7 @@ export const ControlParametersReducer = (state = {
 	}
 };
 
-export const ParticleAndHeatSourcesReducer = (
+export const ParticleAndHeatSourceReducer = (
 		state = {},
 		action
 ) => {
@@ -78,6 +80,29 @@ export const ParticleAndHeatSourcesReducer = (
 			};
 		default:
 			return Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
+	}
+};
+
+const addPHS = (qty) => {
+	let tmp = [];
+	for (let i = 0; i < qty; i++) {
+		tmp.push(Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT))
+	}
+	return tmp;
+};
+
+export const ParticleAndHeatSources = (
+		state = [],
+		action
+) => {
+	switch (action.type) {
+		case ADD_PHS:
+			const tmp = Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
+			return [...state, tmp];
+		case ADD_PHSS:
+			return addPHS(action.payload);
+		default:
+			return state;
 	}
 };
 

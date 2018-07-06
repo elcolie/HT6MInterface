@@ -1,7 +1,7 @@
 import React from 'react';
 import {setBreakPoint} from "./utils";
-import {PARTICLE_HEATSOURCE_DEFAULT, UPDATE_PHS} from "../constants";
-import {ParticleAndHeatSourcesReducer} from "./reducers";
+import {ADD_PHS, ADD_PHSS, PARTICLE_HEATSOURCE_DEFAULT, UPDATE_PHS} from "../constants";
+import {ParticleAndHeatSourceReducer, ParticleAndHeatSources} from "./reducers";
 
 var deepFreeze = require('deep-freeze');
 
@@ -51,6 +51,7 @@ it('setBreakPoint must set', () => {
 
 
 it('test updates ParticleAndHeatSource', () => {
+	//Update the PHS base on the given key & value
 	const stateBefore = Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
 	const action = {
 		type: UPDATE_PHS,
@@ -79,6 +80,37 @@ it('test updates ParticleAndHeatSource', () => {
 	deepFreeze(stateBefore);
 	deepFreeze(action);
 	expect(
-			ParticleAndHeatSourcesReducer(stateBefore, action)
+			ParticleAndHeatSourceReducer(stateBefore, action)
+	).toEqual(stateAfter);
+});
+
+it('test add particle and heat source to list', () => {
+	const stateBefore = [];
+	const action = {
+		type: ADD_PHS
+	};
+	const stateAfter = [Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT)];
+	deepFreeze(stateBefore);
+	deepFreeze(action);
+	expect(
+			ParticleAndHeatSources(stateBefore, action)
+	).toEqual(stateAfter);
+});
+
+it('test add particle and heat sources by given number', () => {
+	const stateBefore = [];
+	const action = {
+		type: ADD_PHSS,
+		payload: 3
+	};
+	const stateAfter = [
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT)
+	];
+	deepFreeze(stateBefore);
+	deepFreeze(action);
+	expect(
+			ParticleAndHeatSources(stateBefore, action)
 	).toEqual(stateAfter);
 });
