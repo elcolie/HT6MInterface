@@ -6,6 +6,7 @@ import { Grid, Segment } from 'semantic-ui-react'
 
 const dumpParticleHeatForm = (props) => {
   const {label, placeholder, unit} = props;
+  console.log(label);
   return (
     <Form.Group inline>
       <label>{label}</label>

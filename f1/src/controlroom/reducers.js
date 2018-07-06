@@ -73,11 +73,15 @@ export const ParticleAndHeatSourceReducer = (
 ) => {
 	switch (action.type) {
 		case UPDATE_PHS:
-			const {key, value} = action.payload;
-			return {
-				...state,
-				[key]: value
-			};
+			const {key, value, id} = action.payload;
+			if (state.breakPointNumber !== id) {
+				return state;
+			} else {
+				return {
+					...state,
+					[key]: value
+				};
+			}
 		default:
 			return Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
 	}
@@ -86,7 +90,7 @@ export const ParticleAndHeatSourceReducer = (
 const addPHS = (qty) => {
 	let tmp = [];
 	for (let i = 0; i < qty; i++) {
-		tmp.push(Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT))
+		tmp.push(Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: i}))
 	}
 	return tmp;
 };
@@ -101,6 +105,8 @@ export const ParticleAndHeatSources = (
 			return [...state, tmp];
 		case ADD_PHSS:
 			return addPHS(action.payload);
+		case UPDATE_PHS:
+			return state.map(phs => ParticleAndHeatSourceReducer(phs, action));
 		default:
 			return state;
 	}

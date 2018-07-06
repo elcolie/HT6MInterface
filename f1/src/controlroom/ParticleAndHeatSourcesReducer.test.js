@@ -57,7 +57,8 @@ it('test updates ParticleAndHeatSource', () => {
 		type: UPDATE_PHS,
 		payload: {
 			key: 'timeAtBreakPoint',
-			value: 10
+			value: 10,
+			id: 0
 		}
 	};
 	const stateAfter = {
@@ -105,12 +106,39 @@ it('test add particle and heat sources by given number', () => {
 	};
 	const stateAfter = [
 		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),
-		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),
-		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT)
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: 1}),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: 2,})
 	];
 	deepFreeze(stateBefore);
 	deepFreeze(action);
 	expect(
 			ParticleAndHeatSources(stateBefore, action)
 	).toEqual(stateAfter);
+});
+
+it('test change the specific `particle and heat source` item in the list', ()=>{
+	const stateBefore = [
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: 1}),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: 2,})
+	];
+	const action = {
+		type: UPDATE_PHS,
+		payload: {
+			breakPointNumber: 2,
+			key: 'ionSpeciesOfTheSource',
+			value: 'Elcolion'
+		}
+	};
+	const stateAfter = [
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: 1}),
+		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {
+			breakPointNumber: 2,
+			ionSpeciesOfTheSource: 'Elcolion'
+		}),
+	];
+	deepFreeze(stateBefore);
+	deepFreeze(action);
+
 });
