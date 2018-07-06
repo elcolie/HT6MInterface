@@ -326,3 +326,4 @@ export const ADVANCED_FAILED = 'advanced_failed';
 export const ON_START_CHART = 'on_start_chart';
 export const GOOD_RESULTS = 'good_results';
 export const INVALID_RESULTS = 'invalid_results';
+export const UPDATE_PHS = 'update_particle_heatsource';

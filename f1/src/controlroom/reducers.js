@@ -9,7 +9,8 @@ import {
 	MAXIMUM_RUNTIME_DEFAULT,
 	NUMBER_OF_BREAK_POINTS_CHANGED,
 	NUMBER_OF_TIME_BREAK_POINTS_DEFAULT,
-	PARTICLE_HEATSOURCE_NEXT
+	PARTICLE_HEATSOURCE_DEFAULT,
+	UPDATE_PHS
 } from "../constants";
 import {setBreakPointList} from "./utils";
 
@@ -64,12 +65,19 @@ export const ControlParametersReducer = (state = {
 	}
 };
 
-export const ParticleAndHeatSourcesReducer = (state = [], action) => {
+export const ParticleAndHeatSourcesReducer = (
+		state = {},
+		action
+) => {
 	switch (action.type) {
-		case PARTICLE_HEATSOURCE_NEXT:
-			return state;
+		case UPDATE_PHS:
+			const {key, value} = action.payload;
+			return {
+				...state,
+				[key]: value
+			};
 		default:
-			return state;
+			return Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
 	}
 };
 
