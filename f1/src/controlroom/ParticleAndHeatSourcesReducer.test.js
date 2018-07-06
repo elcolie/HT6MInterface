@@ -58,7 +58,7 @@ it('test updates ParticleAndHeatSource', () => {
 		payload: {
 			key: 'timeAtBreakPoint',
 			value: 10,
-			id: 0
+			breakPointNumber: 0
 		}
 	};
 	const stateAfter = {
@@ -140,5 +140,7 @@ it('test change the specific `particle and heat source` item in the list', ()=>{
 	];
 	deepFreeze(stateBefore);
 	deepFreeze(action);
-
+	expect(
+			ParticleAndHeatSources(stateBefore, action)
+	).toEqual(stateAfter);
 });

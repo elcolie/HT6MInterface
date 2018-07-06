@@ -73,8 +73,10 @@ export const ParticleAndHeatSourceReducer = (
 ) => {
 	switch (action.type) {
 		case UPDATE_PHS:
-			const {key, value, id} = action.payload;
-			if (state.breakPointNumber !== id) {
+			const {key, value, breakPointNumber} = action.payload;
+			console.log(state);
+			console.log(action);
+			if (state.breakPointNumber !== breakPointNumber) {
 				return state;
 			} else {
 				return {
