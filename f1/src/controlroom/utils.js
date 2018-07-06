@@ -19,7 +19,6 @@ export const setBreakPointList = (numberOfBreakPoints) => {
     tmp.push({
       title: stringifyNumber(i),
       breakPointNumber: i,
-      content: <ParticleHeatForm breakPointNumber={i}/>
     })
   }
   return tmp;

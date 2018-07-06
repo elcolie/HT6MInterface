@@ -13,22 +13,22 @@ class ControlRoom extends Component {
         <div>
           <Tabs>
             <TabList>
-              <Tab>Basic</Tab>
+              {/*<Tab>Basic</Tab>*/}
               <Tab>Intermediate</Tab>
-              <Tab>Advance</Tab>
+              {/*<Tab>Advance</Tab>*/}
             </TabList>
             
-            <TabPanel>
-              <Basic/>
-            </TabPanel>
+            {/*<TabPanel>*/}
+              {/*<Basic/>*/}
+            {/*</TabPanel>*/}
             
             <TabPanel>
               <Intermediate/>
             </TabPanel>
             
-            <TabPanel>
-              <Advance/>
-            </TabPanel>
+            {/*<TabPanel>*/}
+              {/*<Advance/>*/}
+            {/*</TabPanel>*/}
           
           </Tabs>
         </div>

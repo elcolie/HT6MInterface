@@ -83,8 +83,6 @@ class ParticleHeatForm extends Component {
             </Grid.Column>
           </Grid.Row>
 
-
-
         </Grid>
 
         <a href="#control-params" className="btn btn-info" role="button">Back</a>

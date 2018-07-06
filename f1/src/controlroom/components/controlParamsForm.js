@@ -11,6 +11,7 @@ import {
 	NUMBER_OF_TIME_BREAK_POINTS_OPTIONS
 } from "../../constants";
 import SimpleStep from "./simpleStep";
+import ParticleHeatForm from "./particleHeatForm";
 
 const Step = Steps.Step;
 
@@ -36,6 +37,7 @@ class ControlParameterForm extends Component {
 	render() {
 		const {current} = this.state;
 		const {steps} = this.props.controlParametersReducer;
+		// console.log(this.state.current);
 		return (
 				<Fragment>
 
@@ -82,7 +84,8 @@ class ControlParameterForm extends Component {
 							}}/>)}
 						</Steps>
 					</div>
-					{dumpParticleAndHeatSources({steps, state: this.state})}
+					<ParticleHeatForm breakPointNumber={this.state.current + 1}/>
+					{/*{dumpParticleAndHeatSources({steps, state: this.state})}*/}
 
 				</Fragment>
 		)
