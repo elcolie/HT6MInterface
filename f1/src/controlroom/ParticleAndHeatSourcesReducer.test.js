@@ -1,6 +1,6 @@
 import React from 'react';
 import {setBreakPoint} from "./utils";
-import {ADD_PHS, ADD_PHSS, PARTICLE_HEATSOURCE_DEFAULT, UPDATE_PHS} from "../constants";
+import {ADD_PHS, SET_PHSS, PARTICLE_HEATSOURCE_DEFAULT, UPDATE_PHS} from "../constants";
 import {ParticleAndHeatSourceReducer, ParticleAndHeatSources} from "./reducers";
 
 var deepFreeze = require('deep-freeze');
@@ -101,8 +101,10 @@ it('test add particle and heat source to list', () => {
 it('test add particle and heat sources by given number', () => {
 	const stateBefore = [];
 	const action = {
-		type: ADD_PHSS,
-		payload: 3
+		type: SET_PHSS,
+		payload: {
+			value: 3	//It comes from `input` tag then value is nested in side it
+		}
 	};
 	const stateAfter = [
 		Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT),

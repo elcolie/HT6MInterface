@@ -8,7 +8,8 @@ import {
 	MAXIMUM_RUNTIME_OPTIONS,
 	NUMBER_OF_BREAK_POINTS_CHANGED,
 	NUMBER_OF_TIME_BREAK_POINTS_DEFAULT,
-	NUMBER_OF_TIME_BREAK_POINTS_OPTIONS
+	NUMBER_OF_TIME_BREAK_POINTS_OPTIONS,
+	SET_PHSS
 } from "../../constants";
 import SimpleStep from "./simpleStep";
 import ParticleHeatForm from "./particleHeatForm";
@@ -37,7 +38,7 @@ class ControlParameterForm extends Component {
 	render() {
 		const {current} = this.state;
 		const {steps} = this.props.controlParametersReducer;
-		// console.log(this.state.current);
+		console.log(this.props.particleAndHeatSources);
 		return (
 				<Fragment>
 
@@ -53,6 +54,7 @@ class ControlParameterForm extends Component {
 																 placeholder={NUMBER_OF_TIME_BREAK_POINTS_DEFAULT} onChange={(event, value) => {
 									this.props.onChangeNumberOfBreakPoints(value);  //No idea why dispatch already but I have to set state again
 									this.clickBreakPoint(0);  //Reset it to zero otherwise `undefined` by index out bound
+									this.props.setParticleAndHeatSource(value);
 								}}/></td>
 							</tr>
 							<tr>
@@ -84,9 +86,10 @@ class ControlParameterForm extends Component {
 							}}/>)}
 						</Steps>
 					</div>
-					<ParticleHeatForm breakPointNumber={this.state.current + 1}/>
-					{/*{dumpParticleAndHeatSources({steps, state: this.state})}*/}
-
+					<ParticleHeatForm
+							breakPointNumber={this.state.current + 1}
+							data={this.props.particleAndHeatSources[this.state.current]}
+					/>
 				</Fragment>
 		)
 	}
@@ -106,10 +109,22 @@ const onChangeMaximumRunTime = (value) => {
 	}
 };
 
+const setParticleAndHeatSource = (value) => {
+	return {
+		type: SET_PHSS,
+		payload: value
+	}
+};
 
 const mapStateToProps = (newProps, ownProps) => {
 	return newProps;
 };
 
 
-export default connect(mapStateToProps, {onChangeNumberOfBreakPoints, onChangeMaximumRunTime})(ControlParameterForm);
+export default connect(
+		mapStateToProps,
+		{
+			onChangeNumberOfBreakPoints,
+			onChangeMaximumRunTime,
+			setParticleAndHeatSource
+		})(ControlParameterForm);

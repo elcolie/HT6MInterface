@@ -1,102 +1,166 @@
 import React, {Component, Fragment} from 'react';
-import {Form} from 'semantic-ui-react';
+import {Form, Grid} from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {SPECIES} from "../../constants";
-import { Grid, Segment } from 'semantic-ui-react'
+import {PARTICLE_HEATSOURCE_DEFAULT, SPECIES, UPDATE_PHS} from "../../constants";
 
 const dumpParticleHeatForm = (props) => {
-  const {label, placeholder, unit} = props;
-  console.log(label);
-  return (
-    <Form.Group inline>
-      <label>{label}</label>
-      <div className="ui right labeled input">
-        <input type="text" placeholder={placeholder}/>
-        <div className="ui basic label">
-          {unit}
-        </div>
-      </div>
-    </Form.Group>
-  )
+	const {label, placeholder, unit, breakPointNumber, varName, changeValue} = props;
+	return (
+			<Form.Group inline>
+				<label>{label}</label>
+				<div className="ui right labeled input">
+					<input
+							type="text"
+							placeholder={placeholder}
+							ref={node => {this.input = node;}}
+							onChange={changeValue({
+								key: varName,
+								value: Number(this.input.value),
+								breakPointNumber: breakPointNumber - 1 //Use original index
+							})}
+					/>
+					<div className="ui basic label">
+						{unit}
+					</div>
+				</div>
+			</Form.Group>
+	)
 };
 
 class ParticleHeatForm extends Component {
-  
-  render() {
-    return (
-      <Fragment>
-        <Grid textAlign='left' centered >
-					<Grid equal>
-          <Grid.Row columns={2}>
-            <Grid.Column width={8} textAlign='left'>
-              <label>Break point number</label>
-            </Grid.Column>
-            <Grid.Column width={2}>
-              <label>{this.props.breakPointNumber}</label>
-            </Grid.Column>
-          </Grid.Row>
 
-          <Grid.Row columns={2}>
-            <Grid.Column width={8} textAlign='left' verticalAlign='middle'>
-              <label>Time at this break point</label>
-            </Grid.Column>
-            <Grid.Column width={4}>
-              <div className="ui right labeled input">
-              <input type="text" placeholder="0.01"/>
-                <div className="ui basic label">
-                  ms
-                </div>
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-					</Grid>
-          <Grid.Row columns={2}>
-            <Grid.Column >
-              <fieldset id='login-fieldset'>
-                <legend id='login-legend'>Particle Source</legend>
-                <Form>
-                  <Form.Group inline>
-                    <label>Ion species of the source</label>
-                    <Form.Select name={'ionSpeciesOfTheSource'} placeholder={SPECIES[1].text} fluid options={SPECIES}/>
-                  </Form.Group>
+	render() {
+		let {data} = this.props;
+		if (data === undefined) {
+			data = Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
+		}
+		return <Fragment>
+			<Grid textAlign='left' centered>
+				<Grid equal>
+					<Grid.Row columns={2}>
+						<Grid.Column width={8} textAlign='left'>
+							<label>Break point number</label>
+						</Grid.Column>
+						<Grid.Column width={2}>
+							<label>{this.props.breakPointNumber}</label>
+						</Grid.Column>
+					</Grid.Row>
 
-                  {dumpParticleHeatForm({label: "Rate of particle source", placeholder: "0.01", unit: 'ms'})}
-                  {dumpParticleHeatForm({label: "Radial position", placeholder: "0.01", unit: 'm'})}
-                  {dumpParticleHeatForm({label: "Radial width", placeholder: "0.50", unit: 'm'})}
+					<Grid.Row columns={2}>
+						<Grid.Column width={8} textAlign='left' verticalAlign='middle'>
+							<label>Time at this break point</label>
+						</Grid.Column>
+						<Grid.Column width={4}>
+							<div className="ui right labeled input">
+								<input type="number" placeholder={data.timeAtBreakPoint}
+											 ref={node => {
+												 this.input = node;
+											 }}
+											 onChange={() => {
+												 this.props.changeValue({
+													 key: 'timeAtBreakPoint',
+													 value: Number(this.input.value),
+													 breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+												 });
+											 }}
+								/>
+								<div className="ui basic label">
+									ms
+								</div>
+							</div>
+						</Grid.Column>
+					</Grid.Row>
+				</Grid>
+				<Grid.Row columns={2}>
+					<Grid.Column>
+						<fieldset id='login-fieldset'>
+							<legend id='login-legend'>Particle Source</legend>
+							<Form>
+								<Form.Group inline>
+									<label>Ion species of the source</label>
+									<Form.Select
+											name={'ionSpeciesOfTheSource'}
+											placeholder={data.ionSpeciesOfTheSource}
+											fluid
+											options={SPECIES}
+											ref={node => {
+												this.input = node;
+											}}
+											onChange={() => {
+												this.props.changeValue({
+													key: 'ionSpeciesOfTheSource',
+													value: Number(this.input.value),
+													breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+												})
+											}}
+									/>
+								</Form.Group>
 
-                </Form>
-              </fieldset>
-            </Grid.Column>
-            <Grid.Column>
-              <fieldset id='login-fieldset'>
-                <legend id='login-legend'>Heat Source</legend>
-                <Form>
-                  {dumpParticleHeatForm({label: "NBI total power", placeholder: "0.01", unit: 'W'})}
-                  {dumpParticleHeatForm({label: "NBI radial position", placeholder: "0.01", unit: 'm'})}
-                  {dumpParticleHeatForm({label: "NBI radial width", placeholder: "0.01", unit: 'm'})}
+								{dumpParticleHeatForm({
+									label: "Rate of particle source",
+									placeholder: data.rateOfParticleSource,
+									unit: 'ms',
+									breakPointNumber: data.breakPointNumber,
+									varName: 'rateOfParticleSource',
+									changeValue: this.props.changeValue
+								})}
+								{dumpParticleHeatForm({label: "Radial position", placeholder: data.radialPosition, unit: 'm'})}
+								{dumpParticleHeatForm({label: "Radial width", placeholder: data.radialWidth, unit: 'm'})}
 
-                  {dumpParticleHeatForm({label: "ICRF total power", placeholder: "0.01", unit: 'W'})}
-                  {dumpParticleHeatForm({label: "ICRF radial position", placeholder: "0.01", unit: 'm'})}
-                  {dumpParticleHeatForm({label: "ICRF radial width", placeholder: "0.01", unit: 'm'})}
+							</Form>
+						</fieldset>
+					</Grid.Column>
+					<Grid.Column>
+						<fieldset id='login-fieldset'>
+							<legend id='login-legend'>Heat Source</legend>
+							<Form>
 
-                </Form>
-              </fieldset>
-            </Grid.Column>
-          </Grid.Row>
+								{dumpParticleHeatForm({label: "NBI total power", placeholder: data.nbiTotalPower, unit: 'W'})}
+								{dumpParticleHeatForm({
+									label: "NBI radial position",
+									placeholder: data.nbiRadialPosition,
+									unit: 'm'
+								})}
+								{dumpParticleHeatForm({label: "NBI radial width", placeholder: data.nbiRadialWidth, unit: 'm'})}
 
-        </Grid>
+								{dumpParticleHeatForm({label: "ICRF total power", placeholder: data.icrfTotalPower, unit: 'W'})}
+								{dumpParticleHeatForm({
+									label: "ICRF radial position",
+									placeholder: data.icrfRadialPosition,
+									unit: 'm'
+								})}
+								{dumpParticleHeatForm({label: "ICRF radial width", placeholder: data.icrfRadialWidth, unit: 'm'})}
 
-        <a href="#control-params" className="btn btn-info" role="button">Back</a>
-        <a href="#confirmation" className="btn btn-info" role="button">Next</a>
-      
-      </Fragment>
-    )
-  }
+							</Form>
+						</fieldset>
+					</Grid.Column>
+				</Grid.Row>
+
+			</Grid>
+
+			<a href="#control-params" className="btn btn-info" role="button">Back</a>
+			<a href="#confirmation" className="btn btn-info" role="button">Next</a>
+
+		</Fragment>
+	}
 }
 
+const changeValue = ({key, value, breakPointNumber}) => {
+	return {
+		type: UPDATE_PHS,
+		payload: {
+			key,
+			value,
+			breakPointNumber
+		}
+	}
+};
+
 const mapStateToProps = (newProps, ownProps) => {
-  return newProps;
+	return {
+		particleAndHeatSources: newProps.particleAndHeatSources
+	}
 };
 
 
-export default connect(mapStateToProps, {})(ParticleHeatForm);
+export default connect(mapStateToProps, {changeValue})(ParticleHeatForm);

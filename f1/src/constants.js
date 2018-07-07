@@ -328,4 +328,4 @@ export const GOOD_RESULTS = 'good_results';
 export const INVALID_RESULTS = 'invalid_results';
 export const UPDATE_PHS = 'update_particle_heatsource';
 export const ADD_PHS = 'add_particle_heat_source';
-export const ADD_PHSS = 'add_particle_heat_sources';  //Number is given
+export const SET_PHSS = 'add_particle_heat_sources';  //Number is given

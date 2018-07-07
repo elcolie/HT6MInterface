@@ -1,6 +1,5 @@
 import {
 	ADD_PHS,
-	ADD_PHSS,
 	ADVANCED_COMPLETE,
 	ADVANCED_FAILED,
 	BASIC_COMPLETE,
@@ -12,6 +11,7 @@ import {
 	NUMBER_OF_BREAK_POINTS_CHANGED,
 	NUMBER_OF_TIME_BREAK_POINTS_DEFAULT,
 	PARTICLE_HEATSOURCE_DEFAULT,
+	SET_PHSS,
 	UPDATE_PHS
 } from "../constants";
 import {setBreakPointList} from "./utils";
@@ -87,7 +87,7 @@ export const ParticleAndHeatSourceReducer = (
 	}
 };
 
-const addPHS = (qty) => {
+const setPHS = (qty) => {
 	let tmp = [];
 	for (let i = 0; i < qty; i++) {
 		tmp.push(Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT, {breakPointNumber: i}))
@@ -103,8 +103,8 @@ export const ParticleAndHeatSources = (
 		case ADD_PHS:
 			const tmp = Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
 			return [...state, tmp];
-		case ADD_PHSS:
-			return addPHS(action.payload);
+		case SET_PHSS:
+			return setPHS(action.payload.value);
 		case UPDATE_PHS:
 			return state.map(phs => ParticleAndHeatSourceReducer(phs, action));
 		default:
@@ -127,13 +127,11 @@ export const ConfirmationReducer = (state = {}, action) => {
 export const AdvancedControlRoomReducer = (state = {}, action) => {
 	switch (action.type) {
 		case ADVANCED_COMPLETE:
-			console.log(`adv complete`);
 			return {
 				message: 'Advanced mode form has been submitted',
 				statusCode: 200
 			};
 		case ADVANCED_FAILED:
-			console.log(`adv failed`);
 			return {
 				message: 'Connection failed',
 				statusCode: 500
