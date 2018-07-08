@@ -29,7 +29,8 @@ class ParticleHeatForm extends Component {
 						</Grid.Column>
 						<Grid.Column width={4}>
 							<div className="ui right labeled input">
-								<input type="number" placeholder={data.timeAtBreakPoint}
+
+								<input type="text" placeholder={data.timeAtBreakPoint}
 											 ref={node => {
 												 this.input = node;
 											 }}
@@ -41,6 +42,8 @@ class ParticleHeatForm extends Component {
 												 });
 											 }}
 								/>
+
+
 								<div className="ui basic label">
 									ms
 								</div>
@@ -56,47 +59,44 @@ class ParticleHeatForm extends Component {
 								<Form.Group inline>
 									<label>Ion species of the source</label>
 									<Form.Select fluid options={SPECIES} placeholder='Hydrogen'
-									onChange={(event, value)=>{
-										this.props.changeValue({
-											key: 'ionSpeciesOfTheSource',
-											value: value.value,
-											breakPointNumber: this.props.breakPointNumber - 1
-										})
-									}}/>
+															 onChange={(event, value) => {
+																 this.props.changeValue({
+																	 key: 'ionSpeciesOfTheSource',
+																	 value: value.value,
+																	 breakPointNumber: this.props.breakPointNumber - 1
+																 })
+															 }}/>
 								</Form.Group>
 
 								<Form.Group inline>
 									<label>{'Rate of particle source'}</label>
 									<div className="ui right labeled input">
-										<input
-												type="number"
+										<Form.Input
+												type={'number'}
 												placeholder={data.rateOfParticleSource}
-												ref={node => {this.input = node;}}
-												onChange={()=>{
+												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'rateOfParticleSource',
-														value: Number(this.input.value),
+														value: Number(value.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
-													})}
+													})
+												}
 												}
 										/>
-										<div className="ui basic label">
-											{'ms'}
-										</div>
+										<div className="ui basic label">{'ms'}</div>
 									</div>
 								</Form.Group>
 
 								<Form.Group inline>
 									<label>{'Radial position'}</label>
 									<div className="ui right labeled input">
-										<input
+										<Form.Input
 												type="number"
 												placeholder={data.radialPosition}
-												ref={node => {this.input = node;}}
-												onChange={()=>{
+												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'radialPosition',
-														value: Number(this.input.value),
+														value: Number(value.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -105,16 +105,23 @@ class ParticleHeatForm extends Component {
 									</div>
 								</Form.Group>
 
-								{/*{dumpParticleHeatForm({*/}
-									{/*label: "Radial position",*/}
-									{/*placeholder: data.radialPosition,*/}
-									{/*unit: 'm',*/}
-									{/*breakPointNumber: this.props.breakPointNumber -1,*/}
-									{/*varName: 'radialPosition',*/}
-									{/*changeValue: this.props.changeValue*/}
-									{/*})*/}
-								{/*}*/}
-								{/*{dumpParticleHeatForm({label: "Radial width", placeholder: data.radialWidth, unit: 'm'})}*/}
+								<Form.Group inline>
+									<label>{"Radial width"}</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.radialWidth}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'radialWidth',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'m'}</div>
+									</div>
+								</Form.Group>
 
 							</Form>
 						</fieldset>
@@ -124,21 +131,125 @@ class ParticleHeatForm extends Component {
 							<legend id='login-legend'>Heat Source</legend>
 							<Form>
 
-								{/*{dumpParticleHeatForm({label: "NBI total power", placeholder: data.nbiTotalPower, unit: 'W'})}*/}
-								{/*{dumpParticleHeatForm({*/}
-									{/*label: "NBI radial position",*/}
-									{/*placeholder: data.nbiRadialPosition,*/}
-									{/*unit: 'm'*/}
-								{/*})}*/}
-								{/*{dumpParticleHeatForm({label: "NBI radial width", placeholder: data.nbiRadialWidth, unit: 'm'})}*/}
+								<Form.Group inline>
+									<label>NBI total power</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.nbiTotalPower}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'nbiTotalPower',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'W'}</div>
+									</div>
+								</Form.Group>
 
-								{/*{dumpParticleHeatForm({label: "ICRF total power", placeholder: data.icrfTotalPower, unit: 'W'})}*/}
-								{/*{dumpParticleHeatForm({*/}
-									{/*label: "ICRF radial position",*/}
-									{/*placeholder: data.icrfRadialPosition,*/}
-									{/*unit: 'm'*/}
-								{/*})}*/}
-								{/*{dumpParticleHeatForm({label: "ICRF radial width", placeholder: data.icrfRadialWidth, unit: 'm'})}*/}
+								<Form.Group inline>
+									<label>NBI radial position</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.nbiRadialPosition}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'nbiRadialPosition',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'m'}</div>
+									</div>
+								</Form.Group>
+
+								<Form.Group inline>
+									<label>NBI radial width</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.nbiRadialWidth}
+												ref={node => {
+													this.input = node;
+												}}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'nbiRadialWidth',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'m'}</div>
+									</div>
+								</Form.Group>
+
+								<Form.Group inline>
+									<label>ICRF total power</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.icrfTotalPower}
+												ref={node => {
+													this.input = node;
+												}}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'icrfTotalPower',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'W'}</div>
+									</div>
+								</Form.Group>
+
+								<Form.Group inline>
+									<label>ICRF radial position</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.icrfRadialPosition}
+												ref={node => {
+													this.input = node;
+												}}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'icrfRadialPosition',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'m'}</div>
+									</div>
+								</Form.Group>
+
+								<Form.Group inline>
+									<label>ICRF radial position</label>
+									<div className="ui right labeled input">
+										<Form.Input
+												type="number"
+												placeholder={data.icrfRadialWidth}
+												ref={node => {
+													this.input = node;
+												}}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'icrfRadialWidth',
+														value: Number(value.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'m'}</div>
+									</div>
+								</Form.Group>
 
 							</Form>
 						</fieldset>
