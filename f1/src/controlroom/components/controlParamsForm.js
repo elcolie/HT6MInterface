@@ -38,7 +38,6 @@ class ControlParameterForm extends Component {
 	render() {
 		const {current} = this.state;
 		const {steps} = this.props.controlParametersReducer;
-		console.log(this.props.particleAndHeatSources);
 		return (
 				<Fragment>
 

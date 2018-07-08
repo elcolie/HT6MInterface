@@ -6,7 +6,7 @@ class Confirmation extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Confirmation</h1>
+        <h1 id={'confirmation'}>Confirmation</h1>
         <label>Comment for this discharge</label>
         <div className="ui input">
           <input type="text" placeholder="This shot is a test discharge. etc..." onChange={(event) => {
@@ -15,7 +15,12 @@ class Confirmation extends Component {
           }}/>
         </div>
         <a href="#set-particle-and-heatsources-params" className="btn btn-info" role="button">Back</a>
-        <button className="btn btn-info">Submit</button>
+        <button className="btn btn-info"
+          onClick={()=>{
+            console.log(`Shooting the Intermediate endpoint here!`);
+            console.log(this.props);
+          }}
+        >Submit</button>
       </Fragment>
     )
   }
