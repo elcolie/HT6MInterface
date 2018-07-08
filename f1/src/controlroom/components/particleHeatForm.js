@@ -3,29 +3,6 @@ import {Form, Grid} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {PARTICLE_HEATSOURCE_DEFAULT, SPECIES, UPDATE_PHS} from "../../constants";
 
-const dumpParticleHeatForm = (props) => {
-	const {label, placeholder, unit, breakPointNumber, varName, changeValue} = props;
-	return (
-			<Form.Group inline>
-				<label>{label}</label>
-				<div className="ui right labeled input">
-					<input
-							type="text"
-							placeholder={placeholder}
-							ref={node => {this.input = node;}}
-							onChange={changeValue({
-								key: varName,
-								value: Number(this.input.value),
-								breakPointNumber: breakPointNumber - 1 //Use original index
-							})}
-					/>
-					<div className="ui basic label">
-						{unit}
-					</div>
-				</div>
-			</Form.Group>
-	)
-};
 
 class ParticleHeatForm extends Component {
 
@@ -88,26 +65,55 @@ class ParticleHeatForm extends Component {
 									}}/>
 								</Form.Group>
 
-								{/*<Form.Group inline>*/}
-									{/*<label>{'Rate of particle source'}</label>*/}
-									{/*<div className="ui right labeled input">*/}
-										{/*<input*/}
-												{/*type="text"*/}
-												{/*placeholder={data.rateOfParticleSource}*/}
-												{/*ref={node => {this.input = node;}}*/}
-												{/*onChange={changeValue({*/}
-													{/*key: 'rateOfParticleSource',*/}
-													{/*value: Number(this.input.value),*/}
-													{/*breakPointNumber: this.props.breakPointNumber - 1 //Use original index*/}
-												{/*})}*/}
-										{/*/>*/}
-										{/*<div className="ui basic label">*/}
-											{/*{'ms'}*/}
-										{/*</div>*/}
-									{/*</div>*/}
-								{/*</Form.Group>*/}
+								<Form.Group inline>
+									<label>{'Rate of particle source'}</label>
+									<div className="ui right labeled input">
+										<input
+												type="number"
+												placeholder={data.rateOfParticleSource}
+												ref={node => {this.input = node;}}
+												onChange={()=>{
+													this.props.changeValue({
+														key: 'rateOfParticleSource',
+														value: Number(this.input.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})}
+												}
+										/>
+										<div className="ui basic label">
+											{'ms'}
+										</div>
+									</div>
+								</Form.Group>
 
-								{/*{dumpParticleHeatForm({label: "Radial position", placeholder: data.radialPosition, unit: 'm'})}*/}
+								<Form.Group inline>
+									<label>{'Radial position'}</label>
+									<div className="ui right labeled input">
+										<input
+												type="number"
+												placeholder={data.radialPosition}
+												ref={node => {this.input = node;}}
+												onChange={()=>{
+													this.props.changeValue({
+														key: 'radialPosition',
+														value: Number(this.input.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+										/>
+										<div className="ui basic label">{'m'}</div>
+									</div>
+								</Form.Group>
+
+								{/*{dumpParticleHeatForm({*/}
+									{/*label: "Radial position",*/}
+									{/*placeholder: data.radialPosition,*/}
+									{/*unit: 'm',*/}
+									{/*breakPointNumber: this.props.breakPointNumber -1,*/}
+									{/*varName: 'radialPosition',*/}
+									{/*changeValue: this.props.changeValue*/}
+									{/*})*/}
+								{/*}*/}
 								{/*{dumpParticleHeatForm({label: "Radial width", placeholder: data.radialWidth, unit: 'm'})}*/}
 
 							</Form>
