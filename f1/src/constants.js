@@ -303,18 +303,22 @@ export const PARTICLE_HEATSOURCE_DEFAULT = {
 export const PARTICLE_HEATSOURCE_NEXT = 'particle_heatsource_next';
 export const SPECIES = [
   {
+    key: 'electron',
     text: 'Electron',
     value: 'electron'
   },
   {
+    key: 'hydrogen',
     text: 'Hydrogen',
     value: 'hydrogen'
   },
   {
+    key: 'deuterium',
     text: 'Deuterium',
     value: 'deuterium'
   },
   {
+    key: 'tritium',
     text: 'Tritium',
     value: 'tritium'
   },

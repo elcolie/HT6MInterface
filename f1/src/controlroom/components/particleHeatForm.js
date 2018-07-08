@@ -78,34 +78,37 @@ class ParticleHeatForm extends Component {
 							<Form>
 								<Form.Group inline>
 									<label>Ion species of the source</label>
-									<Form.Select
-											name={'ionSpeciesOfTheSource'}
-											placeholder={data.ionSpeciesOfTheSource}
-											fluid
-											options={SPECIES}
-											ref={node => {
-												this.input = node;
-											}}
-											onChange={() => {
-												this.props.changeValue({
-													key: 'ionSpeciesOfTheSource',
-													value: Number(this.input.value),
-													breakPointNumber: this.props.breakPointNumber - 1 //Use original index
-												})
-											}}
-									/>
+									<Form.Select fluid options={SPECIES} placeholder='Hydrogen'
+									onChange={(event, value)=>{
+										this.props.changeValue({
+											key: 'ionSpeciesOfTheSource',
+											value: value.value,
+											breakPointNumber: this.props.breakPointNumber - 1
+										})
+									}}/>
 								</Form.Group>
 
-								{dumpParticleHeatForm({
-									label: "Rate of particle source",
-									placeholder: data.rateOfParticleSource,
-									unit: 'ms',
-									breakPointNumber: data.breakPointNumber,
-									varName: 'rateOfParticleSource',
-									changeValue: this.props.changeValue
-								})}
-								{dumpParticleHeatForm({label: "Radial position", placeholder: data.radialPosition, unit: 'm'})}
-								{dumpParticleHeatForm({label: "Radial width", placeholder: data.radialWidth, unit: 'm'})}
+								{/*<Form.Group inline>*/}
+									{/*<label>{'Rate of particle source'}</label>*/}
+									{/*<div className="ui right labeled input">*/}
+										{/*<input*/}
+												{/*type="text"*/}
+												{/*placeholder={data.rateOfParticleSource}*/}
+												{/*ref={node => {this.input = node;}}*/}
+												{/*onChange={changeValue({*/}
+													{/*key: 'rateOfParticleSource',*/}
+													{/*value: Number(this.input.value),*/}
+													{/*breakPointNumber: this.props.breakPointNumber - 1 //Use original index*/}
+												{/*})}*/}
+										{/*/>*/}
+										{/*<div className="ui basic label">*/}
+											{/*{'ms'}*/}
+										{/*</div>*/}
+									{/*</div>*/}
+								{/*</Form.Group>*/}
+
+								{/*{dumpParticleHeatForm({label: "Radial position", placeholder: data.radialPosition, unit: 'm'})}*/}
+								{/*{dumpParticleHeatForm({label: "Radial width", placeholder: data.radialWidth, unit: 'm'})}*/}
 
 							</Form>
 						</fieldset>
@@ -115,21 +118,21 @@ class ParticleHeatForm extends Component {
 							<legend id='login-legend'>Heat Source</legend>
 							<Form>
 
-								{dumpParticleHeatForm({label: "NBI total power", placeholder: data.nbiTotalPower, unit: 'W'})}
-								{dumpParticleHeatForm({
-									label: "NBI radial position",
-									placeholder: data.nbiRadialPosition,
-									unit: 'm'
-								})}
-								{dumpParticleHeatForm({label: "NBI radial width", placeholder: data.nbiRadialWidth, unit: 'm'})}
+								{/*{dumpParticleHeatForm({label: "NBI total power", placeholder: data.nbiTotalPower, unit: 'W'})}*/}
+								{/*{dumpParticleHeatForm({*/}
+									{/*label: "NBI radial position",*/}
+									{/*placeholder: data.nbiRadialPosition,*/}
+									{/*unit: 'm'*/}
+								{/*})}*/}
+								{/*{dumpParticleHeatForm({label: "NBI radial width", placeholder: data.nbiRadialWidth, unit: 'm'})}*/}
 
-								{dumpParticleHeatForm({label: "ICRF total power", placeholder: data.icrfTotalPower, unit: 'W'})}
-								{dumpParticleHeatForm({
-									label: "ICRF radial position",
-									placeholder: data.icrfRadialPosition,
-									unit: 'm'
-								})}
-								{dumpParticleHeatForm({label: "ICRF radial width", placeholder: data.icrfRadialWidth, unit: 'm'})}
+								{/*{dumpParticleHeatForm({label: "ICRF total power", placeholder: data.icrfTotalPower, unit: 'W'})}*/}
+								{/*{dumpParticleHeatForm({*/}
+									{/*label: "ICRF radial position",*/}
+									{/*placeholder: data.icrfRadialPosition,*/}
+									{/*unit: 'm'*/}
+								{/*})}*/}
+								{/*{dumpParticleHeatForm({label: "ICRF radial width", placeholder: data.icrfRadialWidth, unit: 'm'})}*/}
 
 							</Form>
 						</fieldset>
