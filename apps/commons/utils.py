@@ -1,7 +1,6 @@
 import django_rq
 
 from apps.scenarios.models import Scenario
-from apps.results.models import Result
 
 READONLY_FIELDS = ['id', 'created_at', 'updated_at', 'created_at', 'updated_at']
 
@@ -30,3 +29,8 @@ def get_ls(scenario):
 
 def call_fortran(scenario: Scenario):
     django_rq.enqueue(get_ls, scenario)
+
+
+class MockRequest:
+    def __init__(self, user):
+        self.user = user

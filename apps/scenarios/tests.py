@@ -7,7 +7,12 @@ from rest_framework.reverse import reverse
 from rest_framework.test import APIClient
 
 from apps.commons.constants import DEVICE_PARAMS
+from apps.control_params.models import ControlParameter
+from apps.device_params.models import DeviceParameter
+from apps.heating_params.models import HeatingParameter
+from apps.plasma_params.models import PlasmaParameter
 from apps.scenarios.models import Scenario
+from apps.transport_params.models import TransportParameter
 
 
 class TestScenario(TestCase):
@@ -97,7 +102,7 @@ class TestScenario(TestCase):
                 'nsmax': 3,
                 'density_eqn': False,
             },
-            'transport_params':{
+            'transport_params': {
                 'transport_model': 'CDBM05',
                 'resistivity': "Hinton and Hazeltine's model",
                 'particle_diffusion': "Model01",
@@ -105,7 +110,7 @@ class TestScenario(TestCase):
                 'bootstrap_current': "Model01",
                 'neoclassical': "Model01",
             },
-            'control_params':{
+            'control_params': {
                 'no_break_point': 2,
                 'max_run_time': 3,
                 'heating_params': [
@@ -114,7 +119,7 @@ class TestScenario(TestCase):
                         'breakpoint_time': 0,
                         'timestep': 0.01,
 
-                        'particle_species': 40,
+                        'particle_species': "H",
                         'rate_of_particle_source': 0,
                         'radial_position': 0,
                         'radial_width': 0.5,
@@ -131,7 +136,7 @@ class TestScenario(TestCase):
                         'breakpoint_time': 0,
                         'timestep': 0.01,
 
-                        'particle_species': 40,
+                        'particle_species': "H",
                         'rate_of_particle_source': 0,
                         'radial_position': 0,
                         'radial_width': 0.5,
@@ -146,3 +151,12 @@ class TestScenario(TestCase):
                 ]
             }
         }
+        url = reverse('intermediate')
+        self.client.force_authenticate(user=self.admin_user)
+        res = self.client.post(url, data=payload, format='json')
+        assert status.HTTP_201_CREATED == res.status_code
+        assert 1 == DeviceParameter.objects.count()
+        assert 1 == PlasmaParameter.objects.count()
+        assert 1 == TransportParameter.objects.count()
+        assert 1 == ControlParameter.objects.count()
+        assert 2 == HeatingParameter.objects.count()

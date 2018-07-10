@@ -7,6 +7,7 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from apps.commons.utils import MockRequest
 from apps.scenarios.api.serializers import ScenarioSerializer
 from apps.scenarios.models import Scenario
 from ht6m.celery import fortran_simulate
@@ -86,7 +87,7 @@ def intermediate(request):
     """
     logger.info(f"INTERMEDIATE : {request.data}")
     # Log the given parameters in the Django model here
-    serializer = ScenarioSerializer(data=request.data)
+    serializer = ScenarioSerializer(data=request.data, context={'request': MockRequest(request.user)})
     if serializer.is_valid():
         scenario = serializer.save()
         scenario_dict = {
@@ -94,6 +95,6 @@ def intermediate(request):
         }
         # Dispatch job to worker here
         fortran_simulate.delay(scenario_dict)
-        return Response(data=request.data, status=status.HTTP_200_OK)
+        return Response(data=request.data, status=status.HTTP_201_CREATED)
     else:
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)

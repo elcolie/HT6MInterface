@@ -9,7 +9,7 @@ from apps.heating_params.models import HeatingParameter
 class ControlParameterSerializer(serializers.ModelSerializer):
     no_break_point = serializers.IntegerField(min_value=2, default=CONTROL_PARAMS['no_break_point'])
     max_run_time = serializers.IntegerField(min_value=3, default=CONTROL_PARAMS['max_run_time'])
-    heating_params = HeatingParameterSerializer(many=True)
+    heating_params = HeatingParameterSerializer(many=True, required=True)
 
     class Meta:
         model = ControlParameter
