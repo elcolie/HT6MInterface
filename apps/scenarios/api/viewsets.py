@@ -74,3 +74,26 @@ def basic(request):
     }
     fortran_simulate.delay(scenario_dict)
     return Response(data=request.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes(permission_classes=[IsAuthenticated])
+def intermediate(request):
+    """
+    For Intermediate Control Room
+    :param request:
+    :return:
+    """
+    logger.info(f"INTERMEDIATE : {request.data}")
+    # Log the given parameters in the Django model here
+    serializer = ScenarioSerializer(data=request.data)
+    if serializer.is_valid():
+        scenario = serializer.save()
+        scenario_dict = {
+            'scenario': scenario.id,
+        }
+        # Dispatch job to worker here
+        fortran_simulate.delay(scenario_dict)
+        return Response(data=request.data, status=status.HTTP_200_OK)
+    else:
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -27,6 +27,7 @@ class ScenarioSerializer(serializers.ModelSerializer):
             'control_params',
             'created_by',
             'results',
+            'comment',
         ]
 
     def create(self, validated_data) -> Scenario:

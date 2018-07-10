@@ -11,9 +11,10 @@ class ParticleHeatForm extends Component {
 		if (data === undefined) {
 			data = Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
 		}
+		console.log(this.props.particleAndHeatSources);
 		return <Fragment>
 			<Grid textAlign='left' centered>
-				<Grid equal>
+				<Grid equal={'true'}>
 					<Grid.Row columns={2}>
 						<Grid.Column width={8} textAlign='left'>
 							<label>Break point number</label>
@@ -29,21 +30,18 @@ class ParticleHeatForm extends Component {
 						</Grid.Column>
 						<Grid.Column width={4}>
 							<div className="ui right labeled input">
-
-								<input type="text" placeholder={data.timeAtBreakPoint}
-											 ref={node => {
-												 this.input = node;
-											 }}
-											 onChange={() => {
-												 this.props.changeValue({
-													 key: 'timeAtBreakPoint',
-													 value: Number(this.input.value),
-													 breakPointNumber: this.props.breakPointNumber - 1 //Use original index
-												 });
-											 }}
+								<Form.Input
+												type={'number'}
+												placeholder={data.timeAtBreakPoint}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'timeAtBreakPoint',
+														// value: Number(event.target.value), It just a new value not reflex the actual field's value
+														value: Number(event.target.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
 								/>
-
-
 								<div className="ui basic label">
 									ms
 								</div>
@@ -62,7 +60,7 @@ class ParticleHeatForm extends Component {
 															 onChange={(event, value) => {
 																 this.props.changeValue({
 																	 key: 'ionSpeciesOfTheSource',
-																	 value: value.value,
+																	 value: event.target.value,
 																	 breakPointNumber: this.props.breakPointNumber - 1
 																 })
 															 }}/>
@@ -77,7 +75,7 @@ class ParticleHeatForm extends Component {
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'rateOfParticleSource',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}
@@ -96,7 +94,7 @@ class ParticleHeatForm extends Component {
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'radialPosition',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -114,7 +112,7 @@ class ParticleHeatForm extends Component {
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'radialWidth',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -140,7 +138,7 @@ class ParticleHeatForm extends Component {
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'nbiTotalPower',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -158,7 +156,7 @@ class ParticleHeatForm extends Component {
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'nbiRadialPosition',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -173,13 +171,10 @@ class ParticleHeatForm extends Component {
 										<Form.Input
 												type="number"
 												placeholder={data.nbiRadialWidth}
-												ref={node => {
-													this.input = node;
-												}}
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'nbiRadialWidth',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -194,13 +189,10 @@ class ParticleHeatForm extends Component {
 										<Form.Input
 												type="number"
 												placeholder={data.icrfTotalPower}
-												ref={node => {
-													this.input = node;
-												}}
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'icrfTotalPower',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -215,13 +207,10 @@ class ParticleHeatForm extends Component {
 										<Form.Input
 												type="number"
 												placeholder={data.icrfRadialPosition}
-												ref={node => {
-													this.input = node;
-												}}
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'icrfRadialPosition',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}
@@ -231,18 +220,15 @@ class ParticleHeatForm extends Component {
 								</Form.Group>
 
 								<Form.Group inline>
-									<label>ICRF radial position</label>
+									<label>ICRF radial width</label>
 									<div className="ui right labeled input">
 										<Form.Input
 												type="number"
 												placeholder={data.icrfRadialWidth}
-												ref={node => {
-													this.input = node;
-												}}
 												onChange={(event, value) => {
 													this.props.changeValue({
 														key: 'icrfRadialWidth',
-														value: Number(value.value),
+														value: Number(event.target.value),
 														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
 													})
 												}}

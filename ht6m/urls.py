@@ -21,7 +21,7 @@ from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
 from apps.commons.views import get_username
-from apps.scenarios.api.viewsets import test, time_series, basic
+from apps.scenarios.api.viewsets import test, time_series, basic, intermediate
 from ht6m import api_urls
 
 urlpatterns = [
@@ -34,4 +34,5 @@ urlpatterns = [
     path('time-series/', time_series, name='time-series'),
     path('username/', get_username, name='get-username'),
     path('api/basic/', basic, name='basic'),
+    path('api/intermediate/', intermediate, name='intermediate'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -46,14 +46,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.advanced_cases',
     'apps.commons',
-    'apps.device_params',
-    'apps.plasma_params',
     'apps.control_params',
-    'apps.transport_params',
+    'apps.device_params',
     'apps.heating_params',
+    'apps.plasma_params',
     'apps.plasma_species',
     'apps.results',
     'apps.scenarios',
+    'apps.transport_params',
 ]
 
 MIDDLEWARE = [

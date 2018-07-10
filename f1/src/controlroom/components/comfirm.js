@@ -4,6 +4,8 @@ import {CHANGE_CONFIRMATION} from "../../constants";
 
 class Confirmation extends Component {
   render() {
+    const {confirmationText} = this.props.confirmationReducer;
+    console.log(confirmationText);
     return (
       <Fragment>
         <h1 id={'confirmation'}>Confirmation</h1>
