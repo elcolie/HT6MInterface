@@ -10,7 +10,7 @@ class TemperatureEdge extends Component {
     } = this.props;
     return (
       <Table.Row>
-        <Table.Cell>Density of the edge</Table.Cell>
+        <Table.Cell>Temperature at the edge</Table.Cell>
         <Table.Cell>
           <Input type='number' name={'electronDensityCenter'} placeholder={'0.00'}/>
         </Table.Cell>

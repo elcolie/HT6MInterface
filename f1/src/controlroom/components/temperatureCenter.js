@@ -10,7 +10,7 @@ class TemperatureAtCenter extends Component {
     } = this.props;
     return (
       <Table.Row>
-        <Table.Cell>Density of the edge</Table.Cell>
+        <Table.Cell>Temperature at the center</Table.Cell>
         <Table.Cell>
           <Input type='number' name={'electronTemperatureCenter'} placeholder={'0.00'}/>
         </Table.Cell>

@@ -15,7 +15,7 @@ const setMachineParameter = () => {
             <tbody>
               <tr>
                 <td><b>Machine</b></td>
-                <td><Form.Select name='machineOption' onChange={this.handleChange} fluid options={MACHINE_OPTIONS}
+                <td><Form.Select name='machine' onChange={this.handleChange} fluid options={MACHINE_OPTIONS}
                                  placeholder={MACHINE_OPTIONS_DEFAULT}/></td>
               </tr>
               <tr>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {
+	CHANGE_MACHINE_PARAM,
 	CLICK_CHANGE_SPECIES,
 	MAXIMUM_RUNTIME_CHANGED,
 	MAXIMUM_RUNTIME_DEFAULT,
@@ -10,6 +11,7 @@ import {
 import {ControlParametersReducer, SpecieReducer} from "./controlroom/reducers";
 import deepFreeze from 'deep-freeze';
 import {setBreakPointList} from "./controlroom/utils";
+import {MachineParameterReducer} from "./controlroom/machineParameterReducer";
 
 
 it('renders without crashing', () => {
@@ -103,4 +105,24 @@ it('SpecieReducer change state from undefine to valid', () => {
 	expect(SpecieReducer(undefined, action)).toEqual(stateAfter);
 });
 
-
+it('MachineParameterReducer', () => {
+	const stateBefore = {
+		majorRadius: 0.1
+	};
+	const action = {
+		type: CHANGE_MACHINE_PARAM,
+		payload: {
+			key: 'machine',
+			value: 'HT-66M'
+		}
+	};
+	const stateAfter = {
+		majorRadius: 0.1,
+		machine: 'HT-66M'
+	};
+	deepFreeze(stateBefore);
+	deepFreeze(action);
+	expect(
+			MachineParameterReducer(stateBefore, action)
+	).toEqual(stateAfter);
+});

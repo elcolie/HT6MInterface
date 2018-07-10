@@ -22,86 +22,88 @@ export const WIKI = 'wiki';
 export const SUBMIT_BASIC_FORM = 'submit_basic_form';
 export const BASIC_COMPLETE = 'basic_complete';
 export const BASIC_FAILED = 'basic_failed';
+export const INTERMEDIATE_COMPLETE = 'intermediate_complete';
+export const INTERMEDIATE_FAILED = 'intermediate_failed';
 export const NAV_BAR_MENU = {
-  controlRoom: false,
-  queue: false,
-  results: false,
-  wiki: false
+	controlRoom: false,
+	queue: false,
+	results: false,
+	wiki: false
 };
 export const NETWORK_DOWN = {
-  message: 'Network is down',
-  statusCode: 406
+	message: 'Network is down',
+	statusCode: 406
 };
 
 export const MACHINE_OPTIONS = [
-  {
-    text: 'HT-6M',
-    value: 'HT-6M'
-  },
-  {
-    text: 'HT-5M',
-    value: 'HT-5M'
-  }
+	{
+		text: 'HT-6M',
+		value: 'HT-6M'
+	},
+	{
+		text: 'HT-5M',
+		value: 'HT-5M'
+	}
 ];
 
 export const PLASMA_CURRENT_OPTIONS = [
-  {
-    text: '0.01',
-    value: 0.01
-  },
-  {
-    text: '0.02',
-    value: 0.02
-  },
-  {
-    text: '0.03',
-    value: 0.03
-  },
+	{
+		text: '0.01',
+		value: 0.01
+	},
+	{
+		text: '0.02',
+		value: 0.02
+	},
+	{
+		text: '0.03',
+		value: 0.03
+	},
 ];
 
 export const MAGNETIC_FIELD_OPTIONS = [
-  {
-    text: '1.50',
-    value: 1.50
-  },
-  {
-    text: '1.75',
-    value: 1.75
-  },
-  {
-    text: '2.00',
-    value: 2.00
-  },
+	{
+		text: '1.50',
+		value: 1.50
+	},
+	{
+		text: '1.75',
+		value: 1.75
+	},
+	{
+		text: '2.00',
+		value: 2.00
+	},
 ];
 
 export const RATE_OF_GAS_PUFFING_OPTIONS = [
-  {
-    text: '10.0',
-    value: 10.0
-  },
-  {
-    text: '15.0',
-    value: 15.0
-  },
-  {
-    text: '20.0',
-    value: 20.0
-  },
+	{
+		text: '10.0',
+		value: 10.0
+	},
+	{
+		text: '15.0',
+		value: 15.0
+	},
+	{
+		text: '20.0',
+		value: 20.0
+	},
 ];
 
 export const ICRF_HEATING_OPTIONS = [
-  {
-    text: '1.00',
-    value: 1.00
-  },
-  {
-    text: '2.00',
-    value: 2.00
-  },
-  {
-    text: '3.00',
-    value: 3.00
-  },
+	{
+		text: '1.00',
+		value: 1.00
+	},
+	{
+		text: '2.00',
+		value: 2.00
+	},
+	{
+		text: '3.00',
+		value: 3.00
+	},
 ];
 
 export const MACHINE_OPTIONS_DEFAULT = 'HT-6M';
@@ -111,217 +113,217 @@ export const RATE_OF_GAS_PUFFING_DEFAULT = 0;
 export const ICRF_HEATING_DEFAULT = 1.00;
 
 export const BASIC_DEFAULT = {
-  'machineOption': MACHINE_OPTIONS_DEFAULT,
-  'plasmaCurrent': PLASMA_CURRENT_DEFAULT,
-  'magneticField': MAGNETIC_FIELD_DEFAULT,
-  'rateOfGasPuffing': RATE_OF_GAS_PUFFING_DEFAULT,
-  'icrfHeating': ICRF_HEATING_DEFAULT
+	'machineOption': MACHINE_OPTIONS_DEFAULT,
+	'plasmaCurrent': PLASMA_CURRENT_DEFAULT,
+	'magneticField': MAGNETIC_FIELD_DEFAULT,
+	'rateOfGasPuffing': RATE_OF_GAS_PUFFING_DEFAULT,
+	'icrfHeating': ICRF_HEATING_DEFAULT
 };
 
 export const NSMAX_OPTIONS = [
-  {
-    text: '2',
-    value: 2
-  },
-  {
-    text: '3',
-    value: 3
-  },
-  {
-    text: '4',
-    value: 4
-  }
+	{
+		text: '2',
+		value: 2
+	},
+	{
+		text: '3',
+		value: 3
+	},
+	{
+		text: '4',
+		value: 4
+	}
 ];
 
 export const CLICK_CHANGE_SPECIES = 'click_change_species';
 export const TRANSPORT_OPTIONS_DEFAULT = 'CDBM05';
 export const TRANSPORT_OPTIONS = [
-  {
-    text: 'Model01',
-    value: 'Model01'
-  },
-  {
-    text: 'Model02',
-    value: 'Model02'
-  }
+	{
+		text: 'Model01',
+		value: 'Model01'
+	},
+	{
+		text: 'Model02',
+		value: 'Model02'
+	}
 ];
 export const RESISTIVITY_OPTIONS_DEFAULT = "Hinton and Hazeltine's model";
 export const RESISTIVITY_OPTIONS = [
-  {
-    text: 'Model01',
-    value: 'Model01'
-  },
-  {
-    text: 'Model02',
-    value: 'Model02'
-  },
-  {
-    text: 'Model03',
-    value: 'Model03'
-  }
+	{
+		text: 'Model01',
+		value: 'Model01'
+	},
+	{
+		text: 'Model02',
+		value: 'Model02'
+	},
+	{
+		text: 'Model03',
+		value: 'Model03'
+	}
 ];
 export const PARTICLE_DIFFUSION_MODEL_DEFAULT = 'Constant values';
 export const PARTICLE_DIFFUSION_MODEL_OPTIONS = [
-  {
-    text: 'Model01',
-    value: 'Model01'
-  },
-  {
-    text: 'Model02',
-    value: 'Model02'
-  },
-  {
-    text: 'Model03',
-    value: 'Model03'
-  }
+	{
+		text: 'Model01',
+		value: 'Model01'
+	},
+	{
+		text: 'Model02',
+		value: 'Model02'
+	},
+	{
+		text: 'Model03',
+		value: 'Model03'
+	}
 ];
 export const HEAT_PINCH_MODEL_DEFAULT = 'xxxx';
 export const HEAT_PINCH_MODEL_OPTIONS = [
-  {
-    text: 'Model01',
-    value: 'Model01'
-  },
-  {
-    text: 'Model02',
-    value: 'Model02'
-  },
-  {
-    text: 'Model03',
-    value: 'Model03'
-  }
+	{
+		text: 'Model01',
+		value: 'Model01'
+	},
+	{
+		text: 'Model02',
+		value: 'Model02'
+	},
+	{
+		text: 'Model03',
+		value: 'Model03'
+	}
 ];
 export const BOOTSTRAP_CURRENT_DEFAULT = 'xxxx';
 export const BOOTSTRAP_CURRENT_MODEL_OPTIONS = [
-  {
-    text: 'Model01',
-    value: 'Model01'
-  },
-  {
-    text: 'Model02',
-    value: 'Model02'
-  },
-  {
-    text: 'Model03',
-    value: 'Model03'
-  }
+	{
+		text: 'Model01',
+		value: 'Model01'
+	},
+	{
+		text: 'Model02',
+		value: 'Model02'
+	},
+	{
+		text: 'Model03',
+		value: 'Model03'
+	}
 ];
 
 export const NEOCLASSICAL_MODEL_DEFAULT = 'xxxx';
 export const NEOCLASSICAL_MODEL_OPTIONS = [
-  {
-    text: 'Model01',
-    value: 'Model01'
-  },
-  {
-    text: 'Model02',
-    value: 'Model02'
-  },
-  {
-    text: 'Model03',
-    value: 'Model03'
-  }
+	{
+		text: 'Model01',
+		value: 'Model01'
+	},
+	{
+		text: 'Model02',
+		value: 'Model02'
+	},
+	{
+		text: 'Model03',
+		value: 'Model03'
+	}
 ];
 
 export const NUMBER_OF_TIME_BREAK_POINTS_DEFAULT = '5';
 export const NUMBER_OF_TIME_BREAK_POINTS_OPTIONS = [
-  {
-    text: '2',
-    value: 2
-  },
-  {
-    text: '3',
-    value: 3
-  },
-  {
-    text: '4',
-    value: 4
-  },
-  {
-    text: '5',
-    value: 5
-  },
-  {
-    text: '6',
-    value: 6
-  },
-  {
-    text: '7',
-    value: 7
-  },
-  {
-    text: '8',
-    value: 8
-  }
+	{
+		text: '2',
+		value: 2
+	},
+	{
+		text: '3',
+		value: 3
+	},
+	{
+		text: '4',
+		value: 4
+	},
+	{
+		text: '5',
+		value: 5
+	},
+	{
+		text: '6',
+		value: 6
+	},
+	{
+		text: '7',
+		value: 7
+	},
+	{
+		text: '8',
+		value: 8
+	}
 ];
 export const MAXIMUM_RUNTIME_DEFAULT = '3';
-export const MAXIMUM_RUNTIME_OPTIONS= [
-  {
-    text: '1',
-    value: 1
-  },
-  {
-    text: '2',
-    value: 2
-  },
-  {
-    text: '3',
-    value: 3
-  },
-  {
-    text: '4',
-    value: 4
-  },
-  {
-    text: '5',
-    value: 5
-  },
-  {
-    text: '6',
-    value: 6
-  }
+export const MAXIMUM_RUNTIME_OPTIONS = [
+	{
+		text: '1',
+		value: 1
+	},
+	{
+		text: '2',
+		value: 2
+	},
+	{
+		text: '3',
+		value: 3
+	},
+	{
+		text: '4',
+		value: 4
+	},
+	{
+		text: '5',
+		value: 5
+	},
+	{
+		text: '6',
+		value: 6
+	}
 ];
 export const NUMBER_OF_BREAK_POINTS_CHANGED = 'number_of_break_points_changed';
 export const MAXIMUM_RUNTIME_CHANGED = 'maximum_runtime_changed';
 export const PARTICLE_HEATSOURCE_DEFAULT = {
-  breakPointNumber: 0,
-  timeAtBreakPoint: 0.01,
-  
-  ionSpeciesOfTheSource: 'Hydrogen',
-  rateOfParticleSource: 0.01,
-  radialPosition: 0.00,
-  radialWidth: 0.50,
-  
-  nbiTotalPower: 0.01,
-  nbiRadialPosition: 0.01,
-  nbiRadialWidth: 0.01,
-  
-  icrfTotalPower: 0.01,
-  icrfRadialPosition: 0.01,
-  icrfRadialWidth: 0.01
-  
+	breakPointNumber: 0,
+	timeAtBreakPoint: 0.01,
+
+	ionSpeciesOfTheSource: 'Hydrogen',
+	rateOfParticleSource: 0.01,
+	radialPosition: 0.00,
+	radialWidth: 0.50,
+
+	nbiTotalPower: 0.01,
+	nbiRadialPosition: 0.01,
+	nbiRadialWidth: 0.01,
+
+	icrfTotalPower: 0.01,
+	icrfRadialPosition: 0.01,
+	icrfRadialWidth: 0.01
+
 };
 export const PARTICLE_HEATSOURCE_NEXT = 'particle_heatsource_next';
 export const SPECIES = [
-  {
-    key: 'electron',
-    text: 'Electron',
-    value: 'electron'
-  },
-  {
-    key: 'hydrogen',
-    text: 'Hydrogen',
-    value: 'hydrogen'
-  },
-  {
-    key: 'deuterium',
-    text: 'Deuterium',
-    value: 'deuterium'
-  },
-  {
-    key: 'tritium',
-    text: 'Tritium',
-    value: 'tritium'
-  },
+	{
+		key: 'electron',
+		text: 'Electron',
+		value: 'electron'
+	},
+	{
+		key: 'hydrogen',
+		text: 'Hydrogen',
+		value: 'hydrogen'
+	},
+	{
+		key: 'deuterium',
+		text: 'Deuterium',
+		value: 'deuterium'
+	},
+	{
+		key: 'tritium',
+		text: 'Tritium',
+		value: 'tritium'
+	},
 ];
 export const CHANGE_CONFIRMATION = 'change_confirmation';
 export const SUBMIT_ADVANCED_FORM = 'submit_advanced_form';
@@ -333,3 +335,5 @@ export const INVALID_RESULTS = 'invalid_results';
 export const UPDATE_PHS = 'update_particle_heatsource';
 export const ADD_PHS = 'add_particle_heat_source';
 export const SET_PHSS = 'add_particle_heat_sources';  //Number is given
+export const HIT_INTERMEDIATE_BTN = 'hit_intermediate_btn';
+export const CHANGE_MACHINE_PARAM = 'change_machine_param';

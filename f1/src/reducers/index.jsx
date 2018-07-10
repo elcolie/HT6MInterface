@@ -13,6 +13,7 @@ import {
 	SpecieReducer
 } from "../controlroom/reducers";
 import {ChartReducer} from "../displays/chart-reducers";
+import {MachineParameterReducer} from "../controlroom/machineParameterReducer";
 
 const rootReducer = combineReducers({
   inputInterface: InputInterfaceReducer,
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   advancedControlRoomReducer: AdvancedControlRoomReducer,
   chartReducer: ChartReducer,
   particleAndHeatSources: ParticleAndHeatSources,
+	machineParameterReducer: MachineParameterReducer,
   form: formReducer
 });
 
