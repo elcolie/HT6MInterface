@@ -9,27 +9,29 @@ import {
 	AdvancedControlRoomReducer,
 	BasicControlRoomReducer,
 	ConfirmationReducer,
-	ControlParametersReducer, ParticleAndHeatSources,
+	ControlParametersReducer,
+	ParticleAndHeatSources,
 	SpecieReducer
 } from "../controlroom/reducers";
 import {ChartReducer} from "../displays/chart-reducers";
-import {MachineParameterReducer} from "../controlroom/machineParameterReducer";
+import {MachineParameterReducer, TransportParameterReducer} from "../controlroom/machineParameterReducer";
 
 const rootReducer = combineReducers({
-  inputInterface: InputInterfaceReducer,
-  userPasswordReducer: UserPasswordReducer,
-  localTokenReducer: LocalTokenReducer,
-  verifyTokenReducer: VerifyTokenReducer,
-  TINTNavBarReducer: TINTNavBarReducer,
-  basicControlRoomReducer: BasicControlRoomReducer,
-  specieReducer: SpecieReducer,
-  controlParametersReducer: ControlParametersReducer,
-  confirmationReducer: ConfirmationReducer,
-  advancedControlRoomReducer: AdvancedControlRoomReducer,
-  chartReducer: ChartReducer,
-  particleAndHeatSources: ParticleAndHeatSources,
+	inputInterface: InputInterfaceReducer,
+	userPasswordReducer: UserPasswordReducer,
+	localTokenReducer: LocalTokenReducer,
+	verifyTokenReducer: VerifyTokenReducer,
+	TINTNavBarReducer: TINTNavBarReducer,
+	basicControlRoomReducer: BasicControlRoomReducer,
+	specieReducer: SpecieReducer,
+	controlParametersReducer: ControlParametersReducer,
+	confirmationReducer: ConfirmationReducer,
+	advancedControlRoomReducer: AdvancedControlRoomReducer,
+	chartReducer: ChartReducer,
+	particleAndHeatSources: ParticleAndHeatSources,
 	machineParameterReducer: MachineParameterReducer,
-  form: formReducer
+	transportParameterReducer: TransportParameterReducer,
+	form: formReducer
 });
 
 export default rootReducer;

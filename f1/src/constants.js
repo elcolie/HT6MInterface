@@ -337,3 +337,4 @@ export const ADD_PHS = 'add_particle_heat_source';
 export const SET_PHSS = 'add_particle_heat_sources';  //Number is given
 export const HIT_INTERMEDIATE_BTN = 'hit_intermediate_btn';
 export const CHANGE_MACHINE_PARAM = 'change_machine_param';
+export const CHANGE_TRANSPORT_PARAM = 'change_transport_param';

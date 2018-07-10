@@ -57,8 +57,6 @@ class SetPlasmaParameter extends Component {
       </div>
     )
   }
-  
-  
 }
 
 const mapStateToProps = (newProps, ownProps) => {
