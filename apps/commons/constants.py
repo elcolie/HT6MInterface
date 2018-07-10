@@ -29,7 +29,7 @@ HEATING_PARAMS = {
     'breakpoint_time': 0,
     'timestep': 0.01,
 
-    'particle_species': 40,
+    'particle_species': "H",
     'rate_of_particle_source': 0,
     'radial_position': 0,
     'radial_width': 0.5,

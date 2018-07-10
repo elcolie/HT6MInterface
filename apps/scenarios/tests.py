@@ -81,3 +81,68 @@ class TestScenario(TestCase):
         self.client.force_authenticate(user=self.admin_user)
         res = self.client.post(url, {'hello': 'world'}, format='json')
         assert status.HTTP_200_OK == res.status_code
+
+    def test_create_intermediate(self):
+        payload = {
+            'device_params': {
+                'machine': 'HT-66M',
+                'major_radius': 0.38,
+                'minor_radius': 0.4,
+                'triangularity': 0,
+                'ellipticity': 2,
+                'plasma_current': 0.05,
+                'magnetic_field': 2.0,
+            },
+            'plasma_params': {
+                'nsmax': 3,
+                'density_eqn': False,
+            },
+            'transport_params':{
+                'transport_model': 'CDBM05',
+                'resistivity': "Hinton and Hazeltine's model",
+                'particle_diffusion': "Model01",
+                'heat_pinch': "Pinch01",
+                'bootstrap_current': "Model01",
+                'neoclassical': "Model01",
+            },
+            'control_params':{
+                'no_break_point': 2,
+                'max_run_time': 3,
+                'heating_params': [
+                    {
+                        'break_point_number': 2,
+                        'breakpoint_time': 0,
+                        'timestep': 0.01,
+
+                        'particle_species': 40,
+                        'rate_of_particle_source': 0,
+                        'radial_position': 0,
+                        'radial_width': 0.5,
+
+                        'nbi_power': 0,
+                        'nbi_radial_position': 0,
+                        'nbi_radial_width': 0.5,
+                        'icrf_power': 0,
+                        'icrf_radial': 0,
+                        'icrf_radial_width': 0.5,
+                    },
+                    {
+                        'break_point_number': 2,
+                        'breakpoint_time': 0,
+                        'timestep': 0.01,
+
+                        'particle_species': 40,
+                        'rate_of_particle_source': 0,
+                        'radial_position': 0,
+                        'radial_width': 0.5,
+
+                        'nbi_power': 0,
+                        'nbi_radial_position': 0,
+                        'nbi_radial_width': 0.5,
+                        'icrf_power': 0,
+                        'icrf_radial': 0,
+                        'icrf_radial_width': 0.5,
+                    }
+                ]
+            }
+        }

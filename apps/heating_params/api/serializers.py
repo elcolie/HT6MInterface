@@ -5,6 +5,7 @@ from apps.heating_params.models import HeatingParameter
 
 
 class HeatingParameterSerializer(serializers.ModelSerializer):
+    """Nested use with ControlParameterSerializer"""
     break_point_number =serializers.IntegerField(min_value=2, default=HEATING_PARAMS['break_point_number'])
     breakpoint_time = serializers.FloatField(min_value=0, default=HEATING_PARAMS['breakpoint_time'])
     timestep = serializers.FloatField(min_value=0.0001, default=HEATING_PARAMS['timestep'])
@@ -40,5 +41,4 @@ class HeatingParameterSerializer(serializers.ModelSerializer):
             'icrf_power',
             'icrf_radial',
             'icrf_radial_width',
-            'control_param',
         ]
