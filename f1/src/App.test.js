@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {
 	CHANGE_MACHINE_PARAM,
+	CHANGE_TRANSPORT_PARAM,
 	CLICK_CHANGE_SPECIES,
 	MAXIMUM_RUNTIME_CHANGED,
 	MAXIMUM_RUNTIME_DEFAULT,
@@ -11,7 +12,7 @@ import {
 import {ControlParametersReducer, SpecieReducer} from "./controlroom/reducers";
 import deepFreeze from 'deep-freeze';
 import {setBreakPointList} from "./controlroom/utils";
-import {MachineParameterReducer} from "./controlroom/machineParameterReducer";
+import {MachineParameterReducer, TransportParameterReducer} from "./controlroom/machineParameterReducer";
 
 
 it('renders without crashing', () => {
@@ -125,4 +126,27 @@ it('MachineParameterReducer', () => {
 	expect(
 			MachineParameterReducer(stateBefore, action)
 	).toEqual(stateAfter);
+});
+
+it('TransportParameterReducer', () => {
+	const stateBefore = {
+		'heatPinchModel': "Model-88"
+	};
+	const action = {
+		type: CHANGE_TRANSPORT_PARAM,
+		payload: {
+			key: 'bootstrapCurrentModel',
+			value: "Model-88"
+		}
+	};
+	const stateAfter = {
+		'heatPinchModel': "Model-88",
+		'bootstrapCurrentModel': "Model-88"
+	};
+	deepFreeze(stateBefore);
+	deepFreeze(action);
+	expect(
+			TransportParameterReducer(stateBefore, action)
+	).toEqual(stateAfter);
+
 });
