@@ -65,8 +65,21 @@ export const SpecieChangeDT = (state = {}, action) => {
 					}
 				};
 				return DensityAndTemperatureReducer(state, newAction);
+			} else {
+				return state;
 			}
+		default:
 			return state;
+	}
+};
+
+export const ChangeListSpecieDT = (
+		state = JSON.parse(JSON.stringify(DEFAULT_DT)),
+		action
+) => {
+	switch (action.type) {
+		case SPECIE_CHANGE_DT:
+			return state.map((specie) => SpecieChangeDT(specie, action));
 		default:
 			return state;
 	}

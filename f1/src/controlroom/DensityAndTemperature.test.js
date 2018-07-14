@@ -1,6 +1,12 @@
 import {ACTIVATE_SPECIE, CHANGE_DT, DEFAULT_DT, DENSITY_AND_TEMPERATURE, SPECIE_CHANGE_DT} from "../constants";
 import deepFreeze from 'deep-freeze';
-import {ActivateReducer, DensityAndTemperatureReducer, ListOfDTReducer, SpecieChangeDT} from "./DensityAndTempReducers";
+import {
+	ActivateReducer,
+	ChangeListSpecieDT,
+	DensityAndTemperatureReducer,
+	ListOfDTReducer,
+	SpecieChangeDT
+} from "./DensityAndTempReducers";
 
 it('Test micro reducer change density and temperature', () => {
 	const stateBefore = Object.assign({}, DENSITY_AND_TEMPERATURE);
@@ -117,14 +123,47 @@ it('Change value with specific specie', () => {
 		}
 	};
 	const stateAfter = {
-			specie: 'hydrogen',
-			active: true,
-			densityOfCenter: 0,
-			densityOfEdge: 0,
-			tempAtCenter: 0,
-			tempAtEdge: 10
+		specie: 'hydrogen',
+		active: true,
+		densityOfCenter: 0,
+		densityOfEdge: 0,
+		tempAtCenter: 0,
+		tempAtEdge: 10
 	};
 	deepFreeze(stateBefore);
 	deepFreeze(action);
 	expect(SpecieChangeDT(stateBefore, action)).toEqual(stateAfter);
+});
+
+it('Change by checking through list of specie', () => {
+	const stateBefore = JSON.parse(JSON.stringify(DEFAULT_DT));
+	const action = {
+		type: SPECIE_CHANGE_DT,
+		payload: {
+			specie: 'electron',
+			key: 'densityOfCenter',
+			value: 10
+		}
+	};
+	const stateAfter =
+			[
+				{
+					specie: 'electron',
+					active: true,
+					densityOfCenter: 10,
+					densityOfEdge: 0,
+					tempAtCenter: 0,
+					tempAtEdge: 0
+				},
+				Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'hydrogen'}),
+				Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'deuterium', active: false}),
+				Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'tritium', active: false})
+			];
+	deepFreeze(stateBefore);
+	deepFreeze(action);
+	// ChangeListSpecieDT(stateBefore, action);
+	expect(
+			ChangeListSpecieDT(stateBefore, action)
+	).toEqual(stateAfter);
+
 });

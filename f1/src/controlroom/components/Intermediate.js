@@ -1,21 +1,24 @@
-import React, {Fragment} from 'react';
-import SetMachineParameter from "./setMachineParameters";
+import React, {Component, Fragment} from 'react';
+import {connect} from 'react-redux';
 import SetPlasmaParameter from "./setPlasmaParameters";
-import SetTransportParameter from "./setTransportParameters";
-import ControlParameter from "./setControlParameters";
-import Confirmation from "./comfirm";
 
-const Intermediate = () => {
-  return (
-    <Fragment>
-      <SetMachineParameter/>
-      <SetPlasmaParameter/>
-      <SetTransportParameter/>
-      <ControlParameter/>
-      <Confirmation/>
-    </Fragment>
-  )
+class Intermediate extends Component {
+	render() {
+		return (
+				<Fragment>
+					{/*<SetMachineParameter/>*/}
+					<SetPlasmaParameter/>
+					{/*<SetTransportParameter/>*/}
+					{/*<ControlParameter/>*/}
+					{/*<Confirmation/>*/}
+				</Fragment>
+		)
+	}
+}
+
+const mapStateToProps = (newProps, currProps) => {
+	return newProps;
 };
 
-export default Intermediate;
+export default connect(mapStateToProps, {})(Intermediate);
 
