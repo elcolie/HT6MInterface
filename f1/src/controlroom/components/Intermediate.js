@@ -1,16 +1,20 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import SetPlasmaParameter from "./setPlasmaParameters";
+import SetMachineParameter from "./setMachineParameters";
+import SetTransportParameter from "./setTransportParameters";
+import ControlParameter from "./controlParamsForm";
+import Confirmation from "./comfirm";
 
 class Intermediate extends Component {
 	render() {
 		return (
 				<Fragment>
-					{/*<SetMachineParameter/>*/}
+					<SetMachineParameter/>
 					<SetPlasmaParameter/>
-					{/*<SetTransportParameter/>*/}
-					{/*<ControlParameter/>*/}
-					{/*<Confirmation/>*/}
+					<SetTransportParameter/>
+					<ControlParameter/>
+					<Confirmation/>
 				</Fragment>
 		)
 	}
