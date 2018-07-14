@@ -325,6 +325,12 @@ export const SPECIES = [
 		value: 'tritium'
 	},
 ];
+export const SPECIE_ORDER = {
+	electron: 1,
+	hydrogen: 2,
+	deuterium: 3,
+	tritium: 4
+};
 export const CHANGE_CONFIRMATION = 'change_confirmation';
 export const SUBMIT_ADVANCED_FORM = 'submit_advanced_form';
 export const ADVANCED_COMPLETE = 'advanced_complete';
@@ -338,3 +344,20 @@ export const SET_PHSS = 'add_particle_heat_sources';  //Number is given
 export const HIT_INTERMEDIATE_BTN = 'hit_intermediate_btn';
 export const CHANGE_MACHINE_PARAM = 'change_machine_param';
 export const CHANGE_TRANSPORT_PARAM = 'change_transport_param';
+export const DENSITY_AND_TEMPERATURE = {
+	specie: undefined,
+	active: true,
+	densityOfCenter: 0,
+	densityOfEdge: 0,
+	tempAtCenter: 0,
+	tempAtEdge: 0
+};
+export const DEFAULT_DT = [
+	Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'electron'}),
+	Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'hydrogen'}),
+	Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'deuterium', active: false}),
+	Object.assign({}, DENSITY_AND_TEMPERATURE, {specie: 'tritium', active: false})
+];
+export const CHANGE_DT = 'change_density_and_temperature';
+export const ACTIVATE_SPECIE = 'activate_specie';
+export const SPECIE_CHANGE_DT = 'specie_change_dt';

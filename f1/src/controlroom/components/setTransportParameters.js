@@ -18,7 +18,6 @@ import {
 
 class SetTransportParameter extends Component {
 	render() {
-		console.log(this.props.transportParameterReducer);
 		return (
 				<Fragment>
 					<h1 id={'transport-params'}>Step 3/5: Set transport parameters</h1>

@@ -57,10 +57,10 @@ class ParticleHeatForm extends Component {
 								<Form.Group inline>
 									<label>Ion species of the source</label>
 									<Form.Select fluid options={SPECIES} placeholder='Hydrogen'
-															 onChange={(event, value) => {
+															 onChange={(event, {value}) => {
 																 this.props.changeValue({
 																	 key: 'ionSpeciesOfTheSource',
-																	 value: event.target.value,
+																	 value: value,
 																	 breakPointNumber: this.props.breakPointNumber - 1
 																 })
 															 }}/>

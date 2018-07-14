@@ -10,7 +10,7 @@ export const TransportParameterReducer = (state = {}, action) => {
 	return InsideReducer(state, action, CHANGE_TRANSPORT_PARAM);
 };
 
-const InsideReducer = (state, action, action_name) => {
+export const InsideReducer = (state, action, action_name) => {
 	switch (action.type) {
 		case action_name:
 			const {key, value} = action.payload;

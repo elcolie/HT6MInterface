@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {
+	ACTIVATE_SPECIE,
 	CHANGE_MACHINE_PARAM,
 	CHANGE_TRANSPORT_PARAM,
 	CLICK_CHANGE_SPECIES,
+	DENSITY_AND_TEMPERATURE,
 	MAXIMUM_RUNTIME_CHANGED,
 	MAXIMUM_RUNTIME_DEFAULT,
 	NUMBER_OF_TIME_BREAK_POINTS_DEFAULT
@@ -13,6 +15,7 @@ import {ControlParametersReducer, SpecieReducer} from "./controlroom/reducers";
 import deepFreeze from 'deep-freeze';
 import {setBreakPointList} from "./controlroom/utils";
 import {MachineParameterReducer, TransportParameterReducer} from "./controlroom/machineParameterReducer";
+import {ActivateReducer} from "./controlroom/DensityAndTempReducers";
 
 
 it('renders without crashing', () => {
@@ -148,5 +151,4 @@ it('TransportParameterReducer', () => {
 	expect(
 			TransportParameterReducer(stateBefore, action)
 	).toEqual(stateAfter);
-
 });
