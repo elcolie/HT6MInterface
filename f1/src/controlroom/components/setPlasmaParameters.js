@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {CLICK_CHANGE_SPECIES, NSMAX_OPTIONS} from "../../constants";
+import {ACTIVATE_SPECIE, CLICK_CHANGE_SPECIES, NSMAX_OPTIONS} from "../../constants";
 import {Form, Table} from 'semantic-ui-react';
 import DensityCenterRow from "./densityCenterRow";
 import {connect} from 'react-redux';
@@ -24,6 +24,7 @@ class SetPlasmaParameter extends Component {
                 <label>Number of ion species</label>
                 <Form.Select onChange={(event, {value}) => {
                   this.props.changeSpecies(value);
+                  this.props.activateSpecies(value);
                 }} name='nsmax' fluid options={NSMAX_OPTIONS} placeholder={'2'}/>
               </Form.Group>
 
@@ -70,4 +71,13 @@ const changeSpecies = (value) => {
   }
 };
 
-export default connect(mapStateToProps, {changeSpecies})(SetPlasmaParameter);
+const activateSpecies = (numberOfSpecie) =>{
+  return {
+    type: ACTIVATE_SPECIE,
+    payload: {
+      numberOfSpecie
+    }
+  }
+};
+
+export default connect(mapStateToProps, {changeSpecies, activateSpecies})(SetPlasmaParameter);

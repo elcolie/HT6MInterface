@@ -1,6 +1,6 @@
 import {ACTIVATE_SPECIE, CHANGE_DT, DEFAULT_DT, DENSITY_AND_TEMPERATURE, SPECIE_CHANGE_DT} from "../constants";
 import deepFreeze from 'deep-freeze';
-import {ActivateReducer, DensityAndTemperatureReducer, ListActivator, SpecieChangeDT} from "./DensityAndTempReducers";
+import {ActivateReducer, DensityAndTemperatureReducer, ListOfDTReducer, SpecieChangeDT} from "./DensityAndTempReducers";
 
 it('Test micro reducer change density and temperature', () => {
 	const stateBefore = Object.assign({}, DENSITY_AND_TEMPERATURE);
@@ -103,7 +103,7 @@ it('Test step2 change number of ion species', () => {
 	];
 	deepFreeze(stateBefore);
 	deepFreeze(action);
-	expect(ListActivator(stateBefore, action)).toEqual(stateAfter);
+	expect(ListOfDTReducer(stateBefore, action)).toEqual(stateAfter);
 });
 
 it('Change value with specific specie', () => {

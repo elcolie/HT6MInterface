@@ -96,7 +96,7 @@ const setPHS = (qty) => {
 };
 
 export const ParticleAndHeatSources = (
-		state = [],
+		state = setPHS(NUMBER_OF_TIME_BREAK_POINTS_DEFAULT),
 		action
 ) => {
 	switch (action.type) {

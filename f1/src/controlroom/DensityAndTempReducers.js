@@ -1,4 +1,11 @@
-import {ACTIVATE_SPECIE, CHANGE_DT, DENSITY_AND_TEMPERATURE, SPECIE_CHANGE_DT, SPECIE_ORDER} from "../constants";
+import {
+	ACTIVATE_SPECIE,
+	CHANGE_DT,
+	DEFAULT_DT,
+	DENSITY_AND_TEMPERATURE,
+	SPECIE_CHANGE_DT,
+	SPECIE_ORDER
+} from "../constants";
 import {InsideReducer} from "./machineParameterReducer";
 
 export const DensityAndTemperatureReducer = (
@@ -32,8 +39,8 @@ export const ActivateReducer = (
 	}
 };
 
-export const ListActivator = (
-		state = [],
+export const ListOfDTReducer = (
+		state = JSON.parse(JSON.stringify(DEFAULT_DT)),
 		action
 ) => {
 	//Iterate through list of species and ACTIVATE individual

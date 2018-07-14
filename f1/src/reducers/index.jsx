@@ -15,6 +15,7 @@ import {
 } from "../controlroom/reducers";
 import {ChartReducer} from "../displays/chart-reducers";
 import {MachineParameterReducer, TransportParameterReducer} from "../controlroom/machineParameterReducer";
+import {ListOfDTReducer} from "../controlroom/DensityAndTempReducers";
 
 const rootReducer = combineReducers({
 	inputInterface: InputInterfaceReducer,
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
 	particleAndHeatSources: ParticleAndHeatSources,
 	machineParameterReducer: MachineParameterReducer,
 	transportParameterReducer: TransportParameterReducer,
+	listOfDTReducer: ListOfDTReducer,
 	form: formReducer
 });
 
