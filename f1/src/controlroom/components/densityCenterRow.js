@@ -11,27 +11,33 @@ class DensityCenterRow extends Component {
 			}
 		} = this.props;
 		this.key = 'densityOfCenter';
-
 		return (
 				<Table.Row>
 					<Table.Cell>Density of the center</Table.Cell>
 					<Table.Cell>
-						<Input type='number' name={'electronDensityCenter'} placeholder={'0.00'} onChange={(event) => {
-							this.props.specieChangeDT('electron', this.key, event.target.value);
-							console.log(this.props);
+						<Input type='number' name={'electronDensityCenter'} placeholder={0.00} onChange={(event) => {
+							this.props.specieChangeDT('electron', this.key, Number(event.target.value));
 						}}/>
 					</Table.Cell>
 
 					<Table.Cell>
-						<Input type='number' name={'hydrogenDensityCenter'} placeholder={'0.00'}/>
+						<Input type='number' name={'hydrogenDensityCenter'} placeholder={0.00} onChange={(event) => {
+							this.props.specieChangeDT('hydrogen', this.key, Number(event.target.value));
+						}}/>
 					</Table.Cell>
 
 					<Table.Cell>
-						<Input disabled={nsmax < 3} type='number' name={'deuteriumDensityCenter'} placeholder={'0.00'}/>
+						<Input disabled={nsmax < 3} type='number' name={'deuteriumDensityCenter'} placeholder={0.00}
+									 onChange={(event) => {
+										 this.props.specieChangeDT('deuterium', this.key, Number(event.target.value));
+									 }}/>
 					</Table.Cell>
 
 					<Table.Cell>
-						<Input disabled={nsmax < 4} type='number' name={'tritiumDensityCenter'} placeholder={'0.00'}/>
+						<Input disabled={nsmax < 4} type='number' name={'tritiumDensityCenter'} placeholder={0.00}
+									 onChange={(event) => {
+										 this.props.specieChangeDT('tritium', this.key, Number(event.target.value));
+									 }}/>
 					</Table.Cell>
 
 				</Table.Row>
@@ -51,7 +57,7 @@ const specieChangeDT = (specie, key, value) => {
 };
 
 const mapStateToProps = (newProps, currProps) => {
-	return {...newProps};
+	return newProps;
 };
 
 export default connect(mapStateToProps, {specieChangeDT})(DensityCenterRow);

@@ -2,7 +2,7 @@ import {ACTIVATE_SPECIE, CHANGE_DT, DEFAULT_DT, DENSITY_AND_TEMPERATURE, SPECIE_
 import deepFreeze from 'deep-freeze';
 import {
 	ActivateReducer,
-	ChangeListSpecieDT,
+	ListSpecieDT,
 	DensityAndTemperatureReducer,
 	ListOfDTReducer,
 	SpecieChangeDT
@@ -161,9 +161,8 @@ it('Change by checking through list of specie', () => {
 			];
 	deepFreeze(stateBefore);
 	deepFreeze(action);
-	// ChangeListSpecieDT(stateBefore, action);
 	expect(
-			ChangeListSpecieDT(stateBefore, action)
+			ListSpecieDT(stateBefore, action)
 	).toEqual(stateAfter);
 
 });

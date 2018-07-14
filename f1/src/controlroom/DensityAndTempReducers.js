@@ -73,7 +73,7 @@ export const SpecieChangeDT = (state = {}, action) => {
 	}
 };
 
-export const ChangeListSpecieDT = (
+export const ListSpecieDT = (
 		state = JSON.parse(JSON.stringify(DEFAULT_DT)),
 		action
 ) => {
