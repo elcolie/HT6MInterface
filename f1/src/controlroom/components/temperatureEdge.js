@@ -11,7 +11,6 @@ class TemperatureEdge extends Component {
 			}
 		} = this.props;
 		this.key = 'tempAtEdge';
-		console.log(this.props.listSpecieDT);
 		return (
 				<Table.Row>
 					<Table.Cell>Temperature at the edge</Table.Cell>

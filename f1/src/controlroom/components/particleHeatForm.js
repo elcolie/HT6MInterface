@@ -11,7 +11,6 @@ class ParticleHeatForm extends Component {
 		if (data === undefined) {
 			data = Object.assign({}, PARTICLE_HEATSOURCE_DEFAULT);
 		}
-		console.log(this.props.particleAndHeatSources);
 		return <Fragment>
 			<Grid textAlign='left' centered>
 				<Grid equal={'true'}>

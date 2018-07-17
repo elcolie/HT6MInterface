@@ -18,8 +18,6 @@ class Confirmation extends Component {
 					<a href="#set-particle-and-heatsources-params" className="btn btn-info" role="button">Back</a>
 					<button className="btn btn-info"
 									onClick={() => {
-										console.log(`Shooting the Intermediate endpoint here!`);
-										console.log(this.props);
 										this.props.hitIntermediateSubmitBtn(this.props);
 									}}
 					>Submit
@@ -41,12 +39,11 @@ const changeConfirmation = (value) => {
 	}
 };
 
-const hitIntermediateSubmitBtn = () => {
-
+const hitIntermediateSubmitBtn = (payload) => {
 	return {
 		type: HIT_INTERMEDIATE_BTN,
-		payload: undefined
+		payload
 	}
 };
 
-export default connect(mapStateToProps, {changeConfirmation, hitIntermediateSubmitBtn })(Confirmation);
+export default connect(mapStateToProps, {changeConfirmation, hitIntermediateSubmitBtn})(Confirmation);
