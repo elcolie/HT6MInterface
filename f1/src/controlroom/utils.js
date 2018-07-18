@@ -31,3 +31,6 @@ export const extract_message = (data, key) => {
 	}
 };
 
+export const add_values = (userInput, defaultValue) => {
+	return Object.assign({}, defaultValue, userInput);
+};

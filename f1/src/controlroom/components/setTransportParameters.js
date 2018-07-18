@@ -8,6 +8,8 @@ import {
 	CHANGE_TRANSPORT_PARAM,
 	HEAT_PINCH_MODEL_DEFAULT,
 	HEAT_PINCH_MODEL_OPTIONS,
+	NEOCLASSICAL_MODEL_DEFAULT,
+	NEOCLASSICAL_MODEL_OPTIONS,
 	PARTICLE_DIFFUSION_MODEL_DEFAULT,
 	PARTICLE_DIFFUSION_MODEL_OPTIONS,
 	RESISTIVITY_OPTIONS,
@@ -77,6 +79,19 @@ class SetTransportParameter extends Component {
 													this.props.changeParam('bootstrapCurrentModel', value);
 												}}/></td>
                   </tr>
+									<tr>
+										<td><b>Neoclassical model</b></td>
+										<td>
+											<Form.Select
+													name='neoClassicalModel' fluid options={NEOCLASSICAL_MODEL_OPTIONS}
+													placeholder={NEOCLASSICAL_MODEL_DEFAULT}
+													onChange={(event, {value}) => {
+														this.props.changeParam('neoClassicalModel', value);
+													}}
+											/>
+										</td>
+									</tr>
+
                 </tbody>
               </table>
             </Form>

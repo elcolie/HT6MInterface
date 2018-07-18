@@ -4,7 +4,7 @@ import {
 	ADVANCED_FAILED,
 	BASIC_COMPLETE,
 	BASIC_FAILED,
-	CHANGE_CONFIRMATION,
+	CHANGE_CONFIRMATION, CHANGE_DENSITY_EQN,
 	CLICK_CHANGE_SPECIES,
 	MAXIMUM_RUNTIME_CHANGED,
 	MAXIMUM_RUNTIME_DEFAULT,
@@ -141,7 +141,16 @@ export const AdvancedControlRoomReducer = (state = {}, action) => {
 	}
 };
 
-
+export const densityReducer = (state = false, action) =>{
+	switch(action.type){
+		case CHANGE_DENSITY_EQN:
+			return {
+				densityEqn: action.payload
+			};
+		default:
+			return state;
+	}
+};
 
 
 

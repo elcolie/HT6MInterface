@@ -134,6 +134,16 @@ export const NSMAX_OPTIONS = [
 		value: 4
 	}
 ];
+export const DENSTIY_EQN_OPTIONS = [
+	{
+		text: 'False',
+		value: false
+	},
+	{
+		text: 'True',
+		value: true
+	},
+];
 
 export const CLICK_CHANGE_SPECIES = 'click_change_species';
 export const TRANSPORT_OPTIONS_DEFAULT = 'CDBM05';
@@ -421,3 +431,4 @@ export const PERFECT_PAYLOAD = {
 	},
 	comment: "Sieg Heil"
 };
+export const CHANGE_DENSITY_EQN = 'change_density_eqn';

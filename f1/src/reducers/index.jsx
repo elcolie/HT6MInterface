@@ -9,7 +9,7 @@ import {
 	AdvancedControlRoomReducer,
 	BasicControlRoomReducer,
 	ConfirmationReducer,
-	ControlParametersReducer,
+	ControlParametersReducer, densityReducer,
 	ParticleAndHeatSources,
 	SpecieReducer
 } from "../controlroom/reducers";
@@ -33,6 +33,7 @@ const rootReducer = combineReducers({
 	machineParameterReducer: MachineParameterReducer,
 	transportParameterReducer: TransportParameterReducer,
 	listSpecieDT: ListSpecieDT,
+	densityReducer: densityReducer,
 	form: formReducer
 });
 

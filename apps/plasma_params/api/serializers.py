@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
+from apps.commons.abstract_classes import AbstractSpecieSerializer
 from apps.commons.constants import PLASMA_PARAMS
-from apps.plasma_params.models import PlasmaParameter
+from apps.plasma_params.models import PlasmaParameter, Electron, Hydrogen, Deuterium, Tritium
 
 
 class PlasmaParameterSerializer(serializers.ModelSerializer):
@@ -14,3 +15,23 @@ class PlasmaParameterSerializer(serializers.ModelSerializer):
             'nsmax',
             'density_eqn',
         ]
+
+
+class ElectronSerializer(AbstractSpecieSerializer):
+    class Meta(AbstractSpecieSerializer.Meta):
+        model = Electron
+
+
+class HydrogenSerializer(AbstractSpecieSerializer):
+    class Meta(AbstractSpecieSerializer.Meta):
+        model = Hydrogen
+
+
+class DeuteriumSerializer(AbstractSpecieSerializer):
+    class Meta(AbstractSpecieSerializer.Meta):
+        model = Deuterium
+
+
+class TritiumSerializer(AbstractSpecieSerializer):
+    class Meta(AbstractSpecieSerializer.Meta):
+        model = Tritium
