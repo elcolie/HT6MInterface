@@ -27,7 +27,8 @@ export const myCache = () => {
 	//https://stackoverflow.com/questions/50784213/javascript-locally-import-header-on-the-fly-based-on-runner-arguments
 	const tmp = Object.assign({}, process.argv);
 	if (tmp[4] === '--env=jsdom') {
-		const cache = require("./localStorageMock2");
+		// This is awkward. Because you need to use var and require to suppress the red noise when do `UnitTest`
+		var cache = require("./localStorageMock2");
 		return cache.default;
 	} else {
 		return localStorage;
