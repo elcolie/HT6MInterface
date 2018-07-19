@@ -1,4 +1,4 @@
-import axios from "axios/index";
+import axios from "axios";
 import {BACKEND_URL} from "./constants";
 
 export const createAxios = (bigRadius, smallRadius) => {

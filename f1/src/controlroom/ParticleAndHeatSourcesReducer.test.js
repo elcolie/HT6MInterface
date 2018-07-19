@@ -12,7 +12,7 @@ it('setBreakPoint must set', () => {
 			timeAtBreakPoint: 0.01,
 			timeStep: 0.01,
 
-			ionSpeciesOfTheSource: 'Hydrogen',
+			ionSpeciesOfTheSource: 'H',
 			rateOfParticleSource: 0.01,
 			radialPosition: 0.00,
 			radialWidth: 0.50,
@@ -30,7 +30,7 @@ it('setBreakPoint must set', () => {
 			timeAtBreakPoint: 0.01,
 			timeStep: 0.01,
 
-			ionSpeciesOfTheSource: 'Hydrogen',
+			ionSpeciesOfTheSource: 'H',
 			rateOfParticleSource: 0.01,
 			radialPosition: 0.00,
 			radialWidth: 0.50,
@@ -64,7 +64,7 @@ it('test updates ParticleAndHeatSource', () => {
 		breakPointNumber: 0,
 		timeAtBreakPoint: 10,
 
-		ionSpeciesOfTheSource: 'Hydrogen',
+		ionSpeciesOfTheSource: 'H',
 		rateOfParticleSource: 0.01,
 		radialPosition: 0.00,
 		radialWidth: 0.50,
