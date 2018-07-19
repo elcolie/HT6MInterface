@@ -47,6 +47,31 @@ class ParticleHeatForm extends Component {
 							</div>
 						</Grid.Column>
 					</Grid.Row>
+
+					<Grid.Row columns={2}>
+						<Grid.Column width={8} textAlign='left' verticalAlign='middle'>
+							<label>Time step</label>
+						</Grid.Column>
+						<Grid.Column width={4}>
+							<div className="ui right labeled input">
+								<Form.Input
+												type={'number'}
+												placeholder={data.timeAtBreakPoint}
+												onChange={(event, value) => {
+													this.props.changeValue({
+														key: 'timeStep',
+														value: Number(event.target.value),
+														breakPointNumber: this.props.breakPointNumber - 1 //Use original index
+													})
+												}}
+								/>
+								<div className="ui basic label">
+									ms
+								</div>
+							</div>
+						</Grid.Column>
+					</Grid.Row>
+
 				</Grid>
 				<Grid.Row columns={2}>
 					<Grid.Column>

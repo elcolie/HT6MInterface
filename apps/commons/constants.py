@@ -11,6 +11,20 @@ PLASMA_PARAMS = {
     'nsmax': 2,
     'density_eqn': False,
 }
+DENSITY_TEMPERATURE = {
+    'electron': {
+        'density_of_center': 1,
+        'density_of_edge': 2,
+        'temp_at_center': 3,
+        'temp_at_edge': 4,
+    },
+    'hydrogen': {
+        'density_of_center': 5,
+        'density_of_edge': 6,
+        'temp_at_center': 7,
+        'temp_at_edge': 8,
+    }
+}
 TRANSPORT_PARAMS = {
     'transport_model': 'CDBM05',
     'resistivity': f"Hinton and Hazeltine's model",
@@ -47,8 +61,8 @@ ELECTRON = 'E'
 DEUTERIUM = 'D'
 TRITIUM = 'T'
 PARTICLE_SPECIES = (
-    (HYDROGEN, f"Hydrogen"),
-    (ELECTRON, f"Electron"),
-    (DEUTERIUM, f"Deuterium"),
-    (TRITIUM, f"Tritium"),
+    (HYDROGEN, "H"),
+    (ELECTRON, "E"),
+    (DEUTERIUM, "D"),
+    (TRITIUM, "T"),
 )

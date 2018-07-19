@@ -6,7 +6,7 @@ from apps.heating_params.models import HeatingParameter
 
 class HeatingParameterSerializer(serializers.ModelSerializer):
     """Nested use with ControlParameterSerializer"""
-    break_point_number = serializers.IntegerField(min_value=1, default=HEATING_PARAMS['break_point_number'])
+    break_point_number = serializers.IntegerField(default=HEATING_PARAMS['break_point_number'])
     breakpoint_time = serializers.FloatField(min_value=0, default=HEATING_PARAMS['breakpoint_time'])
     timestep = serializers.FloatField(min_value=0.0001, default=HEATING_PARAMS['timestep'])
 

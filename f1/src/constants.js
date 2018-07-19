@@ -297,8 +297,9 @@ export const MAXIMUM_RUNTIME_CHANGED = 'maximum_runtime_changed';
 export const PARTICLE_HEATSOURCE_DEFAULT = {
 	breakPointNumber: 0,
 	timeAtBreakPoint: 0.01,
+	timeStep: 0.01,
 
-	ionSpeciesOfTheSource: 'Hydrogen',
+	ionSpeciesOfTheSource: 'H',
 	rateOfParticleSource: 0.01,
 	radialPosition: 0.00,
 	radialWidth: 0.50,

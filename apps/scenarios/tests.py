@@ -34,6 +34,20 @@ class TestScenario(TestCase):
                 'nsmax': 3,
                 'density_eqn': False,
             },
+            'density_temperatures': {
+                'electron': {
+                    'density_of_center': 0,
+                    'density_of_edge': 0,
+                    'temp_at_center': 0,
+                    'temp_at_edge': 0,
+                },
+                'hydrogen': {
+                    'density_of_center': 0,
+                    'density_of_edge': 0,
+                    'temp_at_center': 0,
+                    'temp_at_edge': 0,
+                }
+            },
             'transport_params': {
                 'transport_model': 'CDBM05',
                 'resistivity': "Hinton and Hazeltine's model",

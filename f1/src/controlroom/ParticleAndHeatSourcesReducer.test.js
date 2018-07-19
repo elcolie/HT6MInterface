@@ -3,13 +3,14 @@ import {setBreakPoint} from "./utils";
 import {ADD_PHS, SET_PHSS, PARTICLE_HEATSOURCE_DEFAULT, UPDATE_PHS} from "../constants";
 import {ParticleAndHeatSourceReducer, ParticleAndHeatSources} from "./reducers";
 
-var deepFreeze = require('deep-freeze');
+const deepFreeze = require('deep-freeze');
 
 it('setBreakPoint must set', () => {
 	const expectedState = [
 		{
 			breakPointNumber: 0,
 			timeAtBreakPoint: 0.01,
+			timeStep: 0.01,
 
 			ionSpeciesOfTheSource: 'Hydrogen',
 			rateOfParticleSource: 0.01,
@@ -23,11 +24,11 @@ it('setBreakPoint must set', () => {
 			icrfTotalPower: 0.01,
 			icrfRadialPosition: 0.01,
 			icrfRadialWidth: 0.01
-
 		},
 		{
 			breakPointNumber: 0,
 			timeAtBreakPoint: 0.01,
+			timeStep: 0.01,
 
 			ionSpeciesOfTheSource: 'Hydrogen',
 			rateOfParticleSource: 0.01,
@@ -41,12 +42,10 @@ it('setBreakPoint must set', () => {
 			icrfTotalPower: 0.01,
 			icrfRadialPosition: 0.01,
 			icrfRadialWidth: 0.01
-
 		}
 	];
 	expect(JSON.stringify(setBreakPoint(2))).toBe(
 			JSON.stringify(expectedState));
-
 });
 
 
@@ -76,7 +75,8 @@ it('test updates ParticleAndHeatSource', () => {
 
 		icrfTotalPower: 0.01,
 		icrfRadialPosition: 0.01,
-		icrfRadialWidth: 0.01
+		icrfRadialWidth: 0.01,
+		timeStep: 0.01
 	};
 	deepFreeze(stateBefore);
 	deepFreeze(action);
