@@ -8,8 +8,6 @@ logger = logging.getLogger('django')
 
 
 class ResultSerializer(serializers.ModelSerializer):
-    output = serializers.SerializerMethodField()
-
     class Meta:
         model = Result
         fields = [

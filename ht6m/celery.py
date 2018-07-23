@@ -48,5 +48,8 @@ def fortran_simulate(data: typing.Dict):
     my_first_file = open(f'1/rt1.txt', 'rb')
     Result.objects.create(scenario=scenario, output=File(my_first_file))
     '''
+    from model_mommy import mommy
+    from apps.results.models import Result
+    mommy.make(Result, _quantity=3, scenario=scenario)
 
     return data

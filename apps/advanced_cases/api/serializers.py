@@ -1,31 +1,32 @@
+from model_mommy import mommy
 from rest_framework import serializers
 
 from apps.advanced_cases.models import AdvancedCase
+from apps.scenarios.models import Scenario
 from ht6m.celery import fortran_simulate
 
 
 class AdvancedCaseSerializer(serializers.ModelSerializer):
-    created_by = serializers.CurrentUserDefault()
-
     class Meta:
         model = AdvancedCase
         fields = [
             'id',
             'file',
             'comment',
-            'created_by',
         ]
-        extra_kwargs = {
-            'created_by': {'write_only': True}
-        }
 
     def create(self, validated_data):
+        scenario = mommy.make(Scenario)  # TODO: Wiring the case from input file
+        validated_data['created_by'] = self.context['request'].user
+        validated_data['scenario'] = scenario
         mydict = {
             'filename': validated_data.get('file').name,
-            'comment': validated_data.get('comment')
+            'comment': validated_data.get('comment'),
         }
-        instance = super().create(validated_data)
+        adv_case = super().create(validated_data)
+        mydict['scenario'] = scenario.id
+
         # To read FileField
-        # instance.file.readline()
+        # adv_case.file.readline()
         fortran_simulate.delay(mydict)
-        return instance
+        return adv_case

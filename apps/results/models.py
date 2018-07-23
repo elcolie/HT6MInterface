@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 from apps.commons.abstract_classes import AbstractTimestamp
 from apps.scenarios.models import Scenario
 
