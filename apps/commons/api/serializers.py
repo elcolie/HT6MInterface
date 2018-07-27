@@ -17,17 +17,21 @@ logger = logging.getLogger('django')
 class TaskResultSerializer(serializers.ModelSerializer):
     owner = serializers.SerializerMethodField()
     input_file = serializers.SerializerMethodField()
+    case_issue_id = serializers.SerializerMethodField()
 
     class Meta:
         model = TaskResult
         fields = [
             'task_id',
+            'status',
             'owner',
             'status',
             'input_file',
+            'case_issue_id',
         ]
 
-    def get_owner(self, task_result: TaskResult):
+    @staticmethod
+    def _read_case_issue(task_result: TaskResult):
         my_dict = json.loads(task_result.result)
         try:
             scenario = Scenario.objects.filter(id=my_dict.get('scenario')).first()
@@ -38,7 +42,17 @@ class TaskResultSerializer(serializers.ModelSerializer):
         else:
             if scenario is None:
                 return None
-            return scenario.created_by.username
+            return scenario
+
+    def get_case_issue_id(self, task_result: TaskResult):
+        instance = self._read_case_issue(task_result)
+        if isinstance(instance, Scenario):
+            return instance.id
+
+    def get_owner(self, task_result: TaskResult):
+        instance = self._read_case_issue(task_result)
+        if isinstance(instance, Scenario):
+            return instance.created_by.username
 
     def get_input_file(self, task_result: TaskResult):
         """
