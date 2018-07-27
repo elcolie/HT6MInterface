@@ -8,6 +8,8 @@ logger = logging.getLogger('django')
 
 
 class ResultSerializer(serializers.ModelSerializer):
+    output = serializers.SerializerMethodField()
+
     class Meta:
         model = Result
         fields = [
@@ -18,6 +20,7 @@ class ResultSerializer(serializers.ModelSerializer):
         ]
 
     # TODO: Remove dummy
+    # Python will read out file and serialize it to `frontend`
     def get_output(self, result: Result):
         my_output = []
         for i in range(1, 101):

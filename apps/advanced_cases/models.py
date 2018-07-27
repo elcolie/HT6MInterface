@@ -10,8 +10,8 @@ User = get_user_model()
 class AdvancedCase(AbstractTimestamp):
     file = models.FileField(upload_to='advanced_files')
     comment = models.CharField(max_length=255, null=True, blank=True)
-    scenario = models.ForeignKey(Scenario, on_delete=models.CASCADE, related_name='scenarios',
-                                 related_query_name='scenario', null=True, blank=True)
+    scenario = models.OneToOneField(Scenario, on_delete=models.CASCADE, related_name='advanced_case',
+                                    related_query_name='advanced_case', null=True, blank=True)
     created_by = models.ForeignKey(User, related_name='advanced_cases', related_query_name='advanced_cases',
                                    on_delete=models.SET_NULL, null=True, blank=True)
 
