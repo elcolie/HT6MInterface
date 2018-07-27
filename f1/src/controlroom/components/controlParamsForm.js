@@ -84,6 +84,8 @@ class ControlParameterForm extends Component {
 								this.clickBreakPoint(index);
 							}}/>)}
 						</Steps>
+						<br/>
+						<br/>
 					</div>
 					<ParticleHeatForm
 							breakPointNumber={this.state.current + 1}
