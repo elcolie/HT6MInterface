@@ -7,9 +7,12 @@ from ht6m.celery import fortran_simulate
 
 
 class AdvancedCaseSerializer(serializers.ModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name='apis:advanced_case-detail')
+
     class Meta:
         model = AdvancedCase
         fields = [
+            'url',
             'id',
             'file',
             'comment',

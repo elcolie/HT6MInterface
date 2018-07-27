@@ -6,15 +6,12 @@ from django.contrib.auth import get_user_model
 from django_celery_results.models import TaskResult
 from rest_framework import serializers
 
+from apps.advanced_cases.api.serializers import AdvancedCaseSerializer
 from apps.advanced_cases.models import AdvancedCase
 from apps.scenarios.models import Scenario
 
 User = get_user_model()
 logger = logging.getLogger('django')
-
-
-class MiniFileSerializer(serializers.Serializer):
-    file = serializers.FileField()
 
 
 class TaskResultSerializer(serializers.ModelSerializer):
@@ -61,12 +58,9 @@ class TaskResultSerializer(serializers.ModelSerializer):
                 return None
             else:
                 try:
-                    file = scenario.advanced_case.file
+                    scenario.advanced_case
                 except AdvancedCase.DoesNotExist:
                     return None
                 else:
-                    serializer = MiniFileSerializer(data={
-                        'file': file
-                    })
-                    assert serializer.is_valid()
+                    serializer = AdvancedCaseSerializer(scenario.advanced_case, context=self.context)
                     return serializer.data
