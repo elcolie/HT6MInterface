@@ -12,7 +12,7 @@ class MyPagination(PageNumberPagination):
 
 
 class TaskResultViewSet(viewsets.ModelViewSet):
-    pagination_class = MyPagination
+    pagination_class = None
     permission_classes = ()
     queryset = TaskResult.objects.all()
     serializer_class = TaskResultSerializer

@@ -5,6 +5,19 @@ import {getAuthToken, prepareJWTHeader} from "../utils";
 
 const shootTasks = ({pageIndex}) => {
 	const url = `${BACKEND_URL}/api/tasks/`;
+	// console.log(`Shoot backend with pageIndex: ${pageIndex}`);
+	// console.log(pageIndex);
+	if (pageIndex === 1) {
+		// Do not supply any param because Django REST will return 404
+		// When you supply `page_size=0` to it
+		return axios.get(url, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': prepareJWTHeader(getAuthToken())
+			}
+		})
+	}
+	// Pick this if you use `MyPagination` in `viewsets.py`
 	return axios.get(url, {
 		headers: {
 			'Content-Type': 'application/json',

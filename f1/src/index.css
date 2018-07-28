@@ -188,3 +188,9 @@ body {
 .particle-source-label{
 	margin-left: 35px;
 }
+
+.loading {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

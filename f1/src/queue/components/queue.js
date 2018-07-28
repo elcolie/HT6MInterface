@@ -2,66 +2,71 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
-import {makeData, Tips} from "../utils";
 import {PAGE_SIZE, SUBMIT_PAGE_CHANGED} from "../../constants";
+import animationLoader from './ajax-loader.gif';
+import {Button} from 'semantic-ui-react';
+import {Tips} from "../utils";
 
 class TINTQueue extends Component {
 	constructor() {
 		super();
-		this.state = {
-			data: makeData(),
+	}
+
+	enterLogic(values) {
+		const {data, page, pages, loading} = values;
+		if (pages === -1) {
+			/*
+			* Let it spin with couple of blink and then SIEG HEIL!
+			* */
+			this.props.onPageChange(1);
+			return (
+					<div>
+						<br/>
+						<br/>
+						<img className='loading' src={animationLoader} alt={"spinner"}/>
+					</div>
+			);
 		}
+		return (
+				<div>
+					<ReactTable
+							data={data}
+							pages={pages}
+							loading={loading}
+							defaultPageSize={20}
+							columns={[
+								{
+									Header: 'Job ID',
+									accessor: 'task_id'
+								},
+								{
+									Header: 'Owner',
+									accessor: 'owner'
+								},
+								{
+									Header: 'Status',
+									accessor: 'status'
+								},
+								{
+									Header: 'Input File',
+									id: 'inputFile',
+									accessor: d => d.input_file.file
+								}
+							]}
+							className="-striped -highlight"
+					/>
+					<br/>
+					<br/>
+					<Tips/>
+
+				</div>
+		)
 	}
 
 	render() {
 		// Read from reducer
 		if (this.props.queue) {
-			const {data, pages, loading} = this.props.queueReducer;
-
-			return (
-					<div>
-						<ReactTable
-								loading={loading}
-								data={data}
-								pages={pages % PAGE_SIZE}
-								pageSize={PAGE_SIZE}
-								page={0}
-								onPageChange={(pageIndex) => {
-									//Let it trigger the action and re-render the component again
-									this.props.onPageChange(pageIndex);
-								}}
-								onFetchData={(state, instance) => {
-									this.setState({loading: true})
-									this.props.onPageChange(1)
-								}}
-								showPageSizeOptions={false}
-								columns={[
-									{
-										Header: "Task ID",
-										accessor: 'task_id'
-									},
-									{
-										Header: "Owner",
-										accessor: 'owner'
-									},
-									{
-										Header: "Status",
-										accessor: 'status',
-									},
-									{
-										Header: "Case Issue",
-										accessor: 'case_issue_id'
-									}
-								]}
-								defaultPageSize={10}
-								className="-striped -highlight"
-						/>
-						<br/>
-						<Tips/>
-						<br/>
-						<br/>
-					</div>
-			)
+			return this.enterLogic(this.props.queueReducer);
 		} else {
 			return null;
 		}
