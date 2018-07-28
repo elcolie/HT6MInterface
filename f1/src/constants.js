@@ -433,3 +433,7 @@ export const PERFECT_PAYLOAD = {
 	comment: "Sieg Heil"
 };
 export const CHANGE_DENSITY_EQN = 'change_density_eqn';
+export const PAGE_SIZE = 10;	// They are 10 records/page
+export const TASKS_COMPLETE = 'tasks_complete';
+export const TASKS_FAILED = 'tasks_failed';
+export const SUBMIT_PAGE_CHANGED = 'submit_page_changed';

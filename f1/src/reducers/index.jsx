@@ -16,6 +16,7 @@ import {
 import {ChartReducer} from "../displays/chart-reducers";
 import {MachineParameterReducer, TransportParameterReducer} from "../controlroom/machineParameterReducer";
 import {ListSpecieDT, ListOfDTReducer} from "../controlroom/DensityAndTempReducers";
+import {QueueReducer} from "../queue/reducers";
 
 const rootReducer = combineReducers({
 	inputInterface: InputInterfaceReducer,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
 	transportParameterReducer: TransportParameterReducer,
 	listSpecieDT: ListSpecieDT,
 	densityReducer: densityReducer,
+	queueReducer: QueueReducer,
 	form: formReducer
 });
 

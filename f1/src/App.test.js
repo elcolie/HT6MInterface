@@ -13,6 +13,7 @@ import {ControlParametersReducer, SpecieReducer} from "./controlroom/reducers";
 import deepFreeze from 'deep-freeze';
 import {setBreakPointList} from "./controlroom/utils";
 import {MachineParameterReducer, TransportParameterReducer} from "./controlroom/machineParameterReducer";
+import {getParameterByName} from "./utils";
 
 
 it('renders without crashing', () => {
@@ -148,4 +149,9 @@ it('TransportParameterReducer', () => {
 	expect(
 			TransportParameterReducer(stateBefore, action)
 	).toEqual(stateAfter);
+});
+
+it('test getParameterByName', () => {
+	const url = "http://localhost:8000/api/tasks/?page_size=1"
+	expect(getParameterByName('page_size', url)).toEqual("1")
 });

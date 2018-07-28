@@ -6,6 +6,7 @@ import {watchSubmitBasic} from "./controlroom/sagas";
 import {watchSubmitAdvance} from "./controlroom/advance-sagas";
 import {watchStartChart} from "./displays/sagas/value-vs-time";
 import {watchSubmitIntermediate} from "./controlroom/intermediate-sagas";
+import {watchPage} from "./queue/sagas";
 
 export default function* rootSaga() {
 	yield all([
@@ -17,5 +18,6 @@ export default function* rootSaga() {
 		watchSubmitAdvance(),
 		watchStartChart(),
 		watchSubmitIntermediate(),
+		watchPage(),
 	])
 }

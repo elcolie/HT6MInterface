@@ -66,3 +66,13 @@ export const stringifyNumber = (n) => {
 	if (n % 10 === 0) return deca[Math.floor(n / 10) - 2] + 'ieth';
 	return deca[Math.floor(n / 10) - 2] + 'y-' + special[n % 10];
 };
+
+export const getParameterByName = (name, url) => {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+};
