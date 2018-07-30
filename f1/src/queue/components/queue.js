@@ -51,6 +51,10 @@ class TINTQueue extends Component {
 									Header: 'Input File',
 									id: 'inputFile',
 									accessor: d => d.input_file.file
+								},
+								{
+									Header: 'Case ID',
+									accessor: 'case_issue_id'
 								}
 							]}
 							className="-striped -highlight"

@@ -1,4 +1,4 @@
-import {all} from 'redux-saga/effects'
+import {all} from 'redux-saga/effects';
 import {watchShootBacked} from "./InputInterface/sagas/input-interface-saga";
 import {watchLoginBtn} from "./frontpage/submit";
 import {watchCheckToken, watchGetUsername} from "./commons/sagas";
