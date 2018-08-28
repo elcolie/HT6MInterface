@@ -3,6 +3,7 @@ import {call, put, takeLatest} from "redux-saga/effects";
 import {ADVANCED_COMPLETE, ADVANCED_FAILED, BACKEND_URL, SUBMIT_ADVANCED_FORM} from "../constants";
 import {getAuthToken, prepareJWTHeader} from "../utils";
 
+
 const shootAdvance = ({file, comment}) => {
   const url = `${BACKEND_URL}/api/advanced-cases/`;
   const formData = new FormData();
