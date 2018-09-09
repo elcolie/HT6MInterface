@@ -98,3 +98,11 @@ def intermediate(request):
         return Response(data=request.data, status=status.HTTP_201_CREATED)
     else:
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@permission_classes(permission_classes=())
+def test_add(request):
+    from ht6m.celery import debug_mine
+    debug_mine.delay(10,1)
+    return Response(data="Good message", status=status.HTTP_200_OK)
