@@ -21,7 +21,7 @@ from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
 from apps.commons.views import get_username
-from apps.scenarios.api.viewsets import test, time_series, basic, intermediate
+from apps.scenarios.api.viewsets import test, time_series, basic, intermediate, test_add
 from ht6m import api_urls
 
 urlpatterns = [
@@ -31,6 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(api_urls, namespace='apis')),
     path('test/', test, name='test'),
+    path('test2/', test_add, name='test2'),
     path('time-series/', time_series, name='time-series'),
     path('username/', get_username, name='get-username'),
     path('api/basic/', basic, name='basic'),
