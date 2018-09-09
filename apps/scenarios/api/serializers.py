@@ -12,7 +12,7 @@ from apps.transport_params.api.serializers import TransportParameterSerializer
 class ScenarioSerializer(serializers.ModelSerializer):
     device_params = DeviceParameterSerializer()
     plasma_params = PlasmaParameterSerializer()
-    density_temperatures = DensityAndTemperatureSerializer()
+    density_temp_params= DensityAndTemperatureSerializer()
     transport_params = TransportParameterSerializer()
     control_params = ControlParameterSerializer()
     comment = serializers.CharField(required=False)
@@ -25,7 +25,7 @@ class ScenarioSerializer(serializers.ModelSerializer):
             'id',
             'device_params',
             'plasma_params',
-            'density_temperatures',
+            'density_temp_params',
             'transport_params',
             'control_params',
             'results',
