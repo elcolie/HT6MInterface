@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 from apps.advanced_cases.models import AdvancedCase
 from apps.scenarios.models import Scenario
-from ht6m.celery import fortran_simulate
+from celery_ht6m import fortran_simulate
 
 
 class AdvancedCaseSerializer(serializers.ModelSerializer):

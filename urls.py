@@ -20,9 +20,9 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
+import api_urls
 from apps.commons.views import get_username
 from apps.scenarios.api.viewsets import test, time_series, basic, intermediate, test_add
-from ht6m import api_urls
 
 urlpatterns = [
     url(r'^api-token-auth/', obtain_jwt_token),

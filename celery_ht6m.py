@@ -3,10 +3,10 @@ from __future__ import absolute_import, unicode_literals
 import os
 import typing
 
+# set the default Django settings module for the 'celery' program.
 from celery import Celery, shared_task
 
-# set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ht6m.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 
 app = Celery('ht6m')
 

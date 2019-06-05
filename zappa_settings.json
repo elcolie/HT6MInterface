@@ -1,0 +1,21 @@
+{
+    "dev": {
+        "django_settings": "settings",
+        "profile_name": "superadmin",
+        "project_name": "ht6minterface",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-rair90ti",
+        "aws_region": "ap-southeast-1",
+        "timeout_seconds": 300,
+        "manage_roles": true,
+        "cors": true
+    },
+    "aegon": {
+        "django_settings": "settings",
+        "profile_name": "aegon",
+        "project_name": "ht6minterface",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-20j5uvs5p",
+        "aws_region": "ap-southeast-1"
+    }
+}

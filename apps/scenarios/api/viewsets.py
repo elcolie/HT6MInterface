@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from apps.commons.utils import MockRequest
 from apps.scenarios.api.serializers import ScenarioSerializer
 from apps.scenarios.models import Scenario
-from ht6m.celery import fortran_simulate
+from celery_ht6m import fortran_simulate
 
 logger = logging.getLogger('django')
 
@@ -103,6 +103,6 @@ def intermediate(request):
 @api_view(['POST'])
 @permission_classes(permission_classes=())
 def test_add(request):
-    from ht6m.celery import debug_mine
+    from celery_ht6m import debug_mine
     debug_mine.delay(10,1)
     return Response(data="Good message", status=status.HTTP_200_OK)

@@ -58,9 +58,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,7 +72,7 @@ MIDDLEWARE = [
 #     'localhost:3000',
 # )
 
-ROOT_URLCONF = 'ht6m.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -90,7 +90,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ht6m.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 LOGGING = {
     'version': 1,
@@ -118,7 +118,7 @@ DATABASES = {
     'replica': env.db("DATABASE_URL", default="postgres://postgres:Vahsh6Ie@database-1.cluster-ro-cajnnj3iw8vc.ap-southeast-1.rds.amazonaws.com/herr"),
 }
 
-DATABASE_ROUTERS = ['ht6m.db_routers.PrimaryReplicaRouter',]
+DATABASE_ROUTERS = ['db_routers.PrimaryReplicaRouter',]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
