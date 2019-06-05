@@ -113,9 +113,9 @@ LOGGING = {
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/ht6m")
-    'default': env.db("DATABASE_URL", default="postgres://postgres:Vahsh6Ie@database-1.cluster-cajnnj3iw8vc.ap-southeast-1.rds.amazonaws.com/herr"),
-    'replica': env.db("DATABASE_URL", default="postgres://postgres:Vahsh6Ie@database-1.cluster-ro-cajnnj3iw8vc.ap-southeast-1.rds.amazonaws.com/herr"),
+    'default': env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/ht6m")
+    # 'default': env.db("DATABASE_URL", default="postgres://postgres:Vahsh6Ie@database-1.cluster-cajnnj3iw8vc.ap-southeast-1.rds.amazonaws.com/herr"),
+    # 'replica': env.db("DATABASE_URL", default="postgres://postgres:Vahsh6Ie@database-1.cluster-ro-cajnnj3iw8vc.ap-southeast-1.rds.amazonaws.com/herr"),
 }
 
 DATABASE_ROUTERS = ['db_routers.PrimaryReplicaRouter',]
